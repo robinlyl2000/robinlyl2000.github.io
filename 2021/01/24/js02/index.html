@@ -31,7 +31,7 @@
 <meta property="og:description" content="接下來利用此實作，開始了解JS的功能!">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-01-24T13:00:25.000Z">
-<meta property="article:modified_time" content="2021-01-24T14:42:10.372Z">
+<meta property="article:modified_time" content="2021-03-01T14:16:55.420Z">
 <meta property="article:author" content="Robin Huang">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="實作練習">
@@ -178,7 +178,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Color-Flipper"><span class="nav-number">1.</span> <span class="nav-text">Color Flipper</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD%E8%AA%AA%E6%98%8E"><span class="nav-number">1.2.</span> <span class="nav-text">功能說明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML%E9%87%8D%E9%BB%9E"><span class="nav-number">1.3.</span> <span class="nav-text">HTML重點</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript%E9%87%8D%E9%BB%9E-%E2%80%94-index-js"><span class="nav-number">1.4.</span> <span class="nav-text">JavaScript重點 — index.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript%E9%87%8D%E9%BB%9E-%E2%80%94-Hex-js"><span class="nav-number">1.5.</span> <span class="nav-text">JavaScript重點 — Hex.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E4%BE%86%E6%BA%90"><span class="nav-number">1.6.</span> <span class="nav-text">參考來源</span></a></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Color-Flipper"><span class="nav-number">1.</span> <span class="nav-text">Color Flipper</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.0.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD%E8%AA%AA%E6%98%8E"><span class="nav-number">1.0.2.</span> <span class="nav-text">功能說明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML%E9%87%8D%E9%BB%9E"><span class="nav-number">1.0.3.</span> <span class="nav-text">HTML重點</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript%E9%87%8D%E9%BB%9E-%E2%80%94-index-js"><span class="nav-number">1.0.4.</span> <span class="nav-text">JavaScript重點 — index.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript%E9%87%8D%E9%BB%9E-%E2%80%94-Hex-js"><span class="nav-number">1.0.5.</span> <span class="nav-text">JavaScript重點 — Hex.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E4%BE%86%E6%BA%90"><span class="nav-number">1.0.6.</span> <span class="nav-text">參考來源</span></a></li></ol></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -193,7 +193,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -268,10 +268,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2021-01-24 21:00:25 / Modified: 22:42:10" itemprop="dateCreated datePublished" datetime="2021-01-24T21:00:25+08:00">2021-01-24</time>
+      <time title="Created: 2021-01-24 21:00:25" itemprop="dateCreated datePublished" datetime="2021-01-24T21:00:25+08:00">2021-01-24</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-01 22:16:55" itemprop="dateModified" datetime="2021-03-01T22:16:55+08:00">2021-03-01</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -293,7 +299,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="Color-Flipper"><a href="#Color-Flipper" class="headerlink" title="Color Flipper"></a>Color Flipper</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>由於我在Youtube發現了<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=c5SIG7Ie0dM&ab_channel=CodingAddict">此影片</a>，所以決定往後每篇文章練習影片中一個小專案，加速對JavaScript的熟悉度。另外，有兩點要特別說明 : </p>
+        <h1 id="Color-Flipper"><a href="#Color-Flipper" class="headerlink" title="Color Flipper"></a>Color Flipper</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>由於我在Youtube發現了<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=c5SIG7Ie0dM&ab_channel=CodingAddict">此影片</a>，所以決定往後每篇文章練習影片中一個小專案，加速對JavaScript的熟悉度。另外，有兩點要特別說明 : </p>
 <ul>
 <li>我會注重在JavaScript的部分，所以HTML與CSS就不多做說明。</li>
 <li>教學影片說明欄有附上每個專案程式碼的連結，每個專案皆有Setup與Final兩個版本，而我將偏重在JS函式的建置上，因此也不會在Header設定上多做介紹。</li>
