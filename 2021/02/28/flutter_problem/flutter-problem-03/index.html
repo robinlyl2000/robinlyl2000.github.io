@@ -23,16 +23,23 @@
     var CONFIG = {"hostname":"robinlyl2000.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Robin&#39;s Blog">
-<meta property="og:url" content="http://robinlyl2000.github.io/categories/Flutter%E7%96%91%E5%95%8F%E8%A8%BA%E7%99%82%E5%AE%A4/index.html">
+  <meta name="description" content="這次來看看我們事前要做什麼準備吧(ﾉ&gt;ω&lt;)ﾉ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Flutter疑問診療室】 Cloud Firestore資料傳輸 - ?">
+<meta property="og:url" content="http://robinlyl2000.github.io/2021/02/28/flutter_problem/flutter-problem-03/index.html">
 <meta property="og:site_name" content="Robin&#39;s Blog">
+<meta property="og:description" content="這次來看看我們事前要做什麼準備吧(ﾉ&gt;ω&lt;)ﾉ">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-02-28T13:19:38.000Z">
+<meta property="article:modified_time" content="2021-03-02T07:53:44.801Z">
 <meta property="article:author" content="Robin Huang">
+<meta property="article:tag" content="Flutter">
+<meta property="article:tag" content="Firebase">
+<meta property="article:tag" content="Cloud Firestore">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://robinlyl2000.github.io/categories/Flutter%E7%96%91%E5%95%8F%E8%A8%BA%E7%99%82%E5%AE%A4/">
+<link rel="canonical" href="http://robinlyl2000.github.io/2021/02/28/flutter_problem/flutter-problem-03/">
 
 
 <script class="page-configurations">
@@ -40,12 +47,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Category: Flutter疑問診療室 | Robin's Blog</title>
+  <title>【Flutter疑問診療室】 Cloud Firestore資料傳輸 - ? | Robin's Blog</title>
   
 
 
@@ -160,7 +167,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -172,6 +179,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B"><span class="nav-number">1.</span> <span class="nav-text">建立</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -226,93 +234,111 @@
 </noscript>
 
 
-    <div class="main-inner category posts-collapse">
+    <div class="main-inner post posts-expand">
       
 
       
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h2 class="collection-header">Flutter疑問診療室
-          <small>Category</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2021/02/28/flutter_problem/flutter-problem-03/">
 
-      
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/kermit-the-frog.jpg">
+      <meta itemprop="name" content="Robin Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Robin's Blog">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【Flutter疑問診療室】 Cloud Firestore資料傳輸 - ?
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-02-28 21:19:38" itemprop="dateCreated datePublished" datetime="2021-02-28T21:19:38+08:00">2021-02-28</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-02 15:53:44" itemprop="dateModified" datetime="2021-03-02T15:53:44+08:00">2021-03-02</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Flutter%E7%96%91%E5%95%8F%E8%A8%BA%E7%99%82%E5%AE%A4/" itemprop="url" rel="index"><span itemprop="name">Flutter疑問診療室</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+            <div class="post-description">這次來看看我們事前要做什麼準備吧(ﾉ>ω<)ﾉ</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="建立"><a href="#建立" class="headerlink" title="建立"></a>建立</h3><ul>
+<li>首先，我們要</li>
+</ul>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-02-28T21:19:38+08:00"
-              content="2021-02-28">
-          02-28
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/02/28/flutter_problem/flutter-problem-03/" itemprop="url">
-            <span itemprop="name">【Flutter疑問診療室】 Cloud Firestore資料傳輸 - ?</span>
-          </a>
-      </div>
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Flutter/" rel="tag"># Flutter</a>
+              <a href="/tags/Firebase/" rel="tag"># Firebase</a>
+              <a href="/tags/Cloud-Firestore/" rel="tag"># Cloud Firestore</a>
+          </div>
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/02/23/flutter_problem/flutter-problem-02/" rel="prev" title="【Flutter疑問診療室】 Cloud Firestore資料傳輸 - 事前準備">
+                  <i class="fa fa-chevron-left"></i> 【Flutter疑問診療室】 Cloud Firestore資料傳輸 - 事前準備
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-02-23T10:37:11+08:00"
-              content="2021-02-23">
-          02-23
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/02/23/flutter_problem/flutter-problem-02/" itemprop="url">
-            <span itemprop="name">【Flutter疑問診療室】 Cloud Firestore資料傳輸 - 事前準備</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-02-19T16:56:01+08:00"
-              content="2021-02-19">
-          02-19
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/02/19/flutter_problem/flutter-problem-01/" itemprop="url">
-            <span itemprop="name">【Flutter疑問診療室】 Cloud Firestore資料傳輸 - 資料模型與型態</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-    </div>
-  </div>
   
   
-  
-
   
 
 

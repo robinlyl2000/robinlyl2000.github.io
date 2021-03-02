@@ -33,8 +33,10 @@
 <meta property="og:image" content="https://i.imgur.com/kY4REKi.png">
 <meta property="og:image" content="https://i.imgur.com/ZJMIySO.png">
 <meta property="og:image" content="https://i.imgur.com/FKYkfCi.png">
+<meta property="og:image" content="https://i.imgur.com/4NyLPwG.png">
+<meta property="og:image" content="https://i.imgur.com/rsph98t.png">
 <meta property="article:published_time" content="2021-02-23T02:37:11.000Z">
-<meta property="article:modified_time" content="2021-03-02T07:30:31.945Z">
+<meta property="article:modified_time" content="2021-03-02T09:56:21.281Z">
 <meta property="article:author" content="Robin Huang">
 <meta property="article:tag" content="Flutter">
 <meta property="article:tag" content="Firebase">
@@ -183,7 +185,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%9DPackage"><span class="nav-number">1.</span> <span class="nav-text">安裝Package</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Class%E5%BB%BA%E7%AB%8B-Comment%E7%89%A9%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">Class建立 - Comment物件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Class%E5%BB%BA%E7%AB%8B-DataService%E7%89%A9%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">Class建立 - DataService物件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B8%BD%E7%B5%90"><span class="nav-number">4.</span> <span class="nav-text">總結</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%9DPackage"><span class="nav-number">1.</span> <span class="nav-text">安裝Package</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Class%E5%BB%BA%E7%AB%8B-Comment%E7%89%A9%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">Class建立 - Comment物件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Class%E5%BB%BA%E7%AB%8B-DataService%E7%89%A9%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">Class建立 - DataService物件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cloud-Firestore%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">4.</span> <span class="nav-text">Cloud Firestore初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B8%BD%E7%B5%90"><span class="nav-number">5.</span> <span class="nav-text">總結</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E8%88%87%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-number">6.</span> <span class="nav-text">引用與參考資料</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -198,7 +200,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -281,7 +283,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-03-02 15:30:31" itemprop="dateModified" datetime="2021-03-02T15:30:31+08:00">2021-03-02</time>
+        <time title="Modified: 2021-03-02 17:56:21" itemprop="dateModified" datetime="2021-03-02T17:56:21+08:00">2021-03-02</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -347,13 +349,55 @@
 <p>接下來，我們來建立跟Firestore互動的Class吧!</p>
 </blockquote>
 <ul>
+<li>引入Package :   <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//引入Comment Class</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;package:[你的專案名稱]/.../Comment.dart&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//引入事前安裝好的Cloud Firestore Package</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;package:cloud_firestore/cloud_firestore.dart&#x27;</span>;</span><br></pre></td></tr></table></figure></li>
 <li>新增<code>DataService</code> class :   <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DataService</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//會使用到的資訊</span></span><br><span class="line">    <span class="built_in">String</span> userID;</span><br><span class="line">    <span class="built_in">String</span> commentID;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//DataService結構式</span></span><br><span class="line">    DataService(&#123;<span class="keyword">this</span>.userID, <span class="keyword">this</span>.commentID&#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//之後讀寫函式都能放在這裡~</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
-<h3 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h3><ul>
-<li>我們目前已經把Flutter所需的Package與Classes都設定好了，下次就要開始練習讀取資料瞜!</li>
+<h3 id="Cloud-Firestore初始化"><a href="#Cloud-Firestore初始化" class="headerlink" title="Cloud Firestore初始化"></a>Cloud Firestore初始化</h3><ul>
+<li><p>開啟你的<code>main.dart</code>，並引入Cloud Firestore Package : </p>
+  <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;package:cloud_firestore/cloud_firestore.dart&#x27;</span>;</span><br></pre></td></tr></table></figure></li>
+<li><p>接著在main function中加入以下程式碼 : </p>
+  <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> main() <span class="keyword">async</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//WidgetsFlutterBinding初始化，請見下方說明</span></span><br><span class="line">    WidgetsFlutterBinding.ensureInitialized();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//Firebase初始化</span></span><br><span class="line">    <span class="keyword">await</span> Firebase.initializeApp();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//執行App內容</span></span><br><span class="line">    runApp(MyApp());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>WidgetsFlutterBinding初始化</strong> : </p>
+<ul>
+<li>以下是Flutter的架構圖 : <p align="center">
+  <img height="50%" width="50%" src="https://i.imgur.com/4NyLPwG.png">
+</p></li>
+<li>而在Flutter中，Firebase此套件必須依靠這些模組與功能來完成初始化，但在進行Firebase存取時，這些操作通常是非同步的(asynchronous)。</li>
+<li>因此我們必須確認名為<code>WidgetsBinding</code>的物件已經被初始化，以下為初始化的方式 :   <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WidgetsFlutterBinding.ensureInitialized();</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>以下是<code>WidgetsBinding</code>的結構圖 : <p align="center">
+    <img height="70%" width="70%" src="https://i.imgur.com/rsph98t.png">
+</p></li>
+<li>可以看到，<code>WidgetsBinding</code>結合到許多其他Class，而在初始化時，這些Class將會被依序執行</li>
+<li>欲了解更多有關<code>WidgetsBinding</code>的資訊，可以去瀏覽<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903792006135821">ad6623的文章</a></li>
 </ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p><strong>Firebase初始化</strong> : </p>
+<ul>
+<li>接著，就可以初始化Firebase了 :   <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">await</span> Firebase.initializeApp();</span><br></pre></td></tr></table></figure></li>
+<li>這裡很重要的一點，就是此初始化必須要加上<code>await</code>。因為初始化是非同步的，必須等到套件完全被初始化，才能繼續後面的動作!<blockquote>
+<p>也就是為何在程式碼中，<code>main</code>後面要加上<code>async</code>的原因</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h3><ul>
+<li>我們目前已經把Flutter所需的事前準備都設定好了，下次就要開始練習讀取資料瞜!</li>
+</ul>
+<hr>
+<h3 id="引用與參考資料"><a href="#引用與參考資料" class="headerlink" title="引用與參考資料"></a>引用與參考資料</h3><ol>
+<li><a target="_blank" rel="noopener" href="https://clay-atlas.com/blog/2021/03/01/flutter-cn-servicesbinding-defaultbinarymessenger-was-accessed-before-binding/">ServicesBinding.defaultBinaryMessenger was accessed before the binding was initialized.</a></li>
+<li><a target="_blank" rel="noopener" href="http://gityuan.com/2019/06/29/flutter_run_app/">深入理解Flutter应用启动</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903792006135821">Flutter框架分析（二）– 初始化</a></li>
+</ol>
 
     </div>
 
@@ -377,6 +421,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2021/02/28/flutter_problem/flutter-problem-03/" rel="next" title="【Flutter疑問診療室】 Cloud Firestore資料傳輸 - ?">
+                  【Flutter疑問診療室】 Cloud Firestore資料傳輸 - ? <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
