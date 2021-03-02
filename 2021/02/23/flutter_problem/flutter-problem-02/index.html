@@ -23,27 +23,27 @@
     var CONFIG = {"hostname":"robinlyl2000.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
-  <meta name="description" content="這個新主題將會講解Flutter要如何連接Firebase並實作，而此文章會講解如何建立Firebase專案與設定連接資訊(๑•̀ㅂ•́)و✧">
+  <meta name="description" content="這次來看看我們事前要做什麼準備吧(ﾉ&gt;ω&lt;)ﾉ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【Flutter疑問診療室】 Cloud Firestore資料傳輸 - 資料模型與型態">
-<meta property="og:url" content="http://robinlyl2000.github.io/2021/02/19/flutter_problem/flutter-problem-01/index.html">
+<meta property="og:title" content="【Flutter疑問診療室】 Cloud Firestore資料傳輸 - 事前準備">
+<meta property="og:url" content="http://robinlyl2000.github.io/2021/02/23/flutter_problem/flutter-problem-02/index.html">
 <meta property="og:site_name" content="Robin&#39;s Blog">
-<meta property="og:description" content="這個新主題將會講解Flutter要如何連接Firebase並實作，而此文章會講解如何建立Firebase專案與設定連接資訊(๑•̀ㅂ•́)و✧">
+<meta property="og:description" content="這次來看看我們事前要做什麼準備吧(ﾉ&gt;ω&lt;)ﾉ">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://i.imgur.com/JA0AhYC.png">
-<meta property="og:image" content="https://i.imgur.com/SiAmNEN.png">
-<meta property="og:image" content="https://firebase.google.com/docs/firestore/manage-data/data-types">
-<meta property="article:published_time" content="2021-02-19T08:56:01.000Z">
-<meta property="article:modified_time" content="2021-03-02T01:21:49.380Z">
+<meta property="og:image" content="https://i.imgur.com/kY4REKi.png">
+<meta property="og:image" content="https://i.imgur.com/ZJMIySO.png">
+<meta property="og:image" content="https://i.imgur.com/FKYkfCi.png">
+<meta property="article:published_time" content="2021-02-23T02:37:11.000Z">
+<meta property="article:modified_time" content="2021-03-02T07:30:31.945Z">
 <meta property="article:author" content="Robin Huang">
 <meta property="article:tag" content="Flutter">
 <meta property="article:tag" content="Firebase">
 <meta property="article:tag" content="Cloud Firestore">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.imgur.com/JA0AhYC.png">
+<meta name="twitter:image" content="https://i.imgur.com/kY4REKi.png">
 
 
-<link rel="canonical" href="http://robinlyl2000.github.io/2021/02/19/flutter_problem/flutter-problem-01/">
+<link rel="canonical" href="http://robinlyl2000.github.io/2021/02/23/flutter_problem/flutter-problem-02/">
 
 
 <script class="page-configurations">
@@ -56,7 +56,7 @@
   };
 </script>
 
-  <title>【Flutter疑問診療室】 Cloud Firestore資料傳輸 - 資料模型與型態 | Robin's Blog</title>
+  <title>【Flutter疑問診療室】 Cloud Firestore資料傳輸 - 事前準備 | Robin's Blog</title>
   
 
 
@@ -183,7 +183,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%B4%B9"><span class="nav-number">2.</span> <span class="nav-text">模型介紹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E5%AF%A6%E4%BD%9C"><span class="nav-number">3.</span> <span class="nav-text">模型實作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B3%87%E6%96%99%E5%9E%8B%E6%85%8B"><span class="nav-number">4.</span> <span class="nav-text">資料型態</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B8%BD%E7%B5%90"><span class="nav-number">5.</span> <span class="nav-text">總結</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%88%87%E5%BC%95%E7%94%A8%E4%BE%86%E6%BA%90"><span class="nav-number">6.</span> <span class="nav-text">參考與引用來源</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%9DPackage"><span class="nav-number">1.</span> <span class="nav-text">安裝Package</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Class%E5%BB%BA%E7%AB%8B-Comment%E7%89%A9%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">Class建立 - Comment物件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Class%E5%BB%BA%E7%AB%8B-DataService%E7%89%A9%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">Class建立 - DataService物件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B8%BD%E7%B5%90"><span class="nav-number">4.</span> <span class="nav-text">總結</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -247,7 +247,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2021/02/19/flutter_problem/flutter-problem-01/">
+    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2021/02/23/flutter_problem/flutter-problem-02/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/kermit-the-frog.jpg">
@@ -263,7 +263,7 @@
     
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          【Flutter疑問診療室】 Cloud Firestore資料傳輸 - 資料模型與型態
+          【Flutter疑問診療室】 Cloud Firestore資料傳輸 - 事前準備
         </h1>
 
         <div class="post-meta-container">
@@ -274,14 +274,14 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2021-02-19 16:56:01" itemprop="dateCreated datePublished" datetime="2021-02-19T16:56:01+08:00">2021-02-19</time>
+      <time title="Created: 2021-02-23 10:37:11" itemprop="dateCreated datePublished" datetime="2021-02-23T10:37:11+08:00">2021-02-23</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-03-02 09:21:49" itemprop="dateModified" datetime="2021-03-02T09:21:49+08:00">2021-03-02</time>
+        <time title="Modified: 2021-03-02 15:30:31" itemprop="dateModified" datetime="2021-03-02T15:30:31+08:00">2021-03-02</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -303,7 +303,7 @@
     </span>
 </div>
 
-            <div class="post-description">這個新主題將會講解Flutter要如何連接Firebase並實作，而此文章會講解如何建立Firebase專案與設定連接資訊(๑•̀ㅂ•́)و✧</div>
+            <div class="post-description">這次來看看我們事前要做什麼準備吧(ﾉ>ω<)ﾉ</div>
         </div>
       </header>
 
@@ -311,78 +311,49 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>剛接觸Flutter的這幾個月中，在Cloud Firestore儲存資料時經常遇到許多資料傳輸的問題，但每次遇到問題在網路上尋找解決辦法時，那些資料總是雜亂不堪，StackOverflow上的各式Q&amp;A也通常只解決單一問題。因此我將曾經卡很久的問題統整起來，希望可以幫助一直找不到解答的你(,,・ω・,,)</p>
+        <h3 id="安裝Package"><a href="#安裝Package" class="headerlink" title="安裝Package"></a>安裝Package</h3><blockquote>
+<p>在Flutter操作Firestore之前，要先安裝名為<code>cloud_firestore</code>的Package</p>
+</blockquote>
+<ol>
+<li><p>前往<code>pub.dev</code>中的<code>cloud_firestore</code>頁面(<a target="_blank" rel="noopener" href="https://pub.dev/packages/cloud_firestore">連結</a>)</p>
+ <p align="center">
+     <img height="50%" width="50%" src="https://i.imgur.com/kY4REKi.png">
+ </p>
+</li>
+<li><p>點擊Installing頁面，可以看到目前<code>cloud_firestore</code>的最新版本</p>
+ <p align="center">
+     <img height="70%" width="70%" src="https://i.imgur.com/ZJMIySO.png">
+ </p>
+</li>
+<li><p>打開你Flutter專案中的<code>pubspec.yaml</code>，找到dependencies，並在其下方加上<code>cloud_firestore : [你看到的最新版本]</code></p>
+ <p align="center">
+     <img height="25%" width="25%" src="https://i.imgur.com/FKYkfCi.png">
+ </p>
+</li>
+<li><p>此時你的VScode應該會自動安裝此Package，但如果沒有的話，可以在Terminal中執行以下指令 : </p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ flutter pub get</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 <hr>
-<h3 id="模型介紹"><a href="#模型介紹" class="headerlink" title="模型介紹"></a>模型介紹</h3><blockquote>
-<p>首先，來簡單介紹Firestore的資料模型</p>
+<h3 id="Class建立-Comment物件"><a href="#Class建立-Comment物件" class="headerlink" title="Class建立 - Comment物件"></a>Class建立 - Comment物件</h3><blockquote>
+<p>如果要在Flutter專案中傳遞評論的資料，我建議可以新增一個名為<code>Comment</code>的Object，這樣在傳遞時可以將所有資訊打包在一起，而不需要一個一個傳遞!</p>
 </blockquote>
 <ul>
-<li><p>Cloud Firestore是No SQL的，也就是非SQL語法的使用方式。然後你可以將整個資料庫看作是一個大的JSON檔，所有文件都會儲存在一層層之間。其中，儲存模型可以分為三種 : </p>
-<ol>
-<li><strong>Document</strong> : 用來儲存個體，而此個體擁有兩種特質 : <ul>
-<li>名字 : 可以自己取，也可以讓Firestore隨機生成</li>
-<li>屬性 : 詳見下方Reference解釋</li>
+<li>新增<code>Comment</code> class :   <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Comment</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 要儲存的資訊</span></span><br><span class="line">    <span class="built_in">String</span> username;</span><br><span class="line">    <span class="built_in">String</span> userID;</span><br><span class="line">    <span class="built_in">String</span> commentID;</span><br><span class="line">    <span class="built_in">String</span> time;</span><br><span class="line">    <span class="built_in">String</span> title;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//Comment結構式</span></span><br><span class="line">    Comment(&#123;<span class="keyword">this</span>.commentID, <span class="keyword">this</span>.time, <span class="keyword">this</span>.title, <span class="keyword">this</span>.userID, <span class="keyword">this</span>.username&#125;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-</li>
-<li><strong>Collection</strong> : 作為Document的集合</li>
-<li><strong>Reference</strong>: 用來儲存Document的屬性，其屬性也可以是另一個Collection</li>
-</ol>
-</li>
-<li><p>如果覺得用文字說明還是不懂的話，可以瞧瞧下面這張圖</p>
-<blockquote>
-<p>假設今天我們要做一個評論區</p>
+<hr>
+<h3 id="Class建立-DataService物件"><a href="#Class建立-DataService物件" class="headerlink" title="Class建立 - DataService物件"></a>Class建立 - DataService物件</h3><blockquote>
+<p>接下來，我們來建立跟Firestore互動的Class吧!</p>
 </blockquote>
-  <p align="center">
-      <img height="50%" width="50%" src="https://i.imgur.com/JA0AhYC.png">
-  </p></li>
-<li><p>解釋 : (由上而下) </p>
-<ol>
-<li>評論區的主要分類就是使用者，所以最底層的Collection就命名為<code>user</code> </li>
-<li>因為使用者一定不只一個，所以我們可以利用Firestore去生成一個隨機的使用者ID，進而去鑑別各個使用者</li>
-<li>而每個使用者都有自己的Reference : 姓名、性別…等等；同時一個使用者會留好幾個評論，所以也將名為<code>comment</code>的Collection設為該使用者的Reference</li>
-<li>接著，針對每個評論去創立其獨立的隨機ID</li>
-<li>最後，就是各個評論的Reference，如標題、時間…等等</li>
-</ol>
+<ul>
+<li>新增<code>DataService</code> class :   <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DataService</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//會使用到的資訊</span></span><br><span class="line">    <span class="built_in">String</span> userID;</span><br><span class="line">    <span class="built_in">String</span> commentID;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//DataService結構式</span></span><br><span class="line">    DataService(&#123;<span class="keyword">this</span>.userID, <span class="keyword">this</span>.commentID&#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//之後讀寫函式都能放在這裡~</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
-<h3 id="模型實作"><a href="#模型實作" class="headerlink" title="模型實作"></a>模型實作</h3><ul>
-<li><p>接下來，我把實際的資料填入模型中，如下圖</p>
-  <p align="center">
-      <img height="50%" width="50%" src="https://i.imgur.com/SiAmNEN.png">
-  </p></li>
-<li><p>很明顯的，我們利用了Firestore中針對Document可以隨機提供ID的功能，去給與使用者與評論各自的ID，往後假設如果需要修改某個評論時，只需要擁有<code>userID</code>與<code>commentID</code>，就可以讀寫該評論｡:.ﾟヽ(*´∀`)ﾉﾟ.:｡</p>
-</li>
+<h3 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h3><ul>
+<li>我們目前已經把Flutter所需的Package與Classes都設定好了，下次就要開始練習讀取資料瞜!</li>
 </ul>
-<hr>
-<h3 id="資料型態"><a href="#資料型態" class="headerlink" title="資料型態"></a>資料型態</h3><ul>
-<li><p>接著要介紹Firestore中的資料型態，常見的整數、字串、浮點數、布林值都有，而比較特別的有 : </p>
-<ol>
-<li>Geographical point(地理位置) : 就是經緯度</li>
-<li>Map(映射值) : 例如<code>&#123;c: &quot;foo&quot;, a: &quot;bar&quot;, b: &quot;qux&quot;&#125;</code>的Key-Value格式</li>
-<li>Date and time(日期與時間)</li>
-<li>Reference(路徑) : 例如<code>projects/[PROJECT_ID]/databases/[DATABASE_ID]/documents/[DOCUMENT_PATH]</code></li>
-<li>Array(陣列) : 例如<code>[1, 2, 3]</code><blockquote>
-<p>詳細說明，請參閱<img src="https://firebase.google.com/docs/firestore/manage-data/data-types" alt="官方文件"></p>
-</blockquote>
-</li>
-</ol>
-</li>
-<li><p>而上述範例中，我們使用到的資料型態分別是 : </p>
-<ol>
-<li>String : 姓名、性別、標題</li>
-<li>Timestamp : 留言時間</li>
-</ol>
-</li>
-</ul>
-<hr>
-<h3 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h3><p>Ok! 我們今天簡單介紹了Firestore的資料模型與結構，而下次就要開始著手Flutter的撰寫瞜~</p>
-<hr>
-<h3 id="參考與引用來源"><a href="#參考與引用來源" class="headerlink" title="參考與引用來源"></a>參考與引用來源</h3><ol>
-<li><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10223256">Firebase Cloud Firestore 基礎入門 Part.1 - 簡介</a></li>
-<li><a target="_blank" rel="noopener" href="https://firebase.google.com/docs/firestore/data-model">Firestore官方文件 - 資料模型</a></li>
-<li><a target="_blank" rel="noopener" href="https://firebase.google.com/docs/firestore/manage-data/data-types">Firestore官方文件 - 資料型態</a></li>
-</ol>
 
     </div>
 
@@ -401,14 +372,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/02/13/js/js05/" rel="prev" title="【從零開始學JavaScript】實作練習 - 用Navbar實作RWD">
-                  <i class="fa fa-chevron-left"></i> 【從零開始學JavaScript】實作練習 - 用Navbar實作RWD
+                <a href="/2021/02/19/flutter_problem/flutter-problem-01/" rel="prev" title="【Flutter疑問診療室】 Cloud Firestore資料傳輸 - 資料模型與型態">
+                  <i class="fa fa-chevron-left"></i> 【Flutter疑問診療室】 Cloud Firestore資料傳輸 - 資料模型與型態
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/02/23/flutter_problem/flutter-problem-02/" rel="next" title="【Flutter疑問診療室】 Cloud Firestore資料傳輸 - 事前準備">
-                  【Flutter疑問診療室】 Cloud Firestore資料傳輸 - 事前準備 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
