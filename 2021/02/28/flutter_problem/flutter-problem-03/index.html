@@ -23,15 +23,15 @@
     var CONFIG = {"hostname":"robinlyl2000.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
-  <meta name="description" content="這次來看看我們事前要做什麼準備吧(ﾉ&gt;ω&lt;)ﾉ">
+  <meta name="description" content="這次要來嘗試實作如何讀寫使用者的名稱喔(つ´ω&#96;)つ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【Flutter疑問診療室】 Cloud Firestore資料傳輸 - ?">
+<meta property="og:title" content="【Flutter疑問診療室】 Cloud Firestore資料傳輸 - 讀寫Username">
 <meta property="og:url" content="http://robinlyl2000.github.io/2021/02/28/flutter_problem/flutter-problem-03/index.html">
 <meta property="og:site_name" content="Robin&#39;s Blog">
-<meta property="og:description" content="這次來看看我們事前要做什麼準備吧(ﾉ&gt;ω&lt;)ﾉ">
+<meta property="og:description" content="這次要來嘗試實作如何讀寫使用者的名稱喔(つ´ω&#96;)つ">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-02-28T13:19:38.000Z">
-<meta property="article:modified_time" content="2021-03-02T07:53:44.801Z">
+<meta property="article:modified_time" content="2021-04-03T16:13:38.692Z">
 <meta property="article:author" content="Robin Huang">
 <meta property="article:tag" content="Flutter">
 <meta property="article:tag" content="Firebase">
@@ -52,7 +52,7 @@
   };
 </script>
 
-  <title>【Flutter疑問診療室】 Cloud Firestore資料傳輸 - ? | Robin's Blog</title>
+  <title>【Flutter疑問診療室】 Cloud Firestore資料傳輸 - 讀寫Username | Robin's Blog</title>
   
 
 
@@ -179,7 +179,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B"><span class="nav-number">1.</span> <span class="nav-text">建立</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8BCollectionReference"><span class="nav-number">1.</span> <span class="nav-text">建立CollectionReference</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#updateUserName"><span class="nav-number">2.</span> <span class="nav-text">updateUserName()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getUserName"><span class="nav-number">3.</span> <span class="nav-text">getUserName()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B8%BD%E7%B5%90"><span class="nav-number">4.</span> <span class="nav-text">總結</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -259,7 +259,7 @@
     
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          【Flutter疑問診療室】 Cloud Firestore資料傳輸 - ?
+          【Flutter疑問診療室】 Cloud Firestore資料傳輸 - 讀寫Username
         </h1>
 
         <div class="post-meta-container">
@@ -277,7 +277,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-03-02 15:53:44" itemprop="dateModified" datetime="2021-03-02T15:53:44+08:00">2021-03-02</time>
+        <time title="Modified: 2021-04-04 00:13:38" itemprop="dateModified" datetime="2021-04-04T00:13:38+08:00">2021-04-04</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -299,7 +299,7 @@
     </span>
 </div>
 
-            <div class="post-description">這次來看看我們事前要做什麼準備吧(ﾉ>ω<)ﾉ</div>
+            <div class="post-description">這次要來嘗試實作如何讀寫使用者的名稱喔(つ´ω`)つ</div>
         </div>
       </header>
 
@@ -307,9 +307,85 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="建立"><a href="#建立" class="headerlink" title="建立"></a>建立</h3><ul>
-<li>首先，我們要</li>
+        <h3 id="建立CollectionReference"><a href="#建立CollectionReference" class="headerlink" title="建立CollectionReference"></a>建立CollectionReference</h3><ul>
+<li>在<code>database.dart</code>的DataService class中新增以下程式碼 :   <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> CollectionReference userCollection = FirebaseFirestore.instance.collection(<span class="string">&#x27;users&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>這樣我們就能針對<code>user</code>這個Collection去做讀寫的動作</p>
+</blockquote>
+</li>
 </ul>
+<h3 id="updateUserName"><a href="#updateUserName" class="headerlink" title="updateUserName()"></a>updateUserName()</h3><ul>
+<li><p>接著新增 : </p>
+  <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Future updateUserName(<span class="built_in">String</span> name) <span class="keyword">async</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">await</span> userCollection.doc(userid).<span class="keyword">set</span>(&#123;<span class="string">&#x27;name&#x27;</span> : name&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>說明 : <ol>
+<li>此函式是要更新使用者名稱，故input參數為<code>name</code>的字串</li>
+<li>透過非同步函式(<code>async</code>) + <code>await</code> + 回傳值為<code>Future</code>的特性，使此函式被呼叫時，必須要做完<code>set</code>的動作後才能回傳</li>
+<li><code>userCollection.doc(userid)</code>可以去確認userCollection中，是否擁有內容為<code>userid</code>的Document<ul>
+<li>如果有 : 接續後面的讀取動作</li>
+<li>如果沒有 : 自動新增一個新的<code>userid</code>，再接續後面讀取動作</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>使用方式(以<code>FlatButton</code>為例) : </p>
+  <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//.....</span></span><br><span class="line"><span class="built_in">String</span> userid = <span class="string">&#x27;ACJDJFUVHFASD&#x27;</span></span><br><span class="line"><span class="built_in">String</span> username = <span class="string">&#x27;Amy&#x27;</span>;</span><br><span class="line"><span class="comment">//....</span></span><br><span class="line">FlatButton(</span><br><span class="line">    onPressed : () <span class="keyword">async</span>&#123;</span><br><span class="line">        <span class="keyword">await</span> DataService(userid).updateUserName(name: username);</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>說明 : <ol>
+<li>在呼叫此函式時，記得要把<code>OnPressed()</code>設為非同步，並函式內也要加上<code>await</code></li>
+<li><code>DataService(userid)</code> : 我們先將userid丟入DataService物件中</li>
+<li>接著利用<code>updateUserName(name: username)</code>去判斷Collection中是否有內容為<code>userid</code>的Document<ul>
+<li>如果有 : 在其Document中，將名為<code>name</code>的Reference新增/修改為<code>username</code>(依是否原本就有<code>name</code>的Reference存在而定)</li>
+<li>如果沒有 :  新增一個內容為<code>userid的</code>Document，並同時新增名為<code>name</code>的Reference，其值定為<code>username</code></li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h3 id="getUserName"><a href="#getUserName" class="headerlink" title="getUserName()"></a>getUserName()</h3><ul>
+<li><p>新增 : </p>
+  <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Future&lt;<span class="built_in">String</span>&gt; getusername() <span class="keyword">async</span> &#123;</span><br><span class="line">    DocumentReference documentReference = userCollection.doc(userid);</span><br><span class="line">    <span class="built_in">String</span> name = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="keyword">await</span> documentReference.<span class="keyword">get</span>().then((snapshot) &#123;</span><br><span class="line">        name = snapshot.data()[<span class="string">&#x27;name&#x27;</span>].toString();</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">if</span>(name != <span class="string">&#x27;&#x27;</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;Something is wrong!&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>說明 : <ol>
+<li>此函式是要透過<code>userid</code>去尋找使用者名稱，故不需要input參數</li>
+<li>透過非同步函式(<code>async</code>) + <code>await</code> + 回傳值為<code>Future</code>的特性，使此函式被呼叫時，必須要get到資料後才能回傳<code>name</code></li>
+<li>透過<code>userCollection.doc(userid)</code>，建立名為<code>documentReference</code>的DocumentReference物件</li>
+<li>之後利用<code>get().then&#123;&#125;</code>的方式，解析尋找出來的<code>snapshot</code>，也就是利用<code>snapshot.data()[&#39;name&#39;]</code>，把抓出來的名字放入<code>name</code>中</li>
+</ol>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>使用方式(以<code>FlatButton</code>為例) : </p>
+  <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//.....</span></span><br><span class="line"><span class="built_in">String</span> userid = <span class="string">&#x27;ACJDJFUVHFASD&#x27;</span></span><br><span class="line"><span class="built_in">String</span> username = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"><span class="comment">//....</span></span><br><span class="line">FlatButton(</span><br><span class="line">    onPressed : () <span class="keyword">async</span>&#123;</span><br><span class="line">        username = <span class="keyword">await</span> DataService(userid).getusername();</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>說明 : <ol>
+<li>在呼叫此函式時，記得要把<code>OnPressed()</code>設為非同步，並函式內也要加上<code>await</code></li>
+<li><code>DataService(userid)</code> : 我們先將userid丟入DataService物件中</li>
+<li>接著利用<code>getusername()</code>去抓取<code>userid</code>Document中的<code>name</code> Reference<ul>
+<li>如果有抓到 : 回傳之值會放入<code>username</code></li>
+<li>如果沒抓到 :  <code>username</code>會變為<code>Something is wrong!</code></li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h3 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h3><p>*　這次我們利用了<code>set()</code>與<code>get()</code>，去實作了讀寫Username的函式；之後就會輪到實作讀寫Comments的函式嘍~</p>
 
     </div>
 
