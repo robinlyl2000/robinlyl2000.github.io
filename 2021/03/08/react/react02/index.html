@@ -23,29 +23,35 @@
     var CONFIG = {"hostname":"robinlyl2000.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Robin&#39;s Blog">
-<meta property="og:url" content="http://robinlyl2000.github.io/page/2/index.html">
+  <meta name="description" content="這次要介紹Components的原理與簡單分析其中各程式碼的作用(,,・ω・,,)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【React入門】 Components簡介">
+<meta property="og:url" content="http://robinlyl2000.github.io/2021/03/08/react/react02/index.html">
 <meta property="og:site_name" content="Robin&#39;s Blog">
+<meta property="og:description" content="這次要介紹Components的原理與簡單分析其中各程式碼的作用(,,・ω・,,)">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-03-08T13:00:15.000Z">
+<meta property="article:modified_time" content="2021-04-05T15:46:24.011Z">
 <meta property="article:author" content="Robin Huang">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://robinlyl2000.github.io/page/2/">
+<link rel="canonical" href="http://robinlyl2000.github.io/2021/03/08/react/react02/">
 
 
 <script class="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Robin's Blog</title>
+  <title>【React入門】 Components簡介 | Robin's Blog</title>
   
 
 
@@ -160,7 +166,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -172,6 +178,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Components%E4%BB%8B%E7%B4%B9"><span class="nav-number">1.</span> <span class="nav-text">Components介紹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-React-StrictMode-gt-%E8%88%87-lt-App-gt"><span class="nav-number">2.</span> <span class="nav-text">&lt;React.StrictMode&gt;與&lt;App&#x2F;&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#document-getElementById-%E2%80%98root%E2%80%99"><span class="nav-number">3.</span> <span class="nav-text">document.getElementById(‘root’)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B8%BD%E7%B5%90"><span class="nav-number">4.</span> <span class="nav-text">總結</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E8%88%87%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-number">5.</span> <span class="nav-text">引用與參考資料</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -226,15 +233,16 @@
 </noscript>
 
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
       
 
       
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2021/01/27/fbfl/fbfl01/">
+    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2021/03/08/react/react02/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/kermit-the-frog.jpg">
@@ -249,10 +257,9 @@
     
     
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/27/fbfl/fbfl01/" class="post-title-link" itemprop="url">【Flutter & Firebase】建立專案與連接設定</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          【React入門】 Components簡介
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -262,14 +269,14 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2021-01-27 11:08:45" itemprop="dateCreated datePublished" datetime="2021-01-27T11:08:45+08:00">2021-01-27</time>
+      <time title="Created: 2021-03-08 21:00:15" itemprop="dateCreated datePublished" datetime="2021-03-08T21:00:15+08:00">2021-03-08</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-03-01 22:52:51" itemprop="dateModified" datetime="2021-03-01T22:52:51+08:00">2021-03-01</time>
+        <time title="Modified: 2021-04-05 23:46:24" itemprop="dateModified" datetime="2021-04-05T23:46:24+08:00">2021-04-05</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -277,13 +284,21 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Flutter-Firebase/" itemprop="url" rel="index"><span itemprop="name">Flutter & Firebase</span></a>
+          <a href="/categories/React%E5%85%A5%E9%96%80/" itemprop="url" rel="index"><span itemprop="name">React入門</span></a>
         </span>
     </span>
 
   
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
 </div>
 
+            <div class="post-description">這次要介紹Components的原理與簡單分析其中各程式碼的作用(,,・ω・,,)</div>
         </div>
       </header>
 
@@ -291,16 +306,60 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>這個新主題將會講解Flutter要如何連接Firebase並實作，而此文章會講解如何建立Firebase專案與設定連接資訊(๑•̀ㅂ•́)و✧</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/01/27/fbfl/fbfl01/">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
+        <h3 id="Components介紹"><a href="#Components介紹" class="headerlink" title="Components介紹"></a>Components介紹</h3><ul>
+<li>在html中，<font color=#1E86FF>Element</font>是個相當重要的東西，從大至一整個頁面、小至一個按鈕，都屬於Element</li>
+<li>而對於React，我們去思考哪些Elements的重複性較高，利用<font color=#1E86FF>JSX</font>語言去建立一個Elements的集合，也稱之為<font color=#1E86FF>Components(組件)</font></li>
+<li>開啟<code>src/index.js</code>，可以看到以下程式碼 :   <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">    <span class="comment">//第一個 Element</span></span><br><span class="line">    &lt;React.StrictMode&gt;</span><br><span class="line">        &lt;App /&gt;</span><br><span class="line">    &lt;/React.StrictMode&gt;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">//第二個 Element</span></span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">&#x27;root&#x27;</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure></li>
+<li>其中，<code>&lt;React.StrictMode&gt;...&lt;/React.StrictMode&gt;</code>與<code>document.getElementById(&#39;root&#39;)</code>都是Element，而利用<code>ReactDOM.render</code>，將第一個Element放進第二個Element中</li>
+</ul>
+<blockquote>
+<p>接下來，我們來分開說明兩個Element的意義</p>
+</blockquote>
+<hr>
+<h3 id="lt-React-StrictMode-gt-與-lt-App-gt"><a href="#lt-React-StrictMode-gt-與-lt-App-gt" class="headerlink" title="&lt;React.StrictMode&gt;與&lt;App/&gt;"></a>&lt;React.StrictMode&gt;與&lt;App/&gt;</h3><ul>
+<li>第一個Element包含了<code>&lt;React.StrictMode&gt;</code>與<code>&lt;App /&gt;</code> : <ol>
+<li><strong>React.StrictMode(嚴格模式)</strong> : <ul>
+<li>是一個用以標記出應用程式中潛在問題的工具，在不渲染任何真實UI的狀況下，為其子元素觸發額外的檢查與警告</li>
+</ul>
+</li>
+<li><strong>App</strong> : <ul>
+<li>在<code>index.js</code>中有以下這行程式碼 :   <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">&#x27;./App&#x27;</span>; </span><br></pre></td></tr></table></figure></li>
+<li>接著開啟<code>App.js</code>，可以看到<code>function App()&#123;...&#125;</code>，而這個函式就是回傳了一個Element</li>
+<li>總結來說，就是我們將要呈現的內容寫在<code>App.js</code>中，並import到<code>index.js</code>裡去做使用</li>
+<li>另外在<code>App.js</code>的最後面可以看到 :   <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App;</span><br></pre></td></tr></table></figure></li>
+<li>由於我們要回傳<code>App</code>這個Element，所以還要另外做Export的動作喔!</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>補充 : <ul>
+<li>如果你對html很熟悉的話，會發現在<code>App()</code>函式中回傳的Element，相當類似html的語法</li>
+<li>而這個就是上面所提及的<font color=#1E86FF>JSX</font>，此語法跟html長得差不多，但有個差異需要注意!</li>
+<li>因為在JavaScript中的<code>class</code>已經是保留關鍵字了，所以原本在html語法的的<code>&lt;class=...&gt;</code>在JSX中就被轉換成<code>&lt;className=...&gt;</code></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<hr>
+<h3 id="document-getElementById-‘root’"><a href="#document-getElementById-‘root’" class="headerlink" title="document.getElementById(‘root’)"></a>document.getElementById(‘root’)</h3><ul>
+<li>開啟<code>public/index.html</code>，其中可以看到這行程式碼  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;root&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>如果你對原生JS有一點了解的話，應該看得出來在<code>index.js</code>中的<code>document.getElementById(&#39;root&#39;)</code>就是指定html程式碼中id為<code>root</code>的Element，而這裡便是指定上述的<code>&lt;div&gt;</code>作為目標</li>
+<li>整體來看，我們就是將第一個Element指定到這個<code>div</code>中!</li>
+</ul>
+<hr>
+<h3 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h3><ul>
+<li>OK! 我們這次認識到了Components的原理與簡單分析了其中程式碼的作用!</li>
+<li>下次將開始介紹在JSX要如何使用<font color=#1E86FF>動態值(dynamic values)</font>嘍!</li>
+</ul>
+<hr>
+<h3 id="引用與參考資料"><a href="#引用與參考資料" class="headerlink" title="引用與參考資料"></a>引用與參考資料</h3><ol>
+<li><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10200595">[筆記][React]關於Components的那件小事</a></li>
+<li><a target="_blank" rel="noopener" href="https://react.html.cn/docs/strict-mode.html">严格模式(Strict Mode)</a></li>
+</ol>
+
     </div>
 
     
@@ -308,191 +367,27 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+              <a href="/tags/React/" rel="tag"># React</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2021/01/24/js/js02/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/kermit-the-frog.jpg">
-      <meta itemprop="name" content="Robin Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Robin's Blog">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/24/js/js02/" class="post-title-link" itemprop="url">【從零開始學JavaScript】實作練習 - 更改背景顏色</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-01-24 21:00:25" itemprop="dateCreated datePublished" datetime="2021-01-24T21:00:25+08:00">2021-01-24</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-03-02 01:07:11" itemprop="dateModified" datetime="2021-03-02T01:07:11+08:00">2021-03-02</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%BE%9E%E9%9B%B6%E9%96%8B%E5%A7%8B%E5%AD%B8JavaScript/" itemprop="url" rel="index"><span itemprop="name">從零開始學JavaScript</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>接下來利用此實作，開始了解JS的功能(o´罒`o)</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/01/24/js/js02/">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2021/01/24/js/js01/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/kermit-the-frog.jpg">
-      <meta itemprop="name" content="Robin Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Robin's Blog">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/24/js/js01/" class="post-title-link" itemprop="url">【從零開始學JavaScript】宣告變數</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-01-24 19:26:00" itemprop="dateCreated datePublished" datetime="2021-01-24T19:26:00+08:00">2021-01-24</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-03-02 01:07:02" itemprop="dateModified" datetime="2021-03-02T01:07:02+08:00">2021-03-02</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%BE%9E%E9%9B%B6%E9%96%8B%E5%A7%8B%E5%AD%B8JavaScript/" itemprop="url" rel="index"><span itemprop="name">從零開始學JavaScript</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>接觸到新的程式語言，第一件事當然就是要去了解變數的宣告啦d(`･∀･)b</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/01/24/js/js01/">
-                Read more &raquo;
-              </a>
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/03/03/react/react01/" rel="prev" title="【React入門】 設定與安裝">
+                  <i class="fa fa-chevron-left"></i> 【React入門】 設定與安裝
+                </a>
             </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+            <div class="post-nav-item">
+            </div>
+          </div>
     </footer>
   </article>
   
   
   
-
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
 
 
 
