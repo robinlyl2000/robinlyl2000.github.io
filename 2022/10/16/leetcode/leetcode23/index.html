@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"robinlyl2000.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+
+  <meta name="description" content="null">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Leetcode解題】2444. Count Subarrays With Fixed Bounds">
+<meta property="og:url" content="http://robinlyl2000.github.io/2022/10/16/leetcode/leetcode23/index.html">
+<meta property="og:site_name" content="Robin&#39;s 筆記Blog">
+<meta property="og:description" content="null">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.imgur.com/YSuOCJo.png">
+<meta property="og:image" content="https://i.imgur.com/O8nYP4C.png">
+<meta property="article:published_time" content="2022-10-16T08:01:02.000Z">
+<meta property="article:modified_time" content="2022-10-18T15:12:10.000Z">
+<meta property="article:author" content="Robin Huang">
+<meta property="article:tag" content="實作練習">
+<meta property="article:tag" content="Leetcode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/YSuOCJo.png">
+
+
+<link rel="canonical" href="http://robinlyl2000.github.io/2022/10/16/leetcode/leetcode23/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>【Leetcode解題】2444. Count Subarrays With Fixed Bounds | Robin's 筆記Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Robin's 筆記Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A1%8C%E7%9B%AE"><span class="nav-number">1.</span> <span class="nav-text">題目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E9%A1%8C%E6%A6%82%E5%BF%B5"><span class="nav-number">2.</span> <span class="nav-text">解題概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E5%AF%AB%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">我的寫法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E7%AD%94-or-%E5%85%B6%E4%BB%96%E5%84%AA%E7%A7%80%E5%AF%AB%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">解答 or 其他優秀寫法</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Robin Huang"
+      src="/images/me.jpg">
+  <p class="site-author-name" itemprop="name">Robin Huang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">76</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2022/10/16/leetcode/leetcode23/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/me.jpg">
+      <meta itemprop="name" content="Robin Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Robin's 筆記Blog">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【Leetcode解題】2444. Count Subarrays With Fixed Bounds
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-10-16 16:01:02" itemprop="dateCreated datePublished" datetime="2022-10-16T16:01:02+08:00">2022-10-16</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-10-18 23:12:10" itemprop="dateModified" datetime="2022-10-18T23:12:10+08:00">2022-10-18</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/" itemprop="url" rel="index"><span itemprop="name">Leetcode解題</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Hard/" itemprop="url" rel="index"><span itemprop="name">Hard</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Hard/Weekly-Contest/" itemprop="url" rel="index"><span itemprop="name">Weekly Contest</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+            <div class="post-description"></div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/contest/weekly-contest-315/problems/count-subarrays-with-fixed-bounds/"><font color="005CAF">題目連結</font></a></li>
+<li>目標函式 : <code>countSubarrays(nums, minK, maxK)</code><ul>
+<li>Input : <code>nums: List[int]</code>、<code>minK: int</code>、<code>maxK: int</code></li>
+<li>Output : <code>int</code></li>
+</ul>
+</li>
+</ul>
+<h1 id="解題概念"><a href="#解題概念" class="headerlink" title="解題概念"></a>解題概念</h1><ul>
+<li>題意 : 給予一陣列 <code>nums</code>，找出其 Subarray 的數量，且那些 Subarray 須滿足 : <ul>
+<li>Subarray 中的最小值 = <code>minK</code></li>
+<li>Subarray 中的最大值 = <code>maxK</code></li>
+</ul>
+</li>
+</ul>
+<h1 id="我的寫法"><a href="#我的寫法" class="headerlink" title="我的寫法"></a>我的寫法</h1><ul>
+<li>想法 : <ul>
+<li>利用雙重 for 迴圈之 <code>i</code> 與 <code>j</code>，去判斷 <code>nums[i] ~ nums[j]</code> 是否為滿足條件的 Subarray</li>
+</ul>
+</li>
+<li>程式碼 :   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">satisfy</span>(<span class="params">arr</span>):</span> <span class="comment"># 判斷是否滿足條件</span></span><br><span class="line">    <span class="keyword">if</span> arr == []:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">max</span>(arr) == maxK <span class="keyword">and</span> <span class="built_in">min</span>(arr) == minK:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">cnt = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(nums)):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(nums)):</span><br><span class="line">        <span class="keyword">if</span> satisfy(nums[i:j+<span class="number">1</span>]):</span><br><span class="line">            cnt += <span class="number">1</span></span><br><span class="line"><span class="keyword">return</span> cnt</span><br></pre></td></tr></table></figure></li>
+<li>成效 : <font color="51A8DD">Runtime Error</font><ul>
+<li>Time Complexity : $\color{DB4D6D}{O(n^2)}$</li>
+</ul>
+</li>
+</ul>
+<h1 id="解答-or-其他優秀寫法"><a href="#解答-or-其他優秀寫法" class="headerlink" title="解答 or 其他優秀寫法"></a>解答 or 其他優秀寫法</h1><ul>
+<li>想法 : <ol>
+<li>變數設定 : <ul>
+<li><code>lastseenmax</code> : 之前看到在 <code>nums</code> 中出現 <code>maxK</code> 的 index</li>
+<li><code>lastseenmin</code> : 之前看到在 <code>nums</code> 中出現 <code>minK</code> 的 index</li>
+<li><code>subArrayStartIndex</code> : 當前 Subarray 開始的 Index</li>
+</ul>
+</li>
+<li>利用 for 迴圈去抓 <code>num</code>，並有三種狀況需要處理 : <ol>
+<li>當 <code>num &lt; minK or num &gt; maxK</code> : <ul>
+<li>代表當前的 <code>num</code> 不會形成任何 Subarray (因為題目要求之 Subarray 需要是  contiguous)</li>
+<li>因此，要將 <code>lastseenmax</code> 與 <code>lastseenmin</code> 從新計算(即設為初始值 = <code>-1</code>)</li>
+<li>另外也要將 <code>subArrayStartIndex</code> 設為 <code>i + 1</code>，下一回合從新開始計算 Subarray</li>
+</ul>
+</li>
+<li>當 <code>num == minK</code> : <ul>
+<li>需將 <code>minK</code> 修正成 <code>i</code></li>
+</ul>
+</li>
+<li>當 <code>num = maxK</code> : <ul>
+<li>需將 <code>maxK</code> 修正成 <code>i</code></li>
+</ul>
+</li>
+<li>三種狀況處理完後，計算出當前 Subarray 包含所有可能滿足條件之狀況數量<ul>
+<li>EX : 當前狀況如下圖  <img src="https://i.imgur.com/YSuOCJo.png" style="display:block;margin:auto;" width="60%" height="60%"/></li>
+<li>下圖滿足條件的 Subarray有 : <code>[2, 4, 1, 3, 5]</code>、<code>[4, 1, 3, 5]</code>、<code>[1, 3, 5]</code>，共 3 種</li>
+<li>而扣除掉黃色的部分，其他兩個數字會影響到數量的計算<blockquote>
+<ul>
+<li>其他狀況 : 若黃色後面還有其他數字 (即 <code>i</code> 不是指在 Boundary 上)，那些數字並不會影響到本回合之計算，因為「若扣除那些數字之 Subarray」的狀況早已在 <code>i</code> 指在 Boundary時已計算進去，因此這裡無須重複計算</li>
+</ul>
+</blockquote>
+</li>
+<li>也就是「整個 Subarray 的長度 - 兩個 Bound 圍起來的範圍長度 = 多出來的數量」，再加上兩個 Bound 圍起來的部分本身，所以共有 (<font color="DB4D6D">整個 Subarray 的長度 - 兩個 Bound 圍起來的範圍長度 + 1</font>) 個可能性</li>
+<li>總結來看，可推得以下公式 :   <img src="https://i.imgur.com/O8nYP4C.png" style="display:block;margin:auto;" width="90%" height="90%"/>
+  > 若該值 < 0 ，則讓其 = 0</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>程式碼 :   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">res = <span class="number">0</span></span><br><span class="line">subArrayStartIndex = <span class="number">0</span></span><br><span class="line">lastseenmin = -<span class="number">1</span></span><br><span class="line">lastseenmax = -<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(nums)):</span><br><span class="line">    num = nums[i]</span><br><span class="line">    <span class="keyword">if</span> num &lt; minK <span class="keyword">or</span> num &gt; maxK:</span><br><span class="line">        lastseenmin = -<span class="number">1</span></span><br><span class="line">        lastseenmax = -<span class="number">1</span></span><br><span class="line">        subArrayStartIndex = i + <span class="number">1</span></span><br><span class="line">            </span><br><span class="line">    <span class="keyword">if</span> num == minK:</span><br><span class="line">        lastseenmin = i</span><br><span class="line">    <span class="keyword">if</span> num == maxK:</span><br><span class="line">        lastseenmax = i</span><br><span class="line">    </span><br><span class="line">    res += <span class="built_in">max</span>(<span class="built_in">min</span>(lastseenmin, lastseenmax) - subArrayStartIndex + <span class="number">1</span>, <span class="number">0</span>)</span><br><span class="line">            </span><br><span class="line"><span class="keyword">return</span> res</span><br></pre></td></tr></table></figure></li>
+<li>成效 : <ul>
+<li>Time Complexity : $\color{DB4D6D}{O(n)}$</li>
+<li>Runtime: Unknown (Don’t have enough accepted submissions)</li>
+<li>Memory Usage: Unknown (Don’t have enough accepted submissions)</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%AF%A6%E4%BD%9C%E7%B7%B4%E7%BF%92/" rel="tag"># 實作練習</a>
+              <a href="/tags/Leetcode/" rel="tag"># Leetcode</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/10/14/leetcode/leetcode22/" rel="prev" title="【Leetcode解題】237. Delete Node in a Linked List">
+                  <i class="fa fa-chevron-left"></i> 【Leetcode解題】237. Delete Node in a Linked List
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/10/18/leetcode/leetcode21/" rel="next" title="【Leetcode解題】38. Count and Say">
+                  【Leetcode解題】38. Count and Say <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">若要轉載文章，麻煩請保留原作者名稱與原始連結。</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

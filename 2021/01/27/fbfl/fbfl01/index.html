@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"robinlyl2000.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+
+  <meta name="description" content="這個新主題將會講解Flutter要如何連接Firebase並實作，而此文章會講解如何建立Firebase專案與設定連接資訊(๑•̀ㅂ•́)و✧">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Flutter &amp; Firebase】建立專案與連接設定">
+<meta property="og:url" content="http://robinlyl2000.github.io/2021/01/27/fbfl/fbfl01/index.html">
+<meta property="og:site_name" content="Robin&#39;s 筆記Blog">
+<meta property="og:description" content="這個新主題將會講解Flutter要如何連接Firebase並實作，而此文章會講解如何建立Firebase專案與設定連接資訊(๑•̀ㅂ•́)و✧">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.imgur.com/L4QacTQ.png">
+<meta property="og:image" content="https://i.imgur.com/4DBuaD2.png">
+<meta property="og:image" content="https://i.imgur.com/KA0eoTq.png">
+<meta property="og:image" content="https://i.imgur.com/Z57GwZr.png">
+<meta property="og:image" content="https://i.imgur.com/ah3oblc.png">
+<meta property="og:image" content="https://i.imgur.com/NfFU1QX.png">
+<meta property="og:image" content="https://i.imgur.com/YZLQjyP.png">
+<meta property="og:image" content="https://i.imgur.com/YGQ84ct.png">
+<meta property="og:image" content="https://i.imgur.com/g2KLQQu.png">
+<meta property="og:image" content="https://i.imgur.com/htsNLDF.png">
+<meta property="og:image" content="https://i.imgur.com/RXTZS1F.png">
+<meta property="og:image" content="https://i.imgur.com/R369GsR.png">
+<meta property="og:image" content="https://i.imgur.com/BtbNI3U.png)">
+<meta property="og:image" content="https://i.imgur.com/UAJ9Dx9.png)">
+<meta property="article:published_time" content="2021-01-27T03:08:45.000Z">
+<meta property="article:modified_time" content="2021-03-01T14:52:52.000Z">
+<meta property="article:author" content="Robin Huang">
+<meta property="article:tag" content="Flutter">
+<meta property="article:tag" content="Firebase">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/L4QacTQ.png">
+
+
+<link rel="canonical" href="http://robinlyl2000.github.io/2021/01/27/fbfl/fbfl01/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>【Flutter & Firebase】建立專案與連接設定 | Robin's 筆記Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Robin's 筆記Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8BFlutter%E6%96%B0%E5%B0%88%E6%A1%88"><span class="nav-number">2.</span> <span class="nav-text">建立Flutter新專案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8BFirebase%E6%96%B0%E5%B0%88%E6%A1%88"><span class="nav-number">3.</span> <span class="nav-text">建立Firebase新專案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%AD%E5%AE%9AApp%E9%80%A3%E6%8E%A5%E8%B3%87%E8%A8%8A"><span class="nav-number">4.</span> <span class="nav-text">設定App連接資訊</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%96%8B%E5%95%9F%E4%B8%BB%E6%8E%A7%E5%8F%B0"><span class="nav-number">4.1.</span> <span class="nav-text">開啟主控台</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A8%BB%E5%86%8A%E6%87%89%E7%94%A8%E7%A8%8B%E5%BC%8F"><span class="nav-number">4.2.</span> <span class="nav-text">註冊應用程式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8B%E8%BC%89%E8%A8%AD%E5%AE%9A%E6%AA%94"><span class="nav-number">4.3.</span> <span class="nav-text">下載設定檔</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BE%8C%E7%BA%8C%E6%AD%A5%E9%A9%9F"><span class="nav-number">4.4.</span> <span class="nav-text">後續步驟</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B8%AC%E8%A9%A6App%E9%80%A3%E6%8E%A5"><span class="nav-number">5.</span> <span class="nav-text">測試App連接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%9DFlutter-Package"><span class="nav-number">6.</span> <span class="nav-text">安裝Flutter Package</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Robin Huang"
+      src="/images/me.jpg">
+  <p class="site-author-name" itemprop="name">Robin Huang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">76</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2021/01/27/fbfl/fbfl01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/me.jpg">
+      <meta itemprop="name" content="Robin Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Robin's 筆記Blog">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【Flutter & Firebase】建立專案與連接設定
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-01-27 11:08:45" itemprop="dateCreated datePublished" datetime="2021-01-27T11:08:45+08:00">2021-01-27</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-01 22:52:52" itemprop="dateModified" datetime="2021-03-01T22:52:52+08:00">2021-03-01</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Flutter-Firebase/" itemprop="url" rel="index"><span itemprop="name">Flutter & Firebase</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+            <div class="post-description">這個新主題將會講解Flutter要如何連接Firebase並實作，而此文章會講解如何建立Firebase專案與設定連接資訊(๑•̀ㅂ•́)و✧</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><ul>
+<li>此系列之參考來源為<a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9j--TKIdkb3ISfRbJeJYQwC">【The Net Ninja — Flutter &amp; Firebase App Tutorial】</a></li>
+<li>在此系列中，將不會特別去介紹Flutter部分的基礎知識，所以對Flutter尚未有基礎了解的朋友，可以參閱<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=1ukSR1GRtMU&list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ&ab_channel=TheNetNinja">【The Net Ninja — Flutter Tutorial for Beginners】</a>(我也是從這裡學習Flutter的喔ヽ(*´∀`)ﾉﾟ)</li>
+</ul>
+<hr>
+<h3 id="建立Flutter新專案"><a href="#建立Flutter新專案" class="headerlink" title="建立Flutter新專案"></a>建立Flutter新專案</h3><ol>
+<li>打開cmd並移動到Flutter的目錄下</li>
+<li>輸入<code>flutter create brew_crew</code>(brew_crew為專案名稱)</li>
+<li>建立完成後，cd至brew_crew子目錄，並輸入<code>code .</code>用vscode開啟</li>
+<li>若顯示以下畫面，便代表新專案brew_crew建立完成<p align="center">
+<img height="30%" width="30%" src="https://i.imgur.com/L4QacTQ.png">
+</p>
+</li>
+</ol>
+<hr>
+<h3 id="建立Firebase新專案"><a href="#建立Firebase新專案" class="headerlink" title="建立Firebase新專案"></a>建立Firebase新專案</h3><blockquote>
+<p>由於Firebase的UI介面會時常更換，所以顯示的畫面可能會有差異，但主要功能還是一樣的</p>
+</blockquote>
+<ol>
+<li>進入<a target="_blank" rel="noopener" href="https://console.firebase.google.com/">【Firebase官網】</a>，點擊「新增專案」<p align="center">
+<img height="90%" width="90%" src="https://i.imgur.com/4DBuaD2.png">
+</p></li>
+<li>輸入專案名稱(以Ninja Brew crew為例)，並點擊「繼續」<p align="center">
+<img height="40%" width="40%" src="https://i.imgur.com/KA0eoTq.png">
+</p></li>
+<li>關閉Google Analytics功能(此專案用不到)，之後點擊「建立專案」<p align="center">
+<img height="50%" width="50%" src="https://i.imgur.com/Z57GwZr.png">
+</p></li>
+<li>等它跑完，就成功建立Firebase新專案嘍!</li>
+</ol>
+<hr>
+<h3 id="設定App連接資訊"><a href="#設定App連接資訊" class="headerlink" title="設定App連接資訊"></a>設定App連接資訊</h3><h4 id="開啟主控台"><a href="#開啟主控台" class="headerlink" title="開啟主控台"></a>開啟主控台</h4><p align="center"><img height="90%" width="90%" src="https://i.imgur.com/ah3oblc.png"></p>
+
+<h4 id="註冊應用程式"><a href="#註冊應用程式" class="headerlink" title="註冊應用程式"></a>註冊應用程式</h4><ul>
+<li>應該會看到以下畫面，就可以開始註冊應用程式了<p align="center"><img height="50%" width="50%" src="https://i.imgur.com/NfFU1QX.png"></p></li>
+<li><font color="#000088">Android套件名稱</font> : <blockquote>
+<p>找尋套件名稱之方法，會因建立Flutter專案之方法不同而有差別</p>
+</blockquote>
+<ol>
+<li>如果是用上述方式(用cmd創立專案，並使用vscode開啟) : <ul>
+<li>開啟vscode，並點開<code>brew_crew/android/app</code>資料夾中的<code>build.gradle</code>  <p align="center"><img height="100%" width="100%" src="https://i.imgur.com/YZLQjyP.png"></p> </li>
+<li>尋找<code>defaultConfig</code>函式  <p align="center"><img height="100%" width="100%" src="https://i.imgur.com/YGQ84ct.png"></p> </li>
+<li>其中的<code>applicationId</code>即為欲輸入的套件名稱<blockquote>
+<p>以上述圖片為例，套件名稱為<code>com.example.brew_crew</code></p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>如果是直接在Android Studio中創立Flutter專案 : <ul>
+<li>在創立Flutter專案時，會開啟到以下畫面 :   <p align="center"><img height="90%" width="90%" src="https://i.imgur.com/g2KLQQu.png"></p></li>
+<li>欲輸入的套件名稱，即為畫面中的Package name<blockquote>
+<p>以上述圖片為例，套件名稱為<code>com.example.flutterapp</code></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><font color="#000088">應用程式暱稱</font> : 自行取名(這裡以<code>Brew crew</code>為例)</li>
+<li><font color="#000088">偵錯簽署憑證 SHA-1</font> : 此專案無資料安全之問題，所以不用填</li>
+</ul>
+<h4 id="下載設定檔"><a href="#下載設定檔" class="headerlink" title="下載設定檔"></a>下載設定檔</h4><ol>
+<li><p>點擊下載<code>googleservices.json</code></p>
+</li>
+<li><p>將其移到<code>brew_crew/android/app</code>資料夾中 (如下圖)</p>
+ <p align="center"><img height="30%" width="30%" src="https://i.imgur.com/htsNLDF.png"></p>
+ 
+#### 新增Firebase SDK</li>
+<li><p>開啟<code>brew_crew/android</code>中的<code>build.gradle</code>，並找到<code>buildscript</code>函式中的<code>dependencies</code>函式</p>
+</li>
+<li><p>複製網頁上的<code>classpath &#39;com.google.gms:google-services:4.3.4&#39;</code>到<code>dependencies</code>函式中 (如下圖)</p>
+<p align="center"><img height="70%" width="70%" src="https://i.imgur.com/RXTZS1F.png"></p>
+</li>
+<li><p>開啟<code>brew_crew/android/app</code>中的<code>build.gradle</code></p>
+</li>
+<li><p>複製網頁上的<code>apply plugin: &#39;com.google.gms.google-services&#39;</code>到文件最下方 (如下圖)</p>
+<p align="center"><img height="70%" width="70%" src="https://i.imgur.com/R369GsR.png"></p>
+
+</li>
+</ol>
+<blockquote>
+<ul>
+<li><p>因為較新的版本可能會用相容性問題，所以影片作者建議做以下調整 : </p>
+<ul>
+<li><p>開啟<code>brew_crew/android/app/build.gradle</code></p>
+</li>
+<li><p>將<code>com.google.gms:google-services</code>的版本改成<u>4.0.1</u >(如下圖)</p>
+<p align="center"><img height="70%" width="70%" src="https://i.imgur.com/BtbNI3U.png)"></p>
+</li>
+<li><p>開啟<code>brew_crew/android/build.gradle</code></p>
+</li>
+<li><p>將<code>defaultConfig</code>函式中的<code>minSdkVersion</code>參數改成<u>21</u >(如下圖)</p>
+<p align="center"><img height="80%" width="80%" src="https://i.imgur.com/UAJ9Dx9.png)"></p>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h4 id="後續步驟"><a href="#後續步驟" class="headerlink" title="後續步驟"></a>後續步驟</h4><ul>
+<li>App連接已完成，接著點擊「前往主控台」回到控制首頁</li>
+</ul>
+<hr>
+<h3 id="測試App連接"><a href="#測試App連接" class="headerlink" title="測試App連接"></a>測試App連接</h3><ul>
+<li>開啟你的虛擬機，並執行brew_crew這個專案</li>
+<li>順利的話，會成功開啟App，然後終端機也不會跑出錯誤訊息~</li>
+</ul>
+<hr>
+<h3 id="安裝Flutter-Package"><a href="#安裝Flutter-Package" class="headerlink" title="安裝Flutter Package"></a>安裝Flutter Package</h3><ul>
+<li>需安裝之Package : <ol>
+<li><a target="_blank" rel="noopener" href="https://pub.dev/packages/firebase_auth">firebase_auth</a></li>
+<li><a target="_blank" rel="noopener" href="https://pub.dev/packages/cloud_firestore">cloud_firestore</a></li>
+</ol>
+</li>
+<li>如果不清楚如何在Flutter中安裝Package，這裡建議閱讀<a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10216804">【Flutter基礎概念與實作】 Day8–Package引用與管理</a>，其中會詳細介紹Futter Package之安裝方法!</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Flutter/" rel="tag"># Flutter</a>
+              <a href="/tags/Firebase/" rel="tag"># Firebase</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/01/24/js/js02/" rel="prev" title="【從零開始學JavaScript】實作練習 - 更改背景顏色">
+                  <i class="fa fa-chevron-left"></i> 【從零開始學JavaScript】實作練習 - 更改背景顏色
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/01/28/fbfl/fbfl02/" rel="next" title="【Flutter & Firebase】App架構之分析與建立">
+                  【Flutter & Firebase】App架構之分析與建立 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">若要轉載文章，麻煩請保留原作者名稱與原始連結。</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"robinlyl2000.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+
+  <meta name="description" content="null">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【上課筆記】資訊安全導論 - Ch7、Ch8">
+<meta property="og:url" content="http://robinlyl2000.github.io/2021/08/31/notes/note8/index.html">
+<meta property="og:site_name" content="Robin&#39;s 筆記Blog">
+<meta property="og:description" content="null">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.imgur.com/t9cOBfD.png">
+<meta property="og:image" content="https://i.imgur.com/oDNro36.png">
+<meta property="og:image" content="https://i.imgur.com/AOR7Cna.png">
+<meta property="og:image" content="https://i.imgur.com/LFj1fgQ.png">
+<meta property="og:image" content="https://i.imgur.com/nLekz3Q.png">
+<meta property="og:image" content="https://i.imgur.com/LXdThzB.png">
+<meta property="og:image" content="https://i.imgur.com/9HS1LHD.png">
+<meta property="og:image" content="https://i.imgur.com/iWZ52Rp.png">
+<meta property="article:published_time" content="2021-08-30T17:38:34.000Z">
+<meta property="article:modified_time" content="2021-12-04T09:30:36.000Z">
+<meta property="article:author" content="Robin Huang">
+<meta property="article:tag" content="筆記">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/t9cOBfD.png">
+
+
+<link rel="canonical" href="http://robinlyl2000.github.io/2021/08/31/notes/note8/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>【上課筆記】資訊安全導論 - Ch7、Ch8 | Robin's 筆記Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Robin's 筆記Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ch7"><span class="nav-number">1.</span> <span class="nav-text">Ch7</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ch8"><span class="nav-number">2.</span> <span class="nav-text">Ch8</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Robin Huang"
+      src="/images/me.jpg">
+  <p class="site-author-name" itemprop="name">Robin Huang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">76</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2021/08/31/notes/note8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/me.jpg">
+      <meta itemprop="name" content="Robin Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Robin's 筆記Blog">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【上課筆記】資訊安全導論 - Ch7、Ch8
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-31 01:38:34" itemprop="dateCreated datePublished" datetime="2021-08-31T01:38:34+08:00">2021-08-31</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-12-04 17:30:36" itemprop="dateModified" datetime="2021-12-04T17:30:36+08:00">2021-12-04</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%8A%E8%AA%B2%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">上課筆記</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+            <div class="post-description"></div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="Ch7"><a href="#Ch7" class="headerlink" title="Ch7"></a>Ch7</h3><ul>
+<li><p><strong>Random Numbers</strong> : </p>
+<ul>
+<li>使用之處 : <ul>
+<li><font color = #000088>鑰匙分送</font>與<font color = #000088>互相認證</font><ul>
+<li><font color = "red">Nonce</font> : 加密中只會用到一次的數字，可避免replay attack</li>
+</ul>
+</li>
+<li>對稱加密鑰匙生成</li>
+<li>RSA公鑰加密鑰匙生成</li>
+<li>對稱加密位元流生成</li>
+</ul>
+</li>
+<li>要求 : <ul>
+<li><font color = "red">Randomness(隨機性)</font> : <ul>
+<li><font color = #000088>Uniform distribution(均勻分布)</font> : 1和0出現的頻率應該要差不多相等</li>
+<li><font color = #000088>Independence(獨立性)</font> : 子序列(subsequence)無法從其他子序列推斷出來<ul>
+<li>沒有試驗能證明++獨立性++</li>
+<li>但有許多試驗能證明++序列沒有獨立性++</li>
+<li>若經過許多試驗皆無法證明序列無獨立，則我們有高度信心該序列是獨立的</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><font color = "red">Unpredictability(不可預測性)</font> : <ul>
+<li>每個數字都與序列無關 → 不太可能</li>
+<li>讓他人無法從前面的元素預測出之後的元素</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Pseudorandom Numbers</strong>(偽隨機數) : </p>
+<ul>
+<li>利用演算法技術去生成，若算法良好，則可以通過許多隨機性測驗</li>
+<li><strong>True Random Number Generator(TRNG)</strong> : <ul>
+<li>Input : 來源為<font color = #000088>熵源(entropy source)</font>，是從電腦中提取出來的，EX: 鼠標移動、系統時鐘瞬時值等等</li>
+<li>Output : 隨機二進位位元流</li>
+</ul>
+</li>
+<li><strong>Pseudorandom Number Generator(PRNG)</strong> : <ul>
+<li>使用固定值<font color = #000088>seed</font>作為輸入，並利用演算法計算出一連串輸出位元</li>
+<li><font color = #000088>seed通常由TRNG生成</font></li>
+<li>輸出位元流只由輸入值所決定，故他人若知道演算法與seed，則可以推敲出整個輸出位元流</li>
+<li>分類 : <ul>
+<li><font color = "red">Pseudorandom number generator (PRNG)</font> : <ul>
+<li>用於生成<font color = #000088>無限制</font>的位元序列</li>
+<li>應用 : 對稱串流加密</li>
+</ul>
+</li>
+<li><font color = "red">Pseudorandom function (PRF)</font> : <ul>
+<li>用於生成<font color = #000088>固定長度</font>的偽隨機字串</li>
+<li>應用 : 對稱加密金鑰、Nonce</li>
+</ul>
+</li>
+<li><font color = "red">差異</font> : <ul>
+<li><font color = #000088>輸出位元不同</font></li>
+<li>兩者皆使用相同的演算法，但PRF輸入時還能加入<font color = #000088>上下文特定(context-specific)的值</font>，EX: 使用者ID、程式ID等等</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>要求 : <ol>
+<li><font color = "red">Randomness(隨機性)</font> : <ul>
+<li><strong>SP 800-22</strong>規定了所有測試都須符合三種要素 : <ol>
+<li><font color = #000088>Uniformity(均勻性)</font> : 出現1或0的機率相等</li>
+<li><font color = #000088>Scalability(可擴展性)</font> : 序列或其子序列皆適用於該測試</li>
+<li><font color = #000088>Consistency(一致性)</font> : 生成器行為必須與seed保持一致</li>
+</ol>
+</li>
+<li><strong>SP 800-22</strong>測試舉例 : <ol>
+<li>++Frequency test++ : 確定1和0的比例是否差不多</li>
+<li>++Runs test++ : Run的總數是否符合隨機序列的預期(Run : 同個數字連續的狀況)</li>
+<li>++Maurer’s universal statistical test++ : 測試是否可以在不丟失信息的情況下壓縮序列</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><font color = "red">Unpredictability(不可預測性)</font> : <ul>
+<li><font color = #000088>Forward unpredictability(向前)</font><ol>
+<li>如果seed為未知，則儘管知道序列的前幾位，接下來輸出的位元仍不可預測</li>
+</ol>
+</li>
+<li><font color = #000088>Backward unpredictability(向後)</font> : <ol>
+<li>無法從seed或生成值之間推得另一者</li>
+<li>序列每個元素看起來都是獨立隨機事件的結果(機率: 1/2)</li>
+</ol>
+</li>
+<li>隨機性測試也可用於測驗不可預測性 → 若序列是隨機的，則無法根據序列去推倒seed</li>
+</ul>
+</li>
+<li><font color = "red">Characteristics of the seed(種子特徵)</font> : <ul>
+<li>seed必須是隨機數</li>
+<li>通常由<font color = #000088>TRNG</font>生成</li>
+<li>可以用於串流加密金鑰</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>演算法種類 : <ol>
+<li><strong>Linear Congruential Generators</strong> : <ul>
+<li>公式 : <font color = "red">$X_{n+1} = (aX_{n} + c)\quad mod\quad m$</font>, $X_0$為seed</li>
+<li>$a$、$c$和$m$之選擇會影響PRNG的效果</li>
+<li>優點 : 選擇好$a$、$c$和$m$的話，可以擁有和隨機序列一樣的效果</li>
+<li>缺點 : 知道$a$、$c$和$m$就能破解，甚至只要知道$X_1$、$X_2$與$X_3$就可知道</li>
+</ul>
+</li>
+<li><strong>Blum Blum Shub Generator(BBS)</strong> : <ul>
+<li>加密安全特性 : 給定序列前幾位，仍無法推得下一輸出位元</li>
+<li>公式 : <ul>
+<li>選定兩質數$p$和$q$，得到$n=p*q$</li>
+<li>選定初始值$s(= X_0)$</li>
+<li>$$X_{i+1} = {X_i}^2\quad mod\quad n\B_{i+1} = X_{i+1}\quad mod\quad 2$$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Block Cipher Modes of Operation<ul>
+<li><font color = "red">OFB</font>與<font color = "red">CTR</font>也可用於當作PRNG來使用</li>
+<li>兩種狀況都是一回合生成一個偽隨機位元block</li>
+<li><font color = "red">OFB</font> : 每次加密，輸入值加一</li>
+<li><font color = "red">CTR</font> : 該回合的輸入值等於前一回合輸出的值</li>
+</ul>
+</li>
+<li><strong>ANSI X9.17 PRNG</strong> : <ul>
+<li>流程<ul>
+<li> <img src="https://i.imgur.com/t9cOBfD.png"></li>
+<li> <font color = #000088>$K_1$、$K_2$</font> : 56bits Key，用於三次EDE加密</li>
+<li> <font color = #000088>$DT_i$</font> : 64bits的偽隨機數，為當下日期與時間</li>
+<li> <font color = #000088>$V_i$</font> : 64bits的seed(從其他生成器成生)，會隨著回合數更新</li>
+<li> <font color = #000088>$R_i$</font> : 64bits的偽隨機數結果</li>
+<li> <font color = #000088>$V_{i+1}$</font> : 64bits的下一回合seed</li>
+</ul>
+</li>
+<li>強度來源 : <ol>
+<li>112bits key($K_1$、$K_2$)</li>
+<li>3次EDE加密</li>
+<li>$V_i$、$DT_i$</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><strong>CTR_DRBG</strong> : <ul>
+<li>熵源(entropy source)</li>
+<li>加密方式為3DES或AES</li>
+<li>流程 : <ul>
+<li><img src="https://i.imgur.com/oDNro36.png"></li>
+<li><img src="https://i.imgur.com/AOR7Cna.png"></li>
+<li><font color = "red">Initial function</font> : <ol>
+<li>seed由K和V組合產生</li>
+<li>至少產出<em>seedlen</em>個bits</li>
+<li>每次加密後V加一</li>
+</ol>
+</li>
+<li><font color = "red">Generate function</font> : <ol>
+<li>每回合使用相同密鑰</li>
+<li>每回合V加一</li>
+</ol>
+</li>
+<li><font color = "red">Update function</font> : <ol>
+<li>當計數器達到<font color = #000088>Reseed Interval</font>時，<font color = #000088>K</font>和<font color = #000088>V</font>都會更新</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Stream Ciphers</strong> : </p>
+<ul>
+<li><table>
+<thead>
+<tr>
+<th align="center">Stream Ciphers</th>
+<th align="center">One-time Pad</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Pseudorandom Number Stream(偽隨機數字流)</td>
+<td align="center">Genuine Random Number Stream(真隨機數字流)</td>
+</tr>
+</tbody></table>
+</li>
+<li>注意事項 : <ol>
+<li><font color = #000088>產生加密序列的週期要長</font> : 生成位元流的重複週期越長，密碼分析就越困難</li>
+<li><font color = #000088>密鑰流要類似隨機位元流</font> : 元素出現的機率要大致相同</li>
+<li><font color = #000088>密鑰至少要128bits</font></li>
+<li><font color = #000088>只要隨機數生成器經過適當設計，串流加密可以跟區塊密碼一樣安全</font></li>
+<li>可以使用強度高的PRNG去製作串流加密</li>
+<li><font color = #000088>區塊加密可以重複使用密鑰</font>，串流加密則不行</li>
+</ol>
+</li>
+<li><strong>RC4</strong> : <ul>
+<li><font color = "red">可變密鑰長度</font>的Stream Cipher</li>
+<li>每輸出一個位元組的結果僅需要8到16條機器操作指令，軟體實現也很快</li>
+<li>用途 : SSL、TLS、WEP、WPA</li>
+<li><strong>流程</strong> : <ol>
+<li><font color = #000088>初始化</font> :<br> <img src="https://i.imgur.com/LFj1fgQ.png"><ul>
+<li><code>S[i]</code>為0~255的填充</li>
+<li><code>K</code>為金鑰(長度為<code>keylen</code>)</li>
+<li><code>T[i]</code>為金鑰<code>K</code>的重複填充</li>
+</ul>
+</li>
+<li><font color = #000088>初始化置換</font> :<br> <img src="https://i.imgur.com/nLekz3Q.png"><ul>
+<li>對<code>S[i]</code>和<code>S[j]</code>進行置換</li>
+<li>不再使用金鑰<code>K</code></li>
+</ul>
+</li>
+<li><font color = #000088>Stream產生</font> :<br> <img src="https://i.imgur.com/LXdThzB.png"></li>
+<li><font color = #000088>加解密</font> : <ul>
+<li><font color = "red">加密</font>的時候，將<code>k</code>與<font color = "red">明文的下個byte</font>做XOR</li>
+<li><font color = "red">解密</font>的時候，將<code>k</code>與<font color = "red">密文的下個byte</font>做XOR</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>優點 : <ul>
+<li>目前擁有合理密鑰長度(ex: 128 bits)的RC4尚無破解方法</li>
+</ul>
+</li>
+<li>缺點 : <ul>
+<li>使用RC4的程式容易受特定之攻擊</li>
+<li>生成RC4密鑰的方式存在一些問題</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>True Random Number Generator (TRNG)</strong> : </p>
+<ul>
+<li><font color = #000088>Entropy source(熵源)</font> : <ul>
+<li>利用不確定性的來源產生隨機性</li>
+<li>大多數利用不可預測的自然過程來產生，例如 : <ol>
+<li><font color = #000088>Sound/Video Input</font></li>
+<li><font color = #000088>Disk drives</font></li>
+<li>Linux使用 : 鼠標和鍵盤活動、磁碟I/O操作與特定中斷</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>比較 : <table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">PRNG</th>
+<th align="center">TRNG</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>Efficiency</strong></td>
+<td align="center">超快</td>
+<td align="center">快</td>
+</tr>
+<tr>
+<td align="center"><strong>Determinism</strong></td>
+<td align="center">輸出可相同</td>
+<td align="center">輸出必不同</td>
+</tr>
+<tr>
+<td align="center"><strong>Periodicity</strong></td>
+<td align="center">會</td>
+<td align="center">不會</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Efficiency : 短時間能產出的數字</li>
+<li>Determinism : 同樣起點，可否產出相同輸出</li>
+<li>Periodicity : 序列會不會重複</li>
+</ul>
+</li>
+<li>偏度(Skew) : <ul>
+<li>TRNG可能會產生某種偏差的輸出，像是皆產出&gt;0的數字</li>
+<li><font color = #000088>Deskewing algorithms(偏度校正算法)</font></li>
+<li>RFC4086建議可以從多個來源蒐集輸入，然後使用雜湊函數將其混合並產生隨機輸出</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Intel Digital Random Number Generator (DRNG)</strong> : </p>
+<ul>
+<li>TRNG用途 : <ol>
+<li>密鑰生成</li>
+<li>只能產生少許隨機bits → 因為效率低</li>
+</ol>
+</li>
+<li>DRNG優點 : <ol>
+<li>實現與PRNG相當的bits生產率</li>
+<li>能完全於硬體中實踐</li>
+<li>使用硬體中的<font color = #000088>Thermal Noise(熱雜訊)</font></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="Ch8"><a href="#Ch8" class="headerlink" title="Ch8"></a>Ch8</h3><ul>
+<li><strong>Fermat’s Theorem</strong> : <ul>
+<li>前提 : $p$為質數、$a$為無法被$p$整除的正整數</li>
+<li>公式 : <font color = #000088>$$a^{p-1}\equiv1(mod\quad p)\or\a^p\equiv a(mod\quad p)$$</font></li>
+</ul>
+</li>
+<li><strong>Euler’s Totient Function</strong> : <ul>
+<li>$\phi(n)$ : 小於n且和n互質的正整數數量</li>
+<li><font color = #000088>若$n$為質數，則$\phi(n)=n-1$</font></li>
+<li><font color = #000088>若$n$不是質數，則$\phi(n)=\phi(p)<em>\phi(q)=(p-1)</em>(q-1)$</font>($p$與$q$為相異質數)</li>
+<li><font color = #000088>若n為$p^2$，則$\phi(n)=p*(p-1)$</font></li>
+</ul>
+</li>
+<li><strong>Euler’s Theorem</strong> : <ul>
+<li>前提 : $a$和$n$為互質的質數</li>
+<li>公式 : <font color = #000088>$$a^{\phi(n)}\equiv1(mod\quad n)\or\a^{\phi(n)+1}\equiv a(mod\quad n)$$</font></li>
+</ul>
+</li>
+<li><strong>Miller-Rabin Algorithm</strong> : <ul>
+<li>公式 : <ol>
+<li>將輸入值$n$拆解成<font color = #000088>$(n-1)=2^kq$</font></li>
+<li>在$1&lt;a&lt;n-1$範圍中取出想測試的$a$</li>
+<li>inconclusive (可能是質數) / composite (必定是複合數)<br> <img src="https://i.imgur.com/9HS1LHD.png"></li>
+</ol>
+</li>
+<li>每次測試，非質數被判斷為可能是函數的機率小於<font color = #000088>1/4</font></li>
+<li>因為所有的偶整數不用判斷，故測試數字$n$平均要做<font color = #000088>$0.5ln(n)$次測試</font></li>
+</ul>
+</li>
+<li><strong>Discrete Logarithms</strong> : <ul>
+<li><img src="https://i.imgur.com/iWZ52Rp.png"></li>
+<li>性質 : <ol>
+<li>所有序列最後都是1</li>
+<li>最長序列長度為$\phi(n)$</li>
+<li>若$a$的序列長度剛好是$\phi(n)$，則$a$就是$n$的<font color = #000088>原根(Primitive Roots)</font><ul>
+<li><font color = #000088>$a^i\quad mod\quad n$的值和$n$互質</font></li>
+<li>只有<font color = #000088>$2, 4, p^a, 2p^a$</font>有原根</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><strong>Logarithms for Modular Arithmetic</strong> : <ul>
+<li><font color = #000088>$b\equiv a^i(mod\quad p)$ or $i=dlog_{a,p}(b)$</font></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%AD%86%E8%A8%98/" rel="tag"># 筆記</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/08/25/notes/note7/" rel="prev" title="【上課筆記】資訊安全導論 - Ch5、Ch6">
+                  <i class="fa fa-chevron-left"></i> 【上課筆記】資訊安全導論 - Ch5、Ch6
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/09/06/notes/note9/" rel="next" title="【上課筆記】資訊安全導論 - Ch9、Ch10">
+                  【上課筆記】資訊安全導論 - Ch9、Ch10 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">若要轉載文章，麻煩請保留原作者名稱與原始連結。</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

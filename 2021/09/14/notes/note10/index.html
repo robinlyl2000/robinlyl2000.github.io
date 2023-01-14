@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"robinlyl2000.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+
+  <meta name="description" content="null">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【上課筆記】資訊安全導論 - Ch11">
+<meta property="og:url" content="http://robinlyl2000.github.io/2021/09/14/notes/note10/index.html">
+<meta property="og:site_name" content="Robin&#39;s 筆記Blog">
+<meta property="og:description" content="null">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.imgur.com/z9TcSwo.png">
+<meta property="og:image" content="https://i.imgur.com/TBpsXIa.png">
+<meta property="og:image" content="https://i.imgur.com/HTfCmjD.png">
+<meta property="og:image" content="https://i.imgur.com/dfS7YS4.png">
+<meta property="og:image" content="https://i.imgur.com/HkqPoJC.png">
+<meta property="og:image" content="https://i.imgur.com/11QlvST.png">
+<meta property="og:image" content="https://i.imgur.com/NNwuxbw.png">
+<meta property="og:image" content="https://i.imgur.com/Ckrwgas.png">
+<meta property="og:image" content="https://i.imgur.com/3LDfF1p.png">
+<meta property="og:image" content="https://i.imgur.com/u5lWQ2E.png">
+<meta property="og:image" content="https://i.imgur.com/RS6Db2Z.png">
+<meta property="article:published_time" content="2021-09-13T17:39:04.000Z">
+<meta property="article:modified_time" content="2021-12-04T09:30:34.000Z">
+<meta property="article:author" content="Robin Huang">
+<meta property="article:tag" content="筆記">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/z9TcSwo.png">
+
+
+<link rel="canonical" href="http://robinlyl2000.github.io/2021/09/14/notes/note10/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>【上課筆記】資訊安全導論 - Ch11 | Robin's 筆記Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Robin's 筆記Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ch11"><span class="nav-number">1.</span> <span class="nav-text">Ch11</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Robin Huang"
+      src="/images/me.jpg">
+  <p class="site-author-name" itemprop="name">Robin Huang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">76</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2021/09/14/notes/note10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/me.jpg">
+      <meta itemprop="name" content="Robin Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Robin's 筆記Blog">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【上課筆記】資訊安全導論 - Ch11
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-09-14 01:39:04" itemprop="dateCreated datePublished" datetime="2021-09-14T01:39:04+08:00">2021-09-14</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-12-04 17:30:34" itemprop="dateModified" datetime="2021-12-04T17:30:34+08:00">2021-12-04</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%8A%E8%AA%B2%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">上課筆記</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+            <div class="post-description"></div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="Ch11"><a href="#Ch11" class="headerlink" title="Ch11"></a>Ch11</h3><ul>
+<li><p><strong>Hash Fucntions</strong> : </p>
+<ul>
+<li>接受<font color = #000088>可變長度之block : $M$</font>，並產生<font color = #000088>固定長度之Hash Value : $h=H(M)$</font><ul>
+<li>$P$ : Padding、$L$ : Length Field(可以增加安全性)</li>
+</ul>
+</li>
+<li>目標 : <font color = #000088>Data Integrity</font>($M$的任何更改都會導致Hash Value的更改)</li>
+<li>應用 : <ol>
+<li><strong>Message Authentication Code (MAC)</strong> : <ul>
+<li><font color = #000088>MAC = $E(K, H(M))$</font><ul>
+<li>結合Hash和Encryption</li>
+<li>使用到可變長度訊息$M$與金鑰$K$</li>
+<li>產生固定長度之輸出</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Digital Signature</strong> : <ul>
+<li>建立於MAC基礎上</li>
+<li><font color = #000088>$E(PR_a , H(M))$ </font>: <ul>
+<li>使用A的私鑰加密</li>
+<li>提供++認證性++與++數位簽章++</li>
+</ul>
+</li>
+<li><font color = #000088>$E(K,[M||E(PR_a , H(M))])$ </font> : <ul>
+<li>使用A的私鑰加密</li>
+<li>之後$h$加上$M$，跟金鑰$K$做加密</li>
+<li>提供++認證性++、++數位簽章++與++安全性++</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><font color = #000088>單向密碼檔案</font> : 將輸入密碼的Hash Value與儲存之Hash Value進行比較，以驗證用戶身分</li>
+<li><font color = #000088>檢測病毒或入侵</font> : <ol>
+<li>儲存每個文件的H（F）並保護所有Hash Value</li>
+<li>可以利用重新計算H（F），來確定文件是否已被修改</li>
+<li>入侵者需要同時更改F，但不能更改H（F）</li>
+</ol>
+</li>
+<li><font color = #000088>建構PRF或PRNG</font> : <ul>
+<li>Hash-based PRF常用於生成對稱金鑰</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Function比較 : <ul>
+<li><strong>Simple XOR</strong> : <ul>
+<li>流程 : <ol>
+<li>將輸入切為n bits的Block</li>
+<li>反覆將一個Block進行一次處理以產生n bits的Hahs Value</li>
+<li>每個Block進行XOR : $$C_i=B_{i1}\oplus B_{i2}\oplus…\oplus b_{im}$$</li>
+<li><font color = #000088>對於每個bit位置產生簡單的奇偶性，也就是縱向冗餘校驗(LRC)</font></li>
+</ol>
+</li>
+<li>優點 : 檢查隨機資料的Data Integrity非常有效</li>
+<li>缺點 : <ul>
+<li>資料錯誤但Hash Value沒變的機率為$2^{-n}$</li>
+<li>如果資料格式能夠預測，XOR的效果會更差</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>RXOR</strong> : <ul>
+<li>流程 : <ol>
+<li>將n bits的Hash Value設為0</li>
+<li>連續處理每個n bits的Block：<ul>
+<li>將當前Hash Value右移一位</li>
+<li>將Block與Hash Value進行XOR</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>優點 : <ul>
+<li>將輸入更完全地「隨機化」</li>
+<li>克服輸入中出現任何的規律</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Simple XOR using CBC</strong> : <ul>
+<li><img src="https://i.imgur.com/z9TcSwo.png"></li>
+<li>由於每項可以按任何順序進行XOR，因此如果對Block 順序進行置換，則Hash Value不會更改</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Requirements and Security : <ul>
+<li>問題 : <ul>
+<li><font color = #000088>Preimage(原像)</font> : <ul>
+<li>$h=H(x)$函式為<font color ="red">多對一</font></li>
+<li>對於任何給定的$h$，通常會有多個原像(preimages)</li>
+</ul>
+</li>
+<li><font color = #000088>Collision(碰撞)</font> : <ul>
+<li>當$x≠y$但$H(x)= H(y)$，碰撞即發生</li>
+<li>因為使用$H$來確保Data Integrity，所以碰撞顯然是不可發生的</li>
+</ul>
+</li>
+<li>假設輸入資料長度為$b$，Hash Value長度為$n$，則每個Hash Value平均會產生<font color = #000088>$2^{b-n}$個原像</font></li>
+</ul>
+</li>
+<li>要求 : <ul>
+<li><img src="https://i.imgur.com/TBpsXIa.png"></li>
+<li><font color = #000088>Weak hash function</font> : 滿足前五項</li>
+<li><font color = #000088>Strong hash function</font> : <ul>
+<li>滿足前六項</li>
+<li>防止A產生訊息給B簽章的攻擊</li>
+<li>防止Birthday Paradox</li>
+</ul>
+</li>
+<li> <font color = #000088>Preimage Resistant</font>(one-way property) : 給定$h$無法找到$y$，即$H(y)= h$</li>
+<li> <font color = #000088>Second Preimage Resistant</font>(weak collision resistant) : 給定$x$，無法通過$H(y)= H(x)$來找到$y≠x$</li>
+<li> <font color = #000088>Collision Resistant</font>strong collision resistant) : 無法找到$H(y)= H(x)$的任何對$(x,y)$</li>
+</ul>
+</li>
+<li>攻擊手法 : <ul>
+<li>假設Hash Value長度為$m$，則所需工作量為 : <table>
+<thead>
+<tr>
+<th align="center">Preimage</th>
+<th align="center">Second Preimage</th>
+<th align="center">Collision</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">$2^m$</td>
+<td align="center">$2^m$</td>
+<td align="center">$2^{m/2}$</td>
+</tr>
+</tbody></table>
+</li>
+<li><strong>Brute-Force Attacks</strong> : <ol>
+<li>Preimage &amp; Second Preimage : <ul>
+<li>攻擊者平均必須嘗試<font color = #000088>$2^{m-1}$</font>個$y$值</li>
+</ul>
+</li>
+<li>Collision : <ul>
+<li>攻擊者平均必須嘗試<font color = #000088>$2^{m}$</font>個$y$值</li>
+<li><strong>Birthday Paradox</strong> : <ul>
+<li> 如果從$0$到$N-1$範圍內的均勻分佈中選擇隨機變量，則在<font color = #000088>做出$\sqrt{N}$個選擇後遇到重複元素的機率超過$0.5$</font></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><strong>Cryptanalysis</strong> : <ul>
+<li>測量Hash演算法對密碼分析的抵抗力</li>
+<li><strong>Iterated Hash Function Structure</strong> : <ul>
+<li><img src="https://i.imgur.com/HTfCmjD.png"></li>
+<li>結構 : <ul>
+<li>將輸入資料$M$拆解為$L$個固定$b$ bits的Block($Y_0,Y_1,…,Y_{L-1}$)</li>
+<li>$F$ : 壓縮函式</li>
+<li>最後的Block包含輸入資料的總長度</li>
+<li>攻擊涉及分析回合之間的變化模式</li>
+<li>如果$F$具有Collision Resistant，則迭代Hash函式也有</li>
+<li>減少設計安全Hash函式的問題</li>
+</ul>
+</li>
+<li><strong>Hash Functions Using DES &amp; CBC</strong> : <ul>
+<li><img src="https://i.imgur.com/dfS7YS4.png"></li>
+<li>產生Hash值太小(64 bits)之原因<ol>
+<li>Direct Birthday Attack</li>
+<li>Meet-in-the-middle Attack</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Secure Hash Algorithm (SHA)</strong> : </p>
+<ul>
+<li>基於<font color = #000088>Hash函式MD4產生160 bits Hash Value（SHA-0）</font></li>
+<li><strong>SHA-512</strong> : <ul>
+<li>輸入 : <font color = #000088>1024 bit的Blocks</font></li>
+<li>輸出 : 一個512 bits的Hash Value</li>
+<li>流程 : <ol>
+<li>Padding$P$ : 10*</li>
+<li>Length$L$</li>
+<li>初始化Hash Buffer : 512 bits的Buffer可以表示為8個64 bits的暫存器（abcdefgh）</li>
+<li>將訊息$M$加上$P$與$L$，切成1024 bit的Block</li>
+<li>經過流程後輸出</li>
+</ol>
+</li>
+<li>公式 : <ul>
+<li><img src="https://i.imgur.com/HkqPoJC.png"></li>
+<li>$IV$ : abcdefgh Buffer中的初始值</li>
+<li>$abcdefgh_i$ : abcdefgh Buffer目前的值，也就是上一回合產生的$H_i$</li>
+<li>$N$ : Blocks的數量</li>
+<li>$SUM_{64}$ : word-by-word addition modulo 2^64^</li>
+<li>$MD$ : 最終的Hash Value</li>
+</ul>
+</li>
+<li>$F$ : <ul>
+<li>將1024 bits的Block切成80個Word，並<font color = #000088>經過80回合的加密</font></li>
+<li><img src="https://i.imgur.com/11QlvST.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>SHA-3</strong> : <ul>
+<li><font color = "red">Sponge Construction</font> : <ul>
+<li>允許<font color = #000088>可變長度的輸入或輸出</font>，可用於 : <ul>
+<li>Hash函式(<font color = "red">固定長度輸出</font>)</li>
+<li>PRNG(<font color = "red">固定長度輸入</font>)</li>
+<li>其他密碼分析功能</li>
+</ul>
+</li>
+<li><strong>Input</strong> : <ul>
+<li><img src="https://i.imgur.com/NNwuxbw.png"></li>
+<li>將$n$ bits的Input切為$k$個長度為$r$ bits的Block</li>
+<li>用Padding填充缺少的空格 : <ul>
+<li><font color = #000088>Simple padding</font> : 1 0*</li>
+<li><font color = #000088>Multirate padding</font> : 1 0* 1</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Output</strong> : <ul>
+<li><img src="https://i.imgur.com/Ckrwgas.png"></li>
+<li>所需的輸出bit數，決定生成輸出的Blcok數</li>
+<li>如果期望的輸出是<font color = #000088>$\ell$</font>個bits，則要產生<font color = #000088>$j$</font>個Block，使得<font color = #000088>$(j-1)<em>r\lt\ell\le j</em>r$</font></li>
+</ul>
+</li>
+<li>流程 : <ul>
+<li>初始化 : <ul>
+<li> <img src="https://i.imgur.com/3LDfF1p.png"></li>
+<li> 準備$b$ bits的0($b=r+c$)</li>
+</ul>
+</li>
+<li><font color = "red">Absorbing phase(吸收階段)</font> : <ul>
+<li><img src="https://i.imgur.com/u5lWQ2E.png"></li>
+</ul>
+<ol>
+<li>Padding : 將輸入Block<font color = #000088>填充$c$ bits的0</font></li>
+<li>做<font color = #000088>XOR</font></li>
+<li>經過<font color = #000088>iteration function $f$</font>，產生<font color = #000088>$s$</font></li>
+<li>$s$為下一回合XOR的值</li>
+</ol>
+</li>
+<li><font color = "red">Squeezing phase(釋放階段)</font> : <ul>
+<li><img src="https://i.imgur.com/RS6Db2Z.png"></li>
+</ul>
+<ol>
+<li>假設$\ell\le b$，則<font color = #000088>保留$s$的前$\ell$ bits作為$Z_0$</font></li>
+<li>重複執行$f$來更新$s$</li>
+<li>繼續進行$(j-1)$次迭代，直到$(j-1)<em>r\lt\ell\le j</em>r$</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><font color = "red">Iteration Function $f$</font> : <ul>
+<li>函式$f$將Input的1600 bits分為5x5的矩陣(每格為64 bits)</li>
+<li>經過24 rounds的處理</li>
+<li>每個round都有5 steps</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%AD%86%E8%A8%98/" rel="tag"># 筆記</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/09/10/js/js19/" rel="prev" title="【從零開始學JavaScript】實作練習 - To Do List製作(一)">
+                  <i class="fa fa-chevron-left"></i> 【從零開始學JavaScript】實作練習 - To Do List製作(一)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/09/21/js/js20/" rel="next" title="【從零開始學JavaScript】實作練習 - To Do List製作(二)">
+                  【從零開始學JavaScript】實作練習 - To Do List製作(二) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">若要轉載文章，麻煩請保留原作者名稱與原始連結。</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

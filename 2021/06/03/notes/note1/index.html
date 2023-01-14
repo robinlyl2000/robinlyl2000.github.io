@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"robinlyl2000.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+
+  <meta name="description" content="null">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【上課筆記】電腦網路概論 - Ch1">
+<meta property="og:url" content="http://robinlyl2000.github.io/2021/06/03/notes/note1/index.html">
+<meta property="og:site_name" content="Robin&#39;s 筆記Blog">
+<meta property="og:description" content="null">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-06-03T11:32:47.000Z">
+<meta property="article:modified_time" content="2021-12-04T09:30:44.000Z">
+<meta property="article:author" content="Robin Huang">
+<meta property="article:tag" content="筆記">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://robinlyl2000.github.io/2021/06/03/notes/note1/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>【上課筆記】電腦網路概論 - Ch1 | Robin's 筆記Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Robin's 筆記Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ch1"><span class="nav-number">1.</span> <span class="nav-text">Ch1</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Robin Huang"
+      src="/images/me.jpg">
+  <p class="site-author-name" itemprop="name">Robin Huang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">76</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2021/06/03/notes/note1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/me.jpg">
+      <meta itemprop="name" content="Robin Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Robin's 筆記Blog">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【上課筆記】電腦網路概論 - Ch1
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-06-03 19:32:47" itemprop="dateCreated datePublished" datetime="2021-06-03T19:32:47+08:00">2021-06-03</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-12-04 17:30:44" itemprop="dateModified" datetime="2021-12-04T17:30:44+08:00">2021-12-04</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%8A%E8%AA%B2%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">上課筆記</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+            <div class="post-description"></div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="Ch1"><a href="#Ch1" class="headerlink" title="Ch1"></a>Ch1</h3><ul>
+<li>Protocol : 定義網路實體上messages傳輸間的格式、順序與其在傳輸中接收到訊息後的行為</li>
+<li>Access Networks : <ul>
+<li><strong>Cable-based Access</strong> : <ul>
+<li><font color="red">Frequency Division Multiplexing(FDM/分頻多工)</font> : Data或電視訊號在<font color="blue">共享電纜</font>中用<font color="blue">不同頻率</font>去傳輸</li>
+<li>使用<font color="blue">HFC(Hybrid Fiber Coax/混合光纖同軸電纜)</font></li>
+<li>網路源頭來自<font color="blue">ISP</font>，接著透過<font color="blue">Cable Headend</font>，讓各家能<font color="blue">共享存取網路</font></li>
+</ul>
+</li>
+<li><strong>Digital Subscriber Line(DSL)</strong> : <ul>
+<li>使用<font color="red">現有電話線</font>連接Central Office中的<font color="blue">DSLAM</font></li>
+<li>在DSL線路中 : <ol>
+<li>Data向Internet傳輸</li>
+<li>Voice向Telephone net傳輸</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><strong>Wireless Access Networks</strong> :　<ul>
+<li><font color="red">Wireless Local Area Networks(WLANs/無線區域網路)</font> : <ol>
+<li>通常在建築物內或周圍</li>
+<li>EX : WiFi</li>
+</ol>
+</li>
+<li><font color="red">Wide-area Cellular Access Networks</font> : <ol>
+<li>由行動網路運營商提供服務</li>
+<li>EX : 4G、5G</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>Network Edge / Hosts : <ul>
+<li>將應用程式的訊息切成一塊一塊Packets</li>
+<li>每個Packet長度為<font color="blue">$L$ bits</font></li>
+<li>Link傳輸速率為<font color="blue">$R$ bits/sec</font>，這也就是<font color="red">Link capacity / Link bandwidth</font></li>
+<li><font color="blue">Packet Transmission Delay = $L/R$ secs</font></li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>Links : <ul>
+<li>名詞解釋 :　<ul>
+<li><font color="blue">Guided Media</font> : 信號在固體介質中傳播，EX : 銅、光纖、同軸電纜</li>
+<li><font color="blue">Unguided Media</font> : 信號自由傳播，EX : Radio</li>
+</ul>
+</li>
+<li><strong>Twisted pair(TP/雙絞線)</strong> : 兩根絕緣銅線</li>
+<li><strong>Coaxial cable(同軸電纜)</strong> : <ul>
+<li>雙向</li>
+<li>電纜上有多個Frequency Channels</li>
+</ul>
+</li>
+<li><strong>Fiber optic cable(光纖)</strong> : <ul>
+<li>玻璃纖維攜帶光脈衝，每一脈衝為1 bit</li>
+<li>高速點對點傳輸</li>
+<li>錯誤率低</li>
+</ul>
+</li>
+<li><strong>Wireless radio</strong> : <ul>
+<li>散播性</li>
+<li><font color="blue">Half-duplex(半雙工)</font> : 同一時間只允許一裝置傳送資料</li>
+<li>易受反射、物體阻擋、干涉影響</li>
+</ul>
+</li>
+<li><strong>Radio link types</strong> : <ol>
+<li>地面微波</li>
+<li>WLANs，EX : WiFi</li>
+<li>Wide-area，EX : 5G</li>
+<li>衛星</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>Network Core : </p>
+<ul>
+<li><p>==Packet Switching== : </p>
+<ul>
+<li>定義 : 沿著Link路徑，將Packe以Full Link Capacity傳輸</li>
+<li><font color="red">Transmission delay</font> : 上面的$L/R$</li>
+<li><font color="red">Store and forward</font> : 整個Packet必須完全抵達Router，然後才能繼續傳輸</li>
+<li>假設Pakcet有$n$個，則<font color="red">End-end Delay</font> = $nL/R$</li>
+<li><font color="red">Packet queuing and loss</font> : <ul>
+<li>如果Packet抵達速度 &gt; 傳輸速度，則會Output Link上出現<font color="blue">Queue</font>的狀況發生</li>
+<li>若Router的Buffer滿了，Packet就會被丟棄掉</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>兩大核心動作 : </p>
+<ol>
+<li>==Routing== : 是以<font color="blue">整體Routers</font>的角度，去確定封包從來源到目的地的路徑</li>
+<li>==Forwarding== : 以<font color="blue">單一Router</font>的角度，去把輸入Packet從Router的輸入端移動到適當的輸出端。</li>
+</ol>
+</li>
+<li><p>==Circuit Switching== :</p>
+<ul>
+<li>特性 : <ul>
+<li>專用一條Link，<font color="blue">不共享</font></li>
+<li><font color="blue">傳輸保證性</font></li>
+<li>Link可能會idle</li>
+<li>EX : 傳統電話線</li>
+</ul>
+</li>
+<li>差別 : <ul>
+<li><font color="red">Frequency Division Multiplexing (FDM/分頻多工)</font> : 切割頻率，各自傳輸</li>
+<li><font color="red">Time Division Multiplexing (TDM/分時多工)</font> :  分配時段週期性傳輸，雖然能以該線路之最大速率去傳輸，但只能在該時段進行</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>差異 : </p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">Packet Switching</th>
+<th align="center">Circuit Switching</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">優點</td>
+<td align="center">沒有單一使用者獨佔一條線路的問題，也不需預先建立Link</td>
+<td align="center">可確保運輸的完整性</td>
+</tr>
+<tr>
+<td align="center">缺點</td>
+<td align="center">可能會出現Packet Queuing &amp; lost</td>
+<td align="center">預先建立Link，且有FDM/TDM之分段問題</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>Internet Service Providers (ISPs) :　<ul>
+<li>由許多Routers組成</li>
+<li><font color="blue">Peering Link</font> : 連接ISP之間的線路</li>
+<li><font color="blue">Internet Exchange Point(IXP)</font> : Peering Link間的中繼站</li>
+<li>Regional ISP</li>
+<li><font color="blue">Tier-1 Commercial ISPs</font> : 包含國內和國際，EX: AT&amp;T</li>
+<li><font color="blue">Content Provider Networks </font> : 可能會運行自己的網路，以讓服務和內容更接近user，通常會繞過Tier-1 ISP與Regional ISP，EX: Google、Microsoft…</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>Performance : </p>
+<ul>
+<li><p>Delay差別 : </p>
+<ul>
+<li><p><font color="red">Nodal Processing</font> : 封包在路由器中時，要檢查封包Header的check bits 是否有誤，還要決定配送的路徑。</p>
+</li>
+<li><p><font color="red">Queuing Delay</font> : 路由器無法立即配送封包，因此出現封包在路由器中排隊的狀況</p>
+<ul>
+<li>$\alpha$與$L/R$之關係($\alpha$ : Packet抵達速率)<ol>
+<li><font color="blue">La/R ~ 0</font> : Queuing Delay較小</li>
+<li><font color="blue">La/R → 1</font> : Queuing Delay較大</li>
+<li><font color="blue">La/R &gt; 1</font> : 無限Delay</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><font color="red">Transmission Delay</font> : 將封包中的每個bit從路由器裡面組成一個封包，並上傳到線路上所需的等待時間。</p>
+</li>
+<li><p><font color="red">Propagation Delay</font> : 封包在實體線路上所需的運輸時間，也就是從一路由器傳輸到另一路由器之間所花費的時間。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Traceroute</strong> : </p>
+<ul>
+<li>向傳輸路徑上的每個Router發送三個Packet(<font color="blue">probes</font>)</li>
+<li>測量傳輸與回覆之間的時間間隔</li>
+</ul>
+</li>
+<li><p>Packet Loss解決方案 : </p>
+<ol>
+<li>由上一個節點重發</li>
+<li>由Source重發</li>
+<li>根本不重發</li>
+</ol>
+</li>
+<li><p><strong>Throughput(吞吐量)</strong> : </p>
+<ul>
+<li>定義 : 二網路節點在一段時間內，bits的傳輸量，設備能接收的最大速率</li>
+<li>分為<font color="blue">instantaneous(瞬時)</font>與<font color="blue">average</font></li>
+<li><font color="red">Bottleneck Link(瓶頸鏈路)</font> : 在二節點路徑中最壓抑吞吐量的那條路</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>Network Security : <ul>
+<li><font color="blue">Virus(病毒)</font> : 自我複製感染、可以快速蔓延</li>
+<li><font color="blue">Worm(蠕蟲)</font> : 自我複製感染、可以快速蔓延，但不需要附在別的程式內，也不用使用者介入操作</li>
+<li><font color="blue">Spyware Malware (間諜軟體)</font> : 監視、追蹤和回電子蹤跡給間諜軟體作者</li>
+<li><font color="blue">Botnet(殭屍網路)</font> : 用於散播垃圾郵件、執行DoS攻擊</li>
+<li><font color="blue">Denial of Service(DoS/阻斷服務攻擊)</font> : 透過傳遞大量封包淹沒目標伺服器，使其他使用者無法使用該資源</li>
+<li><font color="blue">Packet Sniffing(側錄封包)</font> : 在雜亂的網路介面中讀取所有通過之封包，常發生於廣播性媒介(EX: 共享Ethernet、無線)</li>
+<li><font color="blue">IP Sniffing(IP監聽)</font> : 假造修改來源的IP address</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>Layer : <ul>
+<li>優點 : <ul>
+<li>明確的結構以便識別複雜系統各部分之間的關係</li>
+<li>模塊化簡化了維護和系統更新</li>
+</ul>
+</li>
+<li>分層 :<br>  1.　<strong>Application</strong> : SMTP、HTTP<br>  2.　<strong>Transport</strong> : TCP、UDP<br>  3.　<strong>Network</strong> : IP、routing protocols<br>  4.　<strong>Link</strong> : Ethernet、WiFi<br>  5.　<strong>Physical</strong></li>
+<li>Switch : Physical + Link</li>
+<li>Router : Phsical + Link + Network<blockquote>
+<ul>
+<li>ISO/OSI模型 : </li>
+</ul>
+<ol start="5">
+<li><strong>Session</strong> : 數據傳輸中設定和維護網路中兩台電腦之間的通訊連接</li>
+<li><strong>Presentation</strong> : 把數據轉換為能與接收者的系統格式相容並適合傳輸的格式</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%AD%86%E8%A8%98/" rel="tag"># 筆記</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/05/30/js/js14/" rel="prev" title="【從零開始學JavaScript】實作練習 - 倒數計時器實作(上)">
+                  <i class="fa fa-chevron-left"></i> 【從零開始學JavaScript】實作練習 - 倒數計時器實作(上)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/06/08/notes/note2/" rel="next" title="【上課筆記】電腦網路概論 - Ch2">
+                  【上課筆記】電腦網路概論 - Ch2 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">若要轉載文章，麻煩請保留原作者名稱與原始連結。</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

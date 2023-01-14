@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"robinlyl2000.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+
+  <meta name="description" content="這次要來練習如何在JSX中使用變數嘿｡:.ﾟヽ(*´∀&#96;)ﾉﾟ.:｡">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【React入門】 Templates中的動態變數">
+<meta property="og:url" content="http://robinlyl2000.github.io/2021/03/14/react/react03/index.html">
+<meta property="og:site_name" content="Robin&#39;s 筆記Blog">
+<meta property="og:description" content="這次要來練習如何在JSX中使用變數嘿｡:.ﾟヽ(*´∀&#96;)ﾉﾟ.:｡">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.imgur.com/eEvlNdL.png">
+<meta property="og:image" content="https://i.imgur.com/f3meQ9o.png">
+<meta property="og:image" content="https://i.imgur.com/QjHgpaw.png">
+<meta property="og:image" content="https://i.imgur.com/dUh42S1.png">
+<meta property="og:image" content="https://i.imgur.com/FHRg2V4.png">
+<meta property="og:image" content="https://i.imgur.com/ZTgi6u0.png">
+<meta property="og:image" content="https://i.imgur.com/5tcy3ZF.png">
+<meta property="article:published_time" content="2021-03-14T01:34:54.000Z">
+<meta property="article:modified_time" content="2021-04-06T15:31:42.000Z">
+<meta property="article:author" content="Robin Huang">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="React">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/eEvlNdL.png">
+
+
+<link rel="canonical" href="http://robinlyl2000.github.io/2021/03/14/react/react03/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>【React入門】 Templates中的動態變數 | Robin's 筆記Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Robin's 筆記Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Template%E7%B0%A1%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">Template簡介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A0%90%E5%85%88%E6%BA%96%E5%82%99"><span class="nav-number">2.</span> <span class="nav-text">預先準備</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8B%95%E6%85%8B%E8%AE%8A%E6%95%B8%E5%AE%A3%E5%91%8A-%E2%80%94-Type-1"><span class="nav-number">3.</span> <span class="nav-text">動態變數宣告 — Type 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8B%95%E6%85%8B%E8%AE%8A%E6%95%B8%E5%AE%A3%E5%91%8A-%E2%80%94-Type-2"><span class="nav-number">4.</span> <span class="nav-text">動態變數宣告 — Type 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A0%85"><span class="nav-number">5.</span> <span class="nav-text">注意事項</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B8%BD%E7%B5%90"><span class="nav-number">6.</span> <span class="nav-text">總結</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Robin Huang"
+      src="/images/me.jpg">
+  <p class="site-author-name" itemprop="name">Robin Huang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">76</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2021/03/14/react/react03/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/me.jpg">
+      <meta itemprop="name" content="Robin Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Robin's 筆記Blog">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【React入門】 Templates中的動態變數
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-14 09:34:54" itemprop="dateCreated datePublished" datetime="2021-03-14T09:34:54+08:00">2021-03-14</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-04-06 23:31:42" itemprop="dateModified" datetime="2021-04-06T23:31:42+08:00">2021-04-06</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/React%E5%85%A5%E9%96%80/" itemprop="url" rel="index"><span itemprop="name">React入門</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+            <div class="post-description">這次要來練習如何在JSX中使用變數嘿｡:.ﾟヽ(*´∀`)ﾉﾟ.:｡</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="Template簡介"><a href="#Template簡介" class="headerlink" title="Template簡介"></a>Template簡介</h3><ul>
+<li>上次提到的Components其實可以分為兩種概念 : <ol>
+<li><strong>Template(模板)</strong> : 簡單來說就是界面的樣子，可能會包含版面預構設計、Components之組成、Styling(例如字體、顏色效果、背景樣式或icon等等）、插件、Widgets或Libraries</li>
+<li><strong>Login</strong> : 就是Element的各式功能，或是設定Element要如何跟用戶的互動等等；而這些就會涉及到變數、運算子、函式之類的!</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h3 id="預先準備"><a href="#預先準備" class="headerlink" title="預先準備"></a>預先準備</h3><ul>
+<li>開啟<code>src/App.js</code>，將<code>function App()</code>改為以下 :   <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;App&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;content&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;<span class="name">h1</span>&gt;</span>App Component<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>此時<code>npm run start</code>測試目前網頁的樣子，就可以看到以下畫面 :   <p align="center">
+      <img height="50%" width="50%" src="https://i.imgur.com/eEvlNdL.png" style="border:1px grey solid;">
+  </p>
+
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>補充 : <ul>
+<li>如果在測試網頁中，按F12打開開發人員工具，就可以看到html碼</li>
+<li>而如果將其跟我們剛剛輸入的JSX code去做比較 : <p align="center">
+  <img height="60%" width="60%" src="https://i.imgur.com/f3meQ9o.png">
+</p></li>
+<li>可以看的出來，兩者其實相當類似</li>
+<li>而目前回傳的這整個結構，只有簡單的介面，尚未有<font color=#1E86FF>Logic</font>的部分，所以這整體就是我們上面提到的<font color=#1E86FF>Template</font>!</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<hr>
+<h3 id="動態變數宣告-—-Type-1"><a href="#動態變數宣告-—-Type-1" class="headerlink" title="動態變數宣告 — Type 1"></a>動態變數宣告 — Type 1</h3><ul>
+<li>首先，我們在return前先宣告幾個變數 :   <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> title = <span class="string">&#x27;Welcome to the new blog&#x27;</span>; <span class="comment">// String</span></span><br><span class="line"><span class="keyword">const</span> likes = <span class="number">50</span>; <span class="comment">// int</span></span><br><span class="line"><span class="keyword">const</span> link = <span class="string">&#x27;http://www.google.com&#x27;</span>; <span class="comment">//String</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果好奇<code>const</code>與其他變數宣告的方式，歡迎參閱<a href="https://robinlyl2000.github.io/2021/01/24/js/js01/">【從零開始學JavaScript】宣告變數</a></p>
+</blockquote>
+</li>
+<li>接著在return的<code>&lt;div className=&quot;content&quot;&gt;...&lt;/div&gt;</code>中，修改成以下這樣 :   <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123; title &#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Liked &#123; likes &#125; times<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>也就是在JSX中，可以利用<font color=#1E86FF> { } </font>去使用先前建立之變數的值</p>
+</blockquote>
+</li>
+<li>結果就會變下面這樣 :   <p align="center">
+      <img height="60%" width="60%" src="https://i.imgur.com/QjHgpaw.png" style="border:1px grey solid;">
+  </p></li>
+<li>不只如此，在Element的屬性中也能使用動態變數 (下面以<code>&lt;a&gt;</code>元素為例)</li>
+<li>假設在<code>&lt;div className=&quot;content&quot;&gt;...&lt;/div&gt;</code>中再增加下面這行 :   <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&#123;</span> <span class="attr">link</span> &#125;&gt;</span>Google Site<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>也就是將<code>link</code>變數的值放進<code>&lt;a&gt;</code>元素的<code>href</code>屬性中</p>
+</blockquote>
+</li>
+<li>結果就會變下面這樣 :   <p align="center">
+      <img height="70%" width="70%" src="https://i.imgur.com/dUh42S1.png" style="border:1px grey solid;">
+  </p>
+</li>
+</ul>
+<hr>
+<h3 id="動態變數宣告-—-Type-2"><a href="#動態變數宣告-—-Type-2" class="headerlink" title="動態變數宣告 — Type 2"></a>動態變數宣告 — Type 2</h3><ul>
+<li>變數還有另一種宣告方式，就是可以直接在JSX的Element中直接宣告，如下 :   <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;&#123; <span class="number">10</span> &#125;&lt;/p&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123; &quot;hello, ninjas&quot; &#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123; [1,2,3,4,5] &#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br></pre></td></tr></table></figure></li>
+<li>結果如下 :   <p align="center">
+      <img height="80%" width="80%" src="https://i.imgur.com/FHRg2V4.png" style="border:1px grey solid;">
+  </p></li>
+<li>另外，也可以直接在Element中進行運算 :   <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;&#123; <span class="built_in">Math</span>.random() * <span class="number">10</span> &#125;&lt;/p&gt;</span><br></pre></td></tr></table></figure></li>
+<li>結果如下 :   <p align="center">
+      <img height="80%" width="80%" src="https://i.imgur.com/ZTgi6u0.png" style="border:1px grey solid;">
+  </p>
+</li>
+</ul>
+<hr>
+<h3 id="注意事項"><a href="#注意事項" class="headerlink" title="注意事項"></a>注意事項</h3><ul>
+<li>宣告動態變數時要注意一點，就是要在直接在網頁中顯示文字時，要注意變數其型態 : <ul>
+<li><strong>可以顯示</strong>的型態包含 : <ol>
+<li>數字(Number)</li>
+<li>字串(String)</li>
+<li>陣列(Array)</li>
+</ol>
+</li>
+<li><strong>不可顯示</strong>的型態包含 : <ol>
+<li>布林值(Boolean)</li>
+<li>物件(Object))</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>範例 : <ul>
+<li>假設先宣告以下變數 :   <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123; <span class="attr">name</span>: <span class="string">&#x27;yoshi&#x27;</span>, <span class="attr">age</span>: <span class="number">30</span> &#125;;</span><br></pre></td></tr></table></figure></li>
+<li>在return的<code>&lt;div className=&quot;content&quot;&gt;...&lt;/div&gt;</code>中，新增以下程式碼 :   <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123; person &#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>結果便會出現錯誤訊息  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: Objects are not valid as a React child (found: object with keys &#123;name, age&#125;). If you meant to render a collection of children, use an array instead.</span><br></pre></td></tr></table></figure></li>
+<li>接著，假設宣告以下變數 :   <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123; <span class="attr">name</span>: <span class="string">&#x27;yoshi&#x27;</span>, <span class="attr">age</span>: <span class="number">30</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> temp = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure></li>
+<li>一樣在return的<code>&lt;div className=&quot;content&quot;&gt;...&lt;/div&gt;</code>中，新增以下程式碼 :   <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123; temp &#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>結果雖然沒有錯誤訊息，但會發現什麼都沒有出現…(不論是<code>true</code>或<code>false</code>都一樣)  <p align="center">
+      <img height="80%" width="80%" src="https://i.imgur.com/5tcy3ZF.png" style="border:1px grey solid;">
+  </p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h3><ul>
+<li>這次我們練習了如何在JSX中使用變數，下一次要來練習如何堆疊多個Components~</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+              <a href="/tags/React/" rel="tag"># React</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/03/10/js/js05/" rel="prev" title="【從零開始學JavaScript】實作練習 - 用Navbar實作RWD">
+                  <i class="fa fa-chevron-left"></i> 【從零開始學JavaScript】實作練習 - 用Navbar實作RWD
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/03/22/js/js06/" rel="next" title="【從零開始學JavaScript】實作練習 - 開合型Sidebar">
+                  【從零開始學JavaScript】實作練習 - 開合型Sidebar <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">若要轉載文章，麻煩請保留原作者名稱與原始連結。</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

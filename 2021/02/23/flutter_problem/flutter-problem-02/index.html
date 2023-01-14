@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"robinlyl2000.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+
+  <meta name="description" content="這次來看看我們事前要做什麼準備吧(ﾉ&gt;ω&lt;)ﾉ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Flutter疑問診療室】 Cloud Firestore資料傳輸 - 事前準備">
+<meta property="og:url" content="http://robinlyl2000.github.io/2021/02/23/flutter_problem/flutter-problem-02/index.html">
+<meta property="og:site_name" content="Robin&#39;s 筆記Blog">
+<meta property="og:description" content="這次來看看我們事前要做什麼準備吧(ﾉ&gt;ω&lt;)ﾉ">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.imgur.com/kY4REKi.png">
+<meta property="og:image" content="https://i.imgur.com/ZJMIySO.png">
+<meta property="og:image" content="https://i.imgur.com/FKYkfCi.png">
+<meta property="og:image" content="https://i.imgur.com/4NyLPwG.png">
+<meta property="og:image" content="https://i.imgur.com/rsph98t.png">
+<meta property="article:published_time" content="2021-02-23T02:37:11.000Z">
+<meta property="article:modified_time" content="2021-03-02T09:56:22.000Z">
+<meta property="article:author" content="Robin Huang">
+<meta property="article:tag" content="Flutter">
+<meta property="article:tag" content="Firebase">
+<meta property="article:tag" content="Cloud Firestore">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/kY4REKi.png">
+
+
+<link rel="canonical" href="http://robinlyl2000.github.io/2021/02/23/flutter_problem/flutter-problem-02/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>【Flutter疑問診療室】 Cloud Firestore資料傳輸 - 事前準備 | Robin's 筆記Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Robin's 筆記Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%9DPackage"><span class="nav-number">1.</span> <span class="nav-text">安裝Package</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Class%E5%BB%BA%E7%AB%8B-Comment%E7%89%A9%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">Class建立 - Comment物件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Class%E5%BB%BA%E7%AB%8B-DataService%E7%89%A9%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">Class建立 - DataService物件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cloud-Firestore%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">4.</span> <span class="nav-text">Cloud Firestore初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B8%BD%E7%B5%90"><span class="nav-number">5.</span> <span class="nav-text">總結</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E8%88%87%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-number">6.</span> <span class="nav-text">引用與參考資料</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Robin Huang"
+      src="/images/me.jpg">
+  <p class="site-author-name" itemprop="name">Robin Huang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">76</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2021/02/23/flutter_problem/flutter-problem-02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/me.jpg">
+      <meta itemprop="name" content="Robin Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Robin's 筆記Blog">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【Flutter疑問診療室】 Cloud Firestore資料傳輸 - 事前準備
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-02-23 10:37:11" itemprop="dateCreated datePublished" datetime="2021-02-23T10:37:11+08:00">2021-02-23</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-02 17:56:22" itemprop="dateModified" datetime="2021-03-02T17:56:22+08:00">2021-03-02</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Flutter%E7%96%91%E5%95%8F%E8%A8%BA%E7%99%82%E5%AE%A4/" itemprop="url" rel="index"><span itemprop="name">Flutter疑問診療室</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+            <div class="post-description">這次來看看我們事前要做什麼準備吧(ﾉ>ω<)ﾉ</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="安裝Package"><a href="#安裝Package" class="headerlink" title="安裝Package"></a>安裝Package</h3><blockquote>
+<p>在Flutter操作Firestore之前，要先安裝名為<code>cloud_firestore</code>的Package</p>
+</blockquote>
+<ol>
+<li><p>前往<code>pub.dev</code>中的<code>cloud_firestore</code>頁面(<a target="_blank" rel="noopener" href="https://pub.dev/packages/cloud_firestore">連結</a>)</p>
+ <p align="center">
+     <img height="50%" width="50%" src="https://i.imgur.com/kY4REKi.png">
+ </p>
+</li>
+<li><p>點擊Installing頁面，可以看到目前<code>cloud_firestore</code>的最新版本</p>
+ <p align="center">
+     <img height="70%" width="70%" src="https://i.imgur.com/ZJMIySO.png">
+ </p>
+</li>
+<li><p>打開你Flutter專案中的<code>pubspec.yaml</code>，找到dependencies，並在其下方加上<code>cloud_firestore : [你看到的最新版本]</code></p>
+ <p align="center">
+     <img height="25%" width="25%" src="https://i.imgur.com/FKYkfCi.png">
+ </p>
+</li>
+<li><p>此時你的VScode應該會自動安裝此Package，但如果沒有的話，可以在Terminal中執行以下指令 : </p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ flutter pub get</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<hr>
+<h3 id="Class建立-Comment物件"><a href="#Class建立-Comment物件" class="headerlink" title="Class建立 - Comment物件"></a>Class建立 - Comment物件</h3><blockquote>
+<p>如果要在Flutter專案中傳遞評論的資料，我建議可以新增一個名為<code>Comment</code>的Object，這樣在傳遞時可以將所有資訊打包在一起，而不需要一個一個傳遞!</p>
+</blockquote>
+<ul>
+<li>新增<code>Comment</code> class :   <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Comment</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 要儲存的資訊</span></span><br><span class="line">    <span class="built_in">String</span> username;</span><br><span class="line">    <span class="built_in">String</span> userID;</span><br><span class="line">    <span class="built_in">String</span> commentID;</span><br><span class="line">    <span class="built_in">String</span> time;</span><br><span class="line">    <span class="built_in">String</span> title;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//Comment結構式</span></span><br><span class="line">    Comment(&#123;<span class="keyword">this</span>.commentID, <span class="keyword">this</span>.time, <span class="keyword">this</span>.title, <span class="keyword">this</span>.userID, <span class="keyword">this</span>.username&#125;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<hr>
+<h3 id="Class建立-DataService物件"><a href="#Class建立-DataService物件" class="headerlink" title="Class建立 - DataService物件"></a>Class建立 - DataService物件</h3><blockquote>
+<p>接下來，我們來建立跟Firestore互動的Class吧!</p>
+</blockquote>
+<ul>
+<li><p>引入Package : </p>
+  <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//引入Comment Class</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;package:[你的專案名稱]/.../Comment.dart&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//引入事前安裝好的Cloud Firestore Package</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;package:cloud_firestore/cloud_firestore.dart&#x27;</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新增<code>DataService</code> class : </p>
+  <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DataService</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//會使用到的資訊</span></span><br><span class="line">    <span class="built_in">String</span> userID;</span><br><span class="line">    <span class="built_in">String</span> commentID;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//DataService結構式</span></span><br><span class="line">    DataService(&#123;<span class="keyword">this</span>.userID, <span class="keyword">this</span>.commentID&#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//之後讀寫函式都能放在這裡~</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<hr>
+<h3 id="Cloud-Firestore初始化"><a href="#Cloud-Firestore初始化" class="headerlink" title="Cloud Firestore初始化"></a>Cloud Firestore初始化</h3><ul>
+<li><p>開啟你的<code>main.dart</code>，並引入Cloud Firestore Package : </p>
+  <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;package:cloud_firestore/cloud_firestore.dart&#x27;</span>;</span><br></pre></td></tr></table></figure></li>
+<li><p>接著在main function中加入以下程式碼 : </p>
+  <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> main() <span class="keyword">async</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//WidgetsFlutterBinding初始化，請見下方說明</span></span><br><span class="line">    WidgetsFlutterBinding.ensureInitialized();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//Firebase初始化</span></span><br><span class="line">    <span class="keyword">await</span> Firebase.initializeApp();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//執行App內容</span></span><br><span class="line">    runApp(MyApp());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>WidgetsFlutterBinding初始化</strong> : </p>
+<ul>
+<li>以下是Flutter的架構圖 : <p align="center">
+  <img height="50%" width="50%" src="https://i.imgur.com/4NyLPwG.png">
+</p></li>
+<li>而在Flutter中，Firebase此套件必須依靠這些模組與功能來完成初始化，但在進行Firebase存取時，這些操作通常是非同步的(asynchronous)。</li>
+<li>因此我們必須確認名為<code>WidgetsBinding</code>的物件已經被初始化，以下為初始化的方式 :   <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WidgetsFlutterBinding.ensureInitialized();</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>以下是<code>WidgetsBinding</code>的結構圖 : <p align="center">
+    <img height="70%" width="70%" src="https://i.imgur.com/rsph98t.png">
+</p></li>
+<li>可以看到，<code>WidgetsBinding</code>結合到許多其他Class，而在初始化時，這些Class將會被依序執行</li>
+<li>欲了解更多有關<code>WidgetsBinding</code>的資訊，可以去瀏覽<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903792006135821">ad6623的文章</a></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p><strong>Firebase初始化</strong> : </p>
+<ul>
+<li>接著，就可以初始化Firebase了 :   <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">await</span> Firebase.initializeApp();</span><br></pre></td></tr></table></figure></li>
+<li>這裡很重要的一點，就是此初始化必須要加上<code>await</code>。因為初始化是非同步的，必須等到套件完全被初始化，才能繼續後面的動作!<blockquote>
+<p>也就是為何在程式碼中，<code>main</code>後面要加上<code>async</code>的原因</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h3><ul>
+<li>我們目前已經把Flutter所需的事前準備都設定好了，下次就要開始練習讀取資料瞜!</li>
+</ul>
+<hr>
+<h3 id="引用與參考資料"><a href="#引用與參考資料" class="headerlink" title="引用與參考資料"></a>引用與參考資料</h3><ol>
+<li><a target="_blank" rel="noopener" href="https://clay-atlas.com/blog/2021/03/01/flutter-cn-servicesbinding-defaultbinarymessenger-was-accessed-before-binding/">ServicesBinding.defaultBinaryMessenger was accessed before the binding was initialized.</a></li>
+<li><a target="_blank" rel="noopener" href="http://gityuan.com/2019/06/29/flutter_run_app/">深入理解Flutter应用启动</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903792006135821">Flutter框架分析（二）– 初始化</a></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Flutter/" rel="tag"># Flutter</a>
+              <a href="/tags/Firebase/" rel="tag"># Firebase</a>
+              <a href="/tags/Cloud-Firestore/" rel="tag"># Cloud Firestore</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/02/19/flutter_problem/flutter-problem-01/" rel="prev" title="【Flutter疑問診療室】 Cloud Firestore資料傳輸 - 資料模型與型態">
+                  <i class="fa fa-chevron-left"></i> 【Flutter疑問診療室】 Cloud Firestore資料傳輸 - 資料模型與型態
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/02/28/flutter_problem/flutter-problem-03/" rel="next" title="【Flutter疑問診療室】 Cloud Firestore資料傳輸 - 讀寫Username">
+                  【Flutter疑問診療室】 Cloud Firestore資料傳輸 - 讀寫Username <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">若要轉載文章，麻煩請保留原作者名稱與原始連結。</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

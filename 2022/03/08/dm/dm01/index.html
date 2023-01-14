@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"robinlyl2000.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+
+  <meta name="description" content="null">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【基礎資料探勘】Ch1 &amp; Ch2 Part1">
+<meta property="og:url" content="http://robinlyl2000.github.io/2022/03/08/dm/dm01/index.html">
+<meta property="og:site_name" content="Robin&#39;s 筆記Blog">
+<meta property="og:description" content="null">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.imgur.com/cj7477q.png">
+<meta property="og:image" content="https://i.imgur.com/JsU0NBt.png">
+<meta property="og:image" content="https://i.imgur.com/HJOL1Ir.png">
+<meta property="og:image" content="https://i.imgur.com/Rkptxv0.png">
+<meta property="article:published_time" content="2022-03-08T14:42:56.000Z">
+<meta property="article:modified_time" content="2022-04-27T03:16:08.000Z">
+<meta property="article:author" content="Robin Huang">
+<meta property="article:tag" content="筆記">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/cj7477q.png">
+
+
+<link rel="canonical" href="http://robinlyl2000.github.io/2022/03/08/dm/dm01/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>【基礎資料探勘】Ch1 & Ch2 Part1 | Robin's 筆記Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Robin's 筆記Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ch1-Introduction"><span class="nav-number">1.</span> <span class="nav-text">Ch1 Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ch2-Data"><span class="nav-number">2.</span> <span class="nav-text">Ch2 Data</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Attributes-and-Objects"><span class="nav-number">2.1.</span> <span class="nav-text">Attributes and Objects</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Types-of-Data"><span class="nav-number">2.2.</span> <span class="nav-text">Types of Data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-Quality-Problems"><span class="nav-number">2.3.</span> <span class="nav-text">Data Quality Problems</span></a></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Robin Huang"
+      src="/images/me.jpg">
+  <p class="site-author-name" itemprop="name">Robin Huang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">76</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2022/03/08/dm/dm01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/me.jpg">
+      <meta itemprop="name" content="Robin Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Robin's 筆記Blog">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【基礎資料探勘】Ch1 & Ch2 Part1
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-03-08 22:42:56" itemprop="dateCreated datePublished" datetime="2022-03-08T22:42:56+08:00">2022-03-08</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-04-27 11:16:08" itemprop="dateModified" datetime="2022-04-27T11:16:08+08:00">2022-04-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%8A%E8%AA%B2%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">上課筆記</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%8A%E8%AA%B2%E7%AD%86%E8%A8%98/%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" itemprop="url" rel="index"><span itemprop="name">資料探勘</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+            <div class="post-description"></div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="Ch1-Introduction"><a href="#Ch1-Introduction" class="headerlink" title="Ch1 Introduction"></a>Ch1 Introduction</h2><ul>
+<li>Data Mining之Def : 透過自動或半自動的手段，去探索與分析大量資料，進而去發現有意義的Patterns</li>
+<li><font color=blue>Prediction Models</font> : 使用一變數去預測其他變數的未知或未來值</li>
+<li><font color=blue>Description Models</font> : 找到人類可解讀的Patterns，以描述資料</li>
+<li><font color=blue>Regression(迴歸)</font> : 根據其他變數值，去假設一個Dependency的線性/非線性模型，預測一個給定連續變數的值</li>
+</ul>
+<hr>
+<h2 id="Ch2-Data"><a href="#Ch2-Data" class="headerlink" title="Ch2 Data"></a>Ch2 Data</h2><h3 id="Attributes-and-Objects"><a href="#Attributes-and-Objects" class="headerlink" title="Attributes and Objects"></a>Attributes and Objects</h3><ul>
+<li>名詞定義 : <ul>
+<li><font color="blue">Data</font> : Data Object與其Attributes之集合</li>
+<li><font color="blue">Attribute</font>為一Obejct的特性或特徵<blockquote>
+<p>即資料庫中的Attribute</p>
+</blockquote>
+</li>
+<li>Attributes之一集合稱為<font color="blue">Object</font><blockquote>
+<p>即資料庫中的Tuple/Record</p>
+</blockquote>
+</li>
+<li><font color="blue">Attribute Values</font> : 分配給特定Object之Attribute的數字或符號<ul>
+<li>差異 : <ul>
+<li>相同Attribute (e.g. 高度) $\iff$ 不同Attribute Values(e.g. 英尺 or 公尺)</li>
+<li>不同Attribute (e.g. 表達特性不同) $\iff$ 相同Attribute Values(e.g. ID與年齡都是Integer)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Types of Attributes :<br>  <img src="https://i.imgur.com/cj7477q.png"></li>
+<li>Discrete Attribute vs Continuous Attribute : <ul>
+<li><font color="red">Discrete</font> Attribute : <ul>
+<li>Def : 只有有限的一組Value</li>
+<li>通常用Integer表示</li>
+<li>e.g. 郵遞區號、counts</li>
+<li><font color="blue">Binary attributes</font>為特例</li>
+</ul>
+</li>
+<li><font color="red">Continuous</font> Attribute : <ul>
+<li>Def : 實數作為Attribute Values</li>
+<li>通常用Floating-point Values</li>
+<li>e.g. 溫度、高度</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="Types-of-Data"><a href="#Types-of-Data" class="headerlink" title="Types of Data"></a>Types of Data</h3><ul>
+<li>Data的重要特徵 : <ul>
+<li>Dimensionality(維度)、Sparsity(稀疏性)、Resolution(解析度)、Size(尺寸)</li>
+</ul>
+</li>
+<li>Record Data : 一系列的Records所組成，其中包含固定的Attribute Sets<ul>
+<li>Data Matrix : $m \times n$的表格，e.g. 資料庫的Table<br>  <img src="https://i.imgur.com/JsU0NBt.png"></li>
+<li>Document Data : 每個OBject的Attribute Value為該文件中Term的出現次數<br>  <img src="https://i.imgur.com/HJOL1Ir.png"></li>
+<li>Transaction Data : 每筆Records都包含一組Items之集合<br>  <img src="https://i.imgur.com/Rkptxv0.png"></li>
+</ul>
+</li>
+<li>Graph Data : e.g. Generic graph, Webpages, 分子結構…</li>
+<li>Ordered Data</li>
+</ul>
+<hr>
+<h3 id="Data-Quality-Problems"><a href="#Data-Quality-Problems" class="headerlink" title="Data Quality Problems"></a>Data Quality Problems</h3><ul>
+<li><font color="red">Noise(雜訊)</font> : <ul>
+<li>For Object : 一種無關的Object</li>
+<li>For Attribute : 表示原始值的更動</li>
+</ul>
+</li>
+<li><font color="red">Outliers(離群值)</font> : 在資料集中，與大部分資料的特徵不同的Object</li>
+<li>Missing Values : <ul>
+<li>處理方式 : 刪除整個Obejct、估算該值、分析時忽略</li>
+<li>種類 : <ul>
+<li>Missing completely at random (MCAR / 完全隨機) : <ul>
+<li>遺漏值與Attribute沒有相關性</li>
+<li>對整體資料不會形成偏差</li>
+</ul>
+</li>
+<li>Missing at Random (MAR / 部分隨機) : <ul>
+<li>遺漏值與其他Variables有關</li>
+<li>對整體資料通常會形成偏差</li>
+</ul>
+</li>
+<li>Missing Not at Random (MNAR / 非隨機) : <ul>
+<li>遺漏值與未觀測資料有關</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Duplicate Data</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%AD%86%E8%A8%98/" rel="tag"># 筆記</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/03/03/ml/ml07/" rel="prev" title="【入門機器學習】機器學習基石(上) - Week7">
+                  <i class="fa fa-chevron-left"></i> 【入門機器學習】機器學習基石(上) - Week7
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/03/12/dm/dm02/" rel="next" title="【基礎資料探勘】Ch2 Part2">
+                  【基礎資料探勘】Ch2 Part2 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">若要轉載文章，麻煩請保留原作者名稱與原始連結。</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

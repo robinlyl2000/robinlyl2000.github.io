@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"robinlyl2000.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+
+  <meta name="description" content="null">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【上課筆記】資訊安全導論 - Ch3、Ch4">
+<meta property="og:url" content="http://robinlyl2000.github.io/2021/08/16/notes/note6/index.html">
+<meta property="og:site_name" content="Robin&#39;s 筆記Blog">
+<meta property="og:description" content="null">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.imgur.com/iCIn9Vr.png">
+<meta property="og:image" content="https://i.imgur.com/ZQZztki.png">
+<meta property="og:image" content="https://i.imgur.com/9m23k3X.png">
+<meta property="og:image" content="https://i.imgur.com/R8QmqZu.png">
+<meta property="og:image" content="https://i.imgur.com/7By1In9.png">
+<meta property="og:image" content="https://i.imgur.com/4HZncmp.png">
+<meta property="og:image" content="https://i.imgur.com/F0HlltD.png">
+<meta property="og:image" content="https://i.imgur.com/qyiY3fl.png">
+<meta property="og:image" content="https://i.imgur.com/PbHzTOb.png">
+<meta property="og:image" content="https://i.imgur.com/r8c92xq.png">
+<meta property="article:published_time" content="2021-08-16T04:23:49.000Z">
+<meta property="article:modified_time" content="2021-12-04T09:30:38.000Z">
+<meta property="article:author" content="Robin Huang">
+<meta property="article:tag" content="筆記">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/iCIn9Vr.png">
+
+
+<link rel="canonical" href="http://robinlyl2000.github.io/2021/08/16/notes/note6/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>【上課筆記】資訊安全導論 - Ch3、Ch4 | Robin's 筆記Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Robin's 筆記Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ch3"><span class="nav-number">1.</span> <span class="nav-text">Ch3</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#DES"><span class="nav-number">1.0.1.</span> <span class="nav-text">DES</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ch4"><span class="nav-number">2.</span> <span class="nav-text">Ch4</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Robin Huang"
+      src="/images/me.jpg">
+  <p class="site-author-name" itemprop="name">Robin Huang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">76</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2021/08/16/notes/note6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/me.jpg">
+      <meta itemprop="name" content="Robin Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Robin's 筆記Blog">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【上課筆記】資訊安全導論 - Ch3、Ch4
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-16 12:23:49" itemprop="dateCreated datePublished" datetime="2021-08-16T12:23:49+08:00">2021-08-16</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-12-04 17:30:38" itemprop="dateModified" datetime="2021-12-04T17:30:38+08:00">2021-12-04</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%8A%E8%AA%B2%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">上課筆記</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+            <div class="post-description"></div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="Ch3"><a href="#Ch3" class="headerlink" title="Ch3"></a>Ch3</h3><ul>
+<li>Symmetric Cipher : <ul>
+<li><strong>Stream Cipher</strong> :<ul>
+<li> 一次加密1 bit或1 byte的資料流</li>
+<li> 理想狀況下，會使用<font color = #000088>Vernam Cipher的One-time Pad版本</font>，也就是讓keystream和plaintext bit stream一樣長</li>
+<li> keystream需要用另外安全信任的管道傳輸給另一方</li>
+<li>優點 : <ul>
+<li> 如果keystream是隨機的，則除了得到keystream以外，沒有任何方式能夠破解</li>
+</ul>
+</li>
+<li>缺點 : <ul>
+<li>如果資料量很大，會遇到傳輸的物理問題 </li>
+<li>實際上，得將bit-stream generator實踐成演算法，才能讓雙方生成keystream</li>
+</ul>
+</li>
+<li>EX : <font color = #000088>Autokeyed Vigenère cipher、Vernam cipher</font></li>
+</ul>
+</li>
+<li><strong>Block Cipher</strong> : <ul>
+<li>明文被視為一個block，用於生成等長的ciphertext block</li>
+<li>block大小通常為64 or 128 bits</li>
+<li>雙方使用者共用一個對稱加密key，而且key要是可逆的</li>
+<li>網路上大多的對稱加密程式都使用block cipher</li>
+<li>n bits的密文，可能會產生$2^n$種明文組合</li>
+<li>Encryption and Decryption Mappings :　<ul>
+<li>block size過小 → 可能會被統計分析解密</li>
+<li>block size過大 → 不易進行密碼分析</li>
+</ul>
+</li>
+<li>對於理想上n bits的block cipher，key的長度定義為$n*(2^n)$bits</li>
+</ul>
+</li>
+<li>密碼學技術分類 : <ul>
+<li>加密方式 : <ol>
+<li> <font color = "red">Substitutions(替代)</font> : 每個明文元素都有對應替換的密文元素</li>
+<li> <font color = "red">Permutation(置換)</font> : 更改明文元素出現的順序</li>
+</ol>
+</li>
+<li>演算法設計方法 : <ol>
+<li> <font color = "red">Diffusion(擴散)</font> : 讓一個明文字母能夠儘可能對應多個密文字母<font color = #000088>(明文$\Leftrightarrow$密文)</font></li>
+<li><font color = "red">Confusion(混淆)</font> : 讓密文的統計數據和key的值之間有著複雜的關係<font color = #000088>(key$\Leftrightarrow$密文)</font><ul>
+<li>即使attacker知道密文的統計數據，但因為key生成密文的方式太複雜，導致很難判斷出key</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>modular運算 : <ul>
+<li>$a = qn + r,\quad0{\le}r{\lt}n,\quad q = \lfloor{a/n}\rfloor$</li>
+</ul>
+</li>
+<li><strong>Feistel Cipher</strong><ul>
+<li>圖例 :<br>  <img src="https://i.imgur.com/iCIn9Vr.png"></li>
+<li>操作步驟 : <ol>
+<li>plaintext分為<font color = #000088>$L_0$</font>和<font color = #000088>$R_0$</font>兩部分</li>
+<li>原始金鑰<font color = #000088>$K$</font>生成$n$個回合金鑰$K_i$，每個回合金鑰都有自己的round function(<font color = #000088>$F$</font>)</li>
+<li>將$R_0$和該回合金鑰作$F$函數的轉換</li>
+<li>再跟$L_0$做XOR，並作為新的<font color = #000088>$R_1$</font></li>
+<li>最後把$R_0$直接作為<font color = #000088>$L_1$</font></li>
+</ol>
+</li>
+<li>主要公式 : <ul>
+<li>$LE_i=RE_{i-1}$</li>
+<li>$REi=LE_{i-1}\bigoplus F(RE_{i-1},K_i)$</li>
+</ul>
+</li>
+<li>重點 : <ul>
+<li>每回合$L_i$和$R_i$倆倆交換 : 使用了<font color = "red">Permutation(置換)</font></li>
+<li>每回合$R_i$先經過$F$函數的轉換，再和$L_i$做XOR : 使用了<font color = "red">Substitutions(替代)</font></li>
+</ul>
+</li>
+<li>加密法依賴於 : <ol>
+<li><font color = #000088>Block大小</font> : 越大的Block代表安全性越高，但也會讓加解密速度降低</li>
+<li><font color = #000088>Key大小</font> : 越大的Key代表安全性越高，但可能會降低加解密速度</li>
+<li><font color = #000088>回合數</font> : 多回合制讓安全性提高</li>
+<li><font color = #000088>回合金鑰生成演算法</font> : 此算法的高複雜度，讓密碼分析不易進行</li>
+<li><font color = #000088>回合$F$函數</font> : 更高的複雜度對於密碼分析更有抵抗力</li>
+<li><font color = #000088>快速軟體加解密</font> : 演算法執行速度影響到軟體加解密的速度</li>
+<li><font color = #000088>易於分析</font> : 如果能輕易地解釋演算法，就能簡單找出密碼分析的漏洞，把演算法的強度再作提升</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="DES"><a href="#DES" class="headerlink" title="DES"></a>DES</h5><ul>
+<li>DES(Data Encryption Standard) $\approx$ DEA(Data Encryption Algorithm)<ul>
+<li>輸入64 bits的block，使用56 bits的Key加密成64 bits的輸出</li>
+<li>使用相同的步驟與Key來加解密</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><strong>整體明文操作</strong> :<br>  <img src="https://i.imgur.com/ZQZztki.png"><ol>
+<li>輸入64 bits的明文</li>
+<li>經過<font color = #000088>Initial permutation (IP)</font>，重新排列明文</li>
+<li>跑過總共<font color = #000088>16個回合</font></li>
+</ol>
+</li>
+</ul>
+<hr>
+<ul>
+<li><strong>各回合明文操作</strong> :<br>  <img src="https://i.imgur.com/9m23k3X.png"><ol>
+<li>輸入<font color = "red">64 bits</font>的明文</li>
+<li>分為$L_i$(<font color = "red">32 bits</font>)和$R_i$(<font color = "red">32 bits</font>)兩塊</li>
+<li>右半部 : <ul>
+<li><strong>F函數</strong> : <ul>
+<li>$R_i$經過<font color = #000088>E table</font>，<font color = "red">從32 bits擴增至48 bits</font></li>
+<li>和回合金鑰<font color = #000088>$K_i$</font>(<font color = "red">48 bits</font>)做XOR</li>
+<li>再經過<font color = #000088>S-box</font>，<font color = "red">從48 bits縮減回32 bits</font></li>
+<li>最後再經過一次置換(Permutation)</li>
+</ul>
+</li>
+<li>和$L_i$做XOR</li>
+<li>最後產出$R_{i+1}$</li>
+</ul>
+</li>
+<li>左半部 : <ul>
+<li>直接把$R_i$變為$L_{i+1}$<blockquote>
+<ul>
+<li>E table :<br>假設 32 bits input : …efgh ijkl mnop…<br>就會變成 48 bits output : ..defghi hijklm lmnopq…</li>
+<li>S-box : <ol>
+<li>把48 bits切割成S1~S8，每組各6 bits</li>
+<li>假設S1 = 011001<br><img src="https://i.imgur.com/R8QmqZu.png"></li>
+<li>row = 前後兩碼 = 01 = 2</li>
+<li>column = 中間剩餘四碼 = 1100 = 12</li>
+<li>找出S1-box第2列第12行的數字 : 9 = 1001</li>
+<li>將8組的4bits綜合起來，共32 bits</li>
+</ol>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<hr>
+<ul>
+<li><strong>整體Key操作</strong> :<br>  <img src="https://i.imgur.com/7By1In9.png"><ol>
+<li>輸入<font color = "red">64 bits</font>的Key</li>
+<li>經過<font color = #000088>Permuted Choice One (PC-1)</font><ul>
+<li>每第8個bit都刪除 → 讓key<font color = "red">從64 bits變為56 bits</font></li>
+<li>將Key分為$C_i$和$D_i$，各28 bits</li>
+</ul>
+</li>
+<li>兩者都Left Shift一次，位移量依<font color = #000088>回合數</font>去對照特定schedule(通常都是1 or 2)<br><img src="https://i.imgur.com/4HZncmp.png"></li>
+<li>此成為下一回合的input key</li>
+<li>另外，再經過<font color = #000088>Permuted Choice Two (PC-2)</font>，<font color = "red">從56 bits變為48 bits</font></li>
+<li>此結果就是該回合的回合金鑰$K_i$</li>
+</ol>
+</li>
+</ul>
+<hr>
+<ul>
+<li><strong>各回合Key操作</strong> :<br>  <img src="https://i.imgur.com/F0HlltD.png"></li>
+</ul>
+<hr>
+<ul>
+<li><strong>Avalanche Effect(雪崩效應)</strong> : <ul>
+<li>明文或Key改變一個bit，會造成密文的巨大改動</li>
+</ul>
+</li>
+<li>Time attack : <ul>
+<li>通常可以運用加解密時輸入不同明文所花費的時間差，去推測明文或Key</li>
+<li>但在DES和更好的對稱加密中，不太可能成功</li>
+</ul>
+</li>
+<li>Feistel Cipher強度來源 : <ol>
+<li><strong>Number of Rounds</strong> : <ul>
+<li>回合數越多，越難進行Cryptanalysis(密碼分析)</li>
+<li>一般而言，已知密碼分析工作量 &gt; 暴力攻擊工作量</li>
+<li>當Round &lt; 15時，暴力攻擊工作量 &gt; Differential Cryptanalysis(差分密碼分析)工作量</li>
+</ul>
+</li>
+<li><strong>Design of the function F</strong> : <ul>
+<li>F函數越是<font color = #000088>nonlinear(非線性)</font>，任何類型的密碼分析都越困難</li>
+<li>SAC和BIC都加強了<font color = #000088>Confusion(混淆)</font>的效果<ul>
+<li><strong>Strict avalanche criterion (SAC/嚴格雪崩效應)</strong> : 每個輸入進<font color = #000088>S-box</font>的bit，都有<font color = #000088>50%</font>機率發生變化</li>
+<li><strong>Bit independence criterion (BIC)</strong> : 對於輸入位元i和輸出位元j、k，當i被反轉時，j和k應要獨立改變</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Key Scheduling Algorithm</strong> : <ul>
+<li>一般狀況 : 把以下兩者難度提升到最高<ol>
+<li>推導單個回合金鑰的難度</li>
+<li>還原為主Key的難度</li>
+</ol>
+</li>
+<li>最低要求 : <ol>
+<li>確保Key或是密文有滿足SAC和BIC</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h3 id="Ch4"><a href="#Ch4" class="headerlink" title="Ch4"></a>Ch4</h3><ul>
+<li>Divisibility : <ul>
+<li>$a=qn+r$ : <ul>
+<li>a : dividend(被除數)</li>
+<li>n : divisor(除數)</li>
+<li>q : quotient(商數)</li>
+<li>r : remainder(餘數)</li>
+</ul>
+</li>
+<li>$b|a$ : a整除b</li>
+</ul>
+</li>
+<li>The Euclidean algorithm<ul>
+<li>GCD : <ul>
+<li>gcd(0, 0) = 0</li>
+<li>gcd(a, b) = gcd(|a|, |b|)</li>
+<li>gcd(a, 0) = |a|</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Extended Euclidean Algorithm<ul>
+<li>公式 : <font color = #000088>$ax+by=gcd(a ,b)$</font><br><img src="https://i.imgur.com/qyiY3fl.png"></li>
+</ul>
+</li>
+<li>Modular arithmetic<ul>
+<li>modular運算 : <ul>
+<li>$a=mb+r$</li>
+<li><font color = #000088>$a\quad mod \quad n =a-\lfloor{a/n}\rfloor*n$</font></li>
+<li>$a\equiv b(mod\quad n)\quad\Rightarrow\quad (a\quad mod\quad  n)=(b\quad mod\quad n)$</li>
+<li>$a\equiv 0(mod\quad n)\quad\Rightarrow\quad n|a$</li>
+<li>$[(a\quad mod\quad n)+(b\quad mod\quad n)]\quad mod\quad n=(a+b)\quad mod\quad n$(減法&amp;乘法也適用)</li>
+</ul>
+</li>
+<li><strong>Additive Inverse</strong>(加法反元素) : 兩元素相加mod n為<strong>0</strong></li>
+<li><strong>Multiplicative Inverse</strong>(乘法反元素) : 兩元素相乘mod n為<strong>1</strong></li>
+<li>mod n之餘數的集合稱為$Z_n$<ol>
+<li>也稱為residue classes (mod n)</li>
+<li>$Z_n={0, 1,…, (n-1)}$<br><img src="https://i.imgur.com/PbHzTOb.png"></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>Groups, rings, and fields<br>  <img src="https://i.imgur.com/r8c92xq.png"><ul>
+<li><strong>Group</strong> : <ul>
+<li>The <font color = #000088>order</font> of the group : Group中元素的數量 </li>
+<li>A4 : <font color ="red">可以找到加法反元素</font></li>
+<li>若Group滿足A1~A5，則稱為<font color = #000088>Abelian group</font><ol>
+<li>整數set under Addition是Abelian group</li>
+<li>非零實數set under Multiplication是Abelian group</li>
+</ol>
+</li>
+<li>若Group = ${a^k; k \in \mathbb{Z} }$，則稱為<font color = #000088>Cyclic Group</font><ul>
+<li>Cyclic Group也屬於Abelian group</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Ring</strong> : <ul>
+<li>滿足A1~M3</li>
+<li>在Ring中，可以做加、減(a+(-b))與乘法，<font color ="red">但都不能離開該集合</font></li>
+<li>若Ring又滿足M4(對所有元素而言，ab=ba皆成立)，則稱為<font color = #000088>Commutative Ring</font><ol>
+<li>整數set under Addition and Multiplication是Commutative Ring</li>
+<li>前面提的$Z_n$也屬於Commutative Ring</li>
+</ol>
+</li>
+<li>若Ring還滿足M5、M6，則稱為<font color = #000088>Integral Domain</font><ol>
+<li>整數set under Addition and Multiplication是Integral Domain </li>
+</ol>
+</li>
+</ul>
+</li>
+<li><strong>Field</strong> : <ul>
+<li>滿足A1~M7</li>
+<li>M7 : <font color ="red">可以找到乘法反元素</font></li>
+<li>在Field中，可以做加、減($a-b = a+(-b)$)、乘法與除法($a/b=a*b^{-1}$)，<font color ="red">但都不能離開該集合</font></li>
+<li>EX : $\mathbb{Q}$、$\mathbb{R}$、$\mathbb{C}$  $\iff$ $\mathbb{Z}$不是Field</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Inite fields of the form $GF(p^n)$<ul>
+<li>$GF(p^n)$ : order為$p^n$的有限Field</li>
+<li>$GF(p)$ : order為<font color ="red">質數$p$</font>的有限Field<ul>
+<li>$GF(p)$ = $Z_p$ = ${0, 1, …, p-1}$</li>
+</ul>
+</li>
+<li><font color = #000088>當$p$為質數時，$Z_p$中的所有整數都可以找到乘法反元素</font><br>  → 使用Extended Euclidean Algorithm</li>
+</ul>
+</li>
+<li>Polynomial arithmetic :<ul>
+<li>多項式運算包含加法、減法與乘法</li>
+<li>除法的話，S必須是Field<ul>
+<li>EX :　實數、有理數或$Z_p$ for p prime</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Finite fields of the form $GF(2^n)$ : <ul>
+<li><strong>Addition</strong>變成<strong>XOR</strong></li>
+<li><strong>Multiplication</strong>需要<strong>Shift</strong>，再<strong>XOR</strong> : <ol>
+<li><font color = #000088>Modulo Reduction</font> : <ul>
+<li>假設m(x)最高次方為8，可以把$f(x)*g(x)$結果中高於8次方的多項式mod m(x)</li>
+<li>EX :<br>$$<br>m(x) = x^8 + x^4 + x^3 + x + 1 \<br>  f(x) = b_7x^7 + b_6x^6 + b_5x^5 + b_4x^4 + b_3x^3 + b_2x^2 + b_1x + b_0 \<br>  g(x) = x \<br>  if\quad b_7 = 0,\<br>  f(x) * g(x) = b_6x^7 + b_5x^6 + b_4x^5 + b_3x^4 + b_2x^3 + b_1x^2 + b_0x \<br>  if\quad b_7 = 1,\<br>  f(x) * g(x) = \color{blue}{b_7x^8}+ b_6x^7 + b_5x^6 + b_4x^5 + b_3x^4 + b_2x^3 + b_1x^2 + b_0x \<br>  = b_6x^7 + b_5x^6 + b_4x^5 + b_3x^4 + b_2x^3 + b_1x^2 + b_0x + \color{blue}{[b_7x^8\quad mod\quad m(x)]} $$</li>
+</ul>
+</li>
+<li><font color = #000088>Binary Notation</font> </li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%AD%86%E8%A8%98/" rel="tag"># 筆記</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/08/03/notes/note5/" rel="prev" title="【上課筆記】資訊安全導論 - Ch1、Ch2">
+                  <i class="fa fa-chevron-left"></i> 【上課筆記】資訊安全導論 - Ch1、Ch2
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/08/21/js/js18/" rel="next" title="【從零開始學JavaScript】實作練習 - Scroll網頁實作(下)">
+                  【從零開始學JavaScript】實作練習 - Scroll網頁實作(下) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">若要轉載文章，麻煩請保留原作者名稱與原始連結。</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

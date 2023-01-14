@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"robinlyl2000.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+
+  <meta name="description" content="null">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【上課筆記】資訊安全導論 - Ch1、Ch2">
+<meta property="og:url" content="http://robinlyl2000.github.io/2021/08/03/notes/note5/index.html">
+<meta property="og:site_name" content="Robin&#39;s 筆記Blog">
+<meta property="og:description" content="null">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-08-02T17:35:47.000Z">
+<meta property="article:modified_time" content="2021-12-04T09:30:40.000Z">
+<meta property="article:author" content="Robin Huang">
+<meta property="article:tag" content="筆記">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://robinlyl2000.github.io/2021/08/03/notes/note5/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>【上課筆記】資訊安全導論 - Ch1、Ch2 | Robin's 筆記Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Robin's 筆記Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ch1"><span class="nav-number">1.</span> <span class="nav-text">Ch1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ch2"><span class="nav-number">2.</span> <span class="nav-text">Ch2</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Robin Huang"
+      src="/images/me.jpg">
+  <p class="site-author-name" itemprop="name">Robin Huang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">76</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2021/08/03/notes/note5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/me.jpg">
+      <meta itemprop="name" content="Robin Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Robin's 筆記Blog">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【上課筆記】資訊安全導論 - Ch1、Ch2
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-03 01:35:47" itemprop="dateCreated datePublished" datetime="2021-08-03T01:35:47+08:00">2021-08-03</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-12-04 17:30:40" itemprop="dateModified" datetime="2021-12-04T17:30:40+08:00">2021-12-04</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%8A%E8%AA%B2%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">上課筆記</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+            <div class="post-description"></div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="Ch1"><a href="#Ch1" class="headerlink" title="Ch1"></a>Ch1</h3><ul>
+<li>CIA triad : <ul>
+<li>Confidentiality(隱密性)</li>
+<li>Integrity(完整性)</li>
+<li>Availability(可用性)</li>
+</ul>
+</li>
+<li>OSI模型 : <ul>
+<li>Security Attack :<br>→ goal : Detect and Recover<ul>
+<li>Passive Attack</li>
+<li>Active Attack</li>
+</ul>
+</li>
+<li>Security Services : <ul>
+<li>Defined by <strong>X.800</strong> or <strong>RFC 4949</strong></li>
+<li>分類 : <ol>
+<li><strong>Authentication</strong> : <ul>
+<li>Peer entity authentication : 確認雙方protocol相等、提供身分授權</li>
+<li>Data origin authentication : 確認數據來源</li>
+</ul>
+</li>
+<li><strong>Access Control</strong> : 確認每個實體在連接前都需要被認證</li>
+<li><strong>Data Confidentiality</strong> : <ul>
+<li>保護資料以避免passive attack</li>
+<li>讓attacker無法觀察到流量的來源和目的地</li>
+</ul>
+</li>
+<li><strong>Data Integrity</strong> :<br> *　Connection-oriented integrity service(連接導向完整性服務) : 處理整個訊息流，避免其發送時沒有被重新處理過<br> *　Connectionless integrity service(無連接完整性服務) : 只針對單個訊息的保護</li>
+<li><strong>Nonrepudiation</strong>(不可否認性) : 預防sender或rceiver否認曾經傳送過的訊息</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>Security Mechanisms : <ul>
+<li><strong>Specific Security Mechanisms</strong> : <ul>
+<li>加密（Encipherment）</li>
+<li>數位簽章（Digital Signature）</li>
+<li>存取控制（Access Control）</li>
+<li>資料完整性（Data Integrity）</li>
+<li>驗證交換（Authentication Exchange）</li>
+<li>路由控制（Routing Control）</li>
+<li>公證（Notarization）</li>
+</ul>
+</li>
+<li>Two kinds of threats of program:<ul>
+<li>Information access threats(資訊存取威脅)</li>
+<li>Service threats : 利用服務漏洞去禁止合法用戶使用</li>
+</ul>
+</li>
+<li>避免unwanted access : <ol>
+<li><strong>Gatekeeper function</strong> : <ul>
+<li>只讓有授權的user通過</li>
+<li>偵測並拒絕attack</li>
+</ul>
+</li>
+<li><strong>Internal Control</strong> : 監測活動與分析</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="Ch2"><a href="#Ch2" class="headerlink" title="Ch2"></a>Ch2</h3><ul>
+<li>Symmetric Encryption : <ul>
+<li>兩大需求 : <ol>
+<li> Strong Encryption Algorithm</li>
+<li> 雙方都要把key收好(Don’t need to keep the algorithm secret; but only keep the key secret.)</li>
+</ol>
+</li>
+<li>Cryptographic Systems : <ul>
+<li>Substitution : 以取代的方式將文字做順序的位移，讓原本的文字變成另一個文字</li>
+<li>Transposition : 將原本字串的順序重新排列</li>
+</ul>
+</li>
+<li>Attacking approach:<ul>
+<li><font color = #000088>Cryptanalysis(密碼破譯)</font> : 利用常理或統計方式來分析密文</li>
+<li><font color = #000088>Brute-force attack(暴力攻擊)</font> : 嘗試所有可能的key組合<br>  → 平均上，測試一半的可能key組合便能成功</li>
+</ul>
+</li>
+<li>Encryption Scheme : <ul>
+<li><font color = #000088>Unconditionally secure</font> : 不論opponent有多少時間都不可能破解，因為所需的訊息並不存在那裏</li>
+<li><font color = #000088>Computationally secure</font>(二擇一) : <ol>
+<li>破解密文的成本大於其明文的價值</li>
+<li>破解密文的時間大於其明文有用的lifetime</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><strong>Caesar Cipher</strong>(凱薩加密法) : <ul>
+<li>公式 : $C = E(k,p) = (p+k) mod 26$</li>
+<li>可以用Brute-force，但其遇到以下狀況就行不通 : <ul>
+<li>Key很大的時候</li>
+<li>不知道明文的語言時</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Monoalphabetic Substitution Cipher</strong>(單表加密法) : <ul>
+<li>定義 : 每個密文字母在訊息中都有用到</li>
+<li>如果明文由26個字母所組成，那Key就有26!種組合</li>
+<li>缺點 : 容易透過字母出現的頻率去破解<ol>
+<li>單字母 : e</li>
+<li>雙字母 : th</li>
+<li>三字母 : the</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><strong>Playfair Cipher</strong>(波雷費密碼) : <ul>
+<li>為<font color = #000088>Multiple Substitutes</font></li>
+<li>作法 : <ol>
+<li>清除KEY重複字母，將其塞入5X5矩陣中，剩下空的依序補上未填入的字母</li>
+<li>將明文塞入X，EX : ballon → BA LX LO ON</li>
+<li>找密文 : <ul>
+<li>同橫行 : 往右移一格</li>
+<li>同直行 : 往下移一格</li>
+<li>都不是 : 找對角兩個</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>優點 : <ul>
+<li>有26*26=676種組合</li>
+<li>較難使用頻率分析</li>
+</ul>
+</li>
+<li>缺點 : <ul>
+<li>仍保留了明文語言的一部分結構 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Hill Cipher</strong>(希爾密碼) : <ul>
+<li>透過n*n矩陣將長度n的明文轉換為長度n的密文</li>
+<li>加密公式 : $C = PKmod 26$</li>
+<li>解密公式 : $P = CK^{-1}mod 26$</li>
+<li>優點 : <ul>
+<li>可以完全隱藏單字母的出現頻率</li>
+<li>可以抵擋ciphertext-only attack</li>
+</ul>
+</li>
+<li>缺點 : <ul>
+<li>不能抵擋known plaintext attack(得知明文與密文之相對)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Vigenère Cipher</strong>(維吉尼亞密碼) : <ul>
+<li>為<font color = #000088>polyalphabetic substitution ciphers(多表加密)</font></li>
+<li>由26個凱撒密碼組成，移位範圍為0到25</li>
+<li>使用方式 : <ul>
+<li>假如明文是「TAKETHATHILL」</li>
+<li>假如keyword為YANG，則key就是 「YANGYANGYANG」</li>
+<li>加總後就可以得到密文「RAXKRHNZFIYR」</li>
+</ul>
+</li>
+<li>公式 : $C_i = (P_i+K_i)mod 26$</li>
+<li>優點 : 每個明文字母都對應多個密文字母</li>
+<li>缺點 : 可以透過密文重複的次數與間隔來推算keyword</li>
+</ul>
+</li>
+<li><strong>Vigenère Autokey System</strong> : <ul>
+<li>使用方式 : <ul>
+<li>類似Vigenère Cipher，但key變成「<font color = "red">YANG</font><font color = #000088>TAKETHAT</font>」(keyword+明文)</li>
+<li>優點 : 一個明文字母可以對應多個密文字母，讓字母頻率不好被分辨出</li>
+<li>缺點 : keyword和明文擁有相同的文字頻率，透過分析技術還是能輕易地分辨出來</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Vernam Cipher</strong><ul>
+<li>明文和key先各自轉2元進位，再做互斥或</li>
+<li>優點 : <ul>
+<li>不易進行密碼分析(cryptanalysis)</li>
+</ul>
+</li>
+<li>缺點 : <ul>
+<li>key是由running loop of tape所產生，但它轉到最後還是會循環</li>
+<li>只要有足夠的密文或明文依然能破解</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>One-Time Pad</strong>(一次性密碼本) : <ul>
+<li>使用和明文一樣長的key → 讓key不會有重複的問題</li>
+<li>每一個key使用完畢後就要丟棄</li>
+<li>優點 : <ul>
+<li>理論上，因為密文和明文之間毫無統計關係，因此根本無法破解</li>
+<li>可以用在需要高安全性的低頻率通道</li>
+</ul>
+</li>
+<li>缺點 : <ul>
+<li>無法產生出那麼多隨機key</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Rail Fence Cipher</strong>(籬笆密碼法) : <ul>
+<li>使用方法 : <ol>
+<li>假設明文為「meet me after the toga party」 </li>
+<li>使用<font color = #000088>depth = 2</font>的Rail Fence Cipher :<br> MEMATRHTGPRY<br> ETEFETEOAAT</li>
+<li>密文就是MEMATRHTGPRYETEFETEOAAT</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><strong>Row Transposition Cipher</strong>(列置換加密法) : <ul>
+<li>key記錄了row排列的順序</li>
+<li>使用方法 : <ol>
+<li>將明文排成一列一列</li>
+<li>依key的順序取出，拼湊起來就是密文</li>
+<li>例如 :<br>![](<a target="_blank" rel="noopener" href="https://i.imgur.com/ndr2mPA.png">https://i.imgur.com/ndr2mPA.png</a> =80%x)</li>
+</ol>
+</li>
+<li>缺點 : 還是能看出字母頻率</li>
+</ul>
+</li>
+<li><strong>Multiple Transposition</strong> : <ul>
+<li>使用多次Row Transposition Cipher</li>
+<li>優點 : 讓cryptanalyze(密碼分析)更加不易</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%AD%86%E8%A8%98/" rel="tag"># 筆記</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/07/30/notes/note4/" rel="prev" title="【上課筆記】資料庫管理">
+                  <i class="fa fa-chevron-left"></i> 【上課筆記】資料庫管理
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/08/16/notes/note6/" rel="next" title="【上課筆記】資訊安全導論 - Ch3、Ch4">
+                  【上課筆記】資訊安全導論 - Ch3、Ch4 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">若要轉載文章，麻煩請保留原作者名稱與原始連結。</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

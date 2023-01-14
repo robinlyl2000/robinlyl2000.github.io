@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"robinlyl2000.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+
+  <meta name="description" content="null">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【上課筆記】資料庫管理">
+<meta property="og:url" content="http://robinlyl2000.github.io/2021/07/30/notes/note4/index.html">
+<meta property="og:site_name" content="Robin&#39;s 筆記Blog">
+<meta property="og:description" content="null">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.imgur.com/0T9yNgy.png">
+<meta property="og:image" content="https://i.imgur.com/FrMMao9.png">
+<meta property="article:published_time" content="2021-07-30T11:22:46.000Z">
+<meta property="article:modified_time" content="2021-12-04T09:30:40.000Z">
+<meta property="article:author" content="Robin Huang">
+<meta property="article:tag" content="筆記">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/0T9yNgy.png">
+
+
+<link rel="canonical" href="http://robinlyl2000.github.io/2021/07/30/notes/note4/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>【上課筆記】資料庫管理 | Robin's 筆記Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Robin's 筆記Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CH1"><span class="nav-number">1.</span> <span class="nav-text">CH1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CH2"><span class="nav-number">2.</span> <span class="nav-text">CH2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ch3"><span class="nav-number">3.</span> <span class="nav-text">ch3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CH4"><span class="nav-number">4.</span> <span class="nav-text">CH4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CH5"><span class="nav-number">5.</span> <span class="nav-text">CH5</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Robin Huang"
+      src="/images/me.jpg">
+  <p class="site-author-name" itemprop="name">Robin Huang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">76</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2021/07/30/notes/note4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/me.jpg">
+      <meta itemprop="name" content="Robin Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Robin's 筆記Blog">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【上課筆記】資料庫管理
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-07-30 19:22:46" itemprop="dateCreated datePublished" datetime="2021-07-30T19:22:46+08:00">2021-07-30</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-12-04 17:30:40" itemprop="dateModified" datetime="2021-12-04T17:30:40+08:00">2021-12-04</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%8A%E8%AA%B2%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">上課筆記</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+            <div class="post-description"></div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="CH1"><a href="#CH1" class="headerlink" title="CH1"></a>CH1</h3><ul>
+<li>DBMS(Database Management System) : 資料庫管理系統(為管理資料庫而設計的大型電腦軟體管理系統)</li>
+<li>資料庫定義 : 明定要儲存之資料的資料型態、結構與限制</li>
+<li>Meta-Data(中繼資料) : 資料庫規則或是敘述性資料，存在DBMS裡</li>
+<li>資料庫方式(Database Approach) 的四個特點 :<ul>
+<li>資料庫的自我描述特性</li>
+<li>資料獨立與資料抽象化</li>
+<li>多人使用，資料共享</li>
+<li>同步與交易管理</li>
+</ul>
+</li>
+<li>OLAP(Online Analytical Processing) : 線上分析處理(快速解決多維分析問題的方法)</li>
+<li>OLTP(Online Transaction Processing) : 線上交易處理(透過資訊系統，以線上交易的方式處理一般即時性的作業資料)</li>
+<li>DBA(Database administrators) : 資料庫管理員</li>
+<li>IR(Information retrieval) : 資訊檢索</li>
+</ul>
+<hr>
+<h3 id="CH2"><a href="#CH2" class="headerlink" title="CH2"></a>CH2</h3><ul>
+<li>Data Model(資料模型) : 定義資料如何輸入和與輸出的一種模型，為資訊系統提供資料的定義和格式</li>
+<li>資料模型三元素 : <ul>
+<li>Entity(實體) : 真實世界中的物件</li>
+<li>Attribute(屬性) : 每個屬性都代表實體某方面的特性</li>
+<li>Relationship(關係) : 聯繫實體與實體</li>
+</ul>
+</li>
+<li>Three-Schema Architecture(三層式綱要架構) :<ul>
+<li>Internal level (內部層) : 描述資料庫的實體儲存結構</li>
+<li>Conceptual Level(概念層) : 資料庫儲存的整體性資料</li>
+<li>External Level(外部層) : 描述特定用戶感興趣的部分資料庫</li>
+</ul>
+</li>
+<li>Data Independence(資料獨立性) : 改變資料庫系統的某一層次綱要時，不需要跟著修改較上層的綱要<ul>
+<li>Logical(邏輯) : 改概念層時，不用改外部層</li>
+<li>Physical(實體) : 改內部層時，不用改概念層&amp;外部層</li>
+</ul>
+</li>
+<li>DBMS語言 :<br><img src="https://i.imgur.com/0T9yNgy.png"></li>
+<li><strong>DDL</strong>(Data definition language) : 資料定義語言，定義概念綱要(Schema)&amp;內部綱要 ex : create, alter, drop</li>
+<li><strong>SDL</strong>(Storage definition language) : 儲存定義語言，定義內部綱要</li>
+<li><strong>VDL</strong>(View definition language) : 視野定義語言，定義外部綱要到概念綱要</li>
+<li><strong>DML</strong>(Data manipulation language) : 資料操縱語言，允許檢索，插入，刪除，修改 ex : select, delete…<ul>
+<li>Procedural DML : 低階或程序化的，一次一筆記錄；它們是指定如何擷取資料，並且具有如迴圈這類的程式結構</li>
+<li>Non-procedural DML : 高階或非程序化的，它們是集合導向的（set-oriented），而且是指定要什麼資料，而不是如何擷取，如SQL<br><img src="https://i.imgur.com/FrMMao9.png"></li>
+</ul>
+</li>
+<li>資料庫系統功能 : <ul>
+<li>Loading(載入)</li>
+<li>Backup(備份)</li>
+<li>Database Storage Reorganization(重組檔案)</li>
+<li>Performance Monitoring(效能監控)</li>
+</ul>
+</li>
+<li>Centralized DBMSs Architecture(集中式DBMS架構) : <ul>
+<li>在一台機器上執行的所有DBMS功能、應用程序執行和用戶界面處理</li>
+<li>所有處理工作皆需經由網路傳輸到遠端的主機來處理</li>
+<li>所有的Server放在單機(Local端)上執行，因此稱之為One-tier (單一階層)架構</li>
+</ul>
+</li>
+<li>Basic Client/Server Architectures(基本主從式架構) :<ul>
+<li>提供專門功能的專門伺服器 : file/print/web/email server</li>
+<li>客戶端 : 提供用戶界面功能和本地處理的用戶計算機</li>
+<li>伺服器端 : 包含硬件和軟件，為客戶端計算機提供服務 ex :文件存取、列印、存檔或資料庫存取</li>
+</ul>
+</li>
+<li>Two-Tier Client/Server Architectures(二層主從式架構) :<ul>
+<li>伺服器端處理 : 與SQL處理有關的查詢和交易功能</li>
+<li>客戶端處理 : 用戶界面程序和應用程序</li>
+<li>Open Database Connectivity (ODBC) : 提供程式介面(API)，連接兩端(兩端都要裝必要的軟體)</li>
+<li>JDBC : for Java client programs</li>
+</ul>
+</li>
+<li>Three-Tier and n-Tier Architectures(三層式&amp;N層式架構) :<ul>
+<li>Application/Web Server : 置於Client與Server中間，執行應用程式與存取業務法則</li>
+<li>N-tier : 將用戶和儲存資料之間的Layers進一步分為更精細的組件</li>
+</ul>
+</li>
+<li>DBMS分類 :<ul>
+<li>資料模型 :<ul>
+<li>Relational(關聯式)</li>
+<li>Object(物件式)</li>
+<li>Hierarchical and network(階層式&amp;網路式)</li>
+<li>Native XML DBMS</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>使用者數目 : 單一 &amp; 多人</li>
+<li>設置數量 : <ul>
+<li>Centralized(集中式) : 使用儲存在單一電腦上的單一資料庫</li>
+<li>Distributed(分散式) :Homogeneous(同質) &amp; Heterogeneous(異質)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="ch3"><a href="#ch3" class="headerlink" title="ch3"></a>ch3</h3><ul>
+<li>關聯式資料庫的概念 :<ul>
+<li>由許多關聯 (Relation)所組成的集合</li>
+<li>Row(列)/Tuple(值組) : 表示相關資料值的集合(一行一行資料)</li>
+<li>Table/Column Name : 解釋每個列之屬性中值的含義</li>
+</ul>
+</li>
+<li>Domain(D，定義域) : 某種資料型態之所有可能值所構成的集合，指定數據類型</li>
+<li>Atomic Value(基元值) : 不可再分解的值</li>
+<li>Attribute(A，屬性)/Column(欄) </li>
+<li>Relation schema(R，關聯綱目) : 描述關聯表的性質，可記為R(A1, A2, …, An)</li>
+<li>Degree(階度) : 關聯表中屬性的數量(有幾欄)</li>
+<li>Relation/Relation State(r(R.)，關聯表狀態) :<ul>
+<li>r = {t1, t2, …, tn} = n列的集合</li>
+<li>t = n個值的有序清單 =&lt;V1, V2, …, Vn&gt;</li>
+<li>Vi，1 ≦ i ≦ n，每個值都是dom(Ai)所定義的值域的集合或是Null值</li>
+<li>dom(An) = 第n個屬性的定義域</li>
+<li>r(R.)是這n個定義域笛卡爾積的集合，<br>  意即 :r(R.) ⊆ (dom(A1) × dom(A2) × …. × dom(An))</li>
+</ul>
+</li>
+<li>Cardinality(基數) : 定義域中值的全部數量</li>
+<li>Relation的tuple順序 : <ul>
+<li>關聯表狀態定義為tuple的集合</li>
+<li>元素之間沒有順序</li>
+</ul>
+</li>
+<li>Tuple中值的順序與Relation的替代定義 :<ul>
+<li>屬性和值的順序並不重要</li>
+<li>只要保持屬性和值之間的對應關係</li>
+</ul>
+</li>
+<li>Relation的替代定義 :<ul>
+<li>Tuple可以視為一對對(&lt;屬性&gt;, &lt;值&gt;)的集合</li>
+<li>每對都會從屬性Ai給予映射值到dom（Ai）的值Vi</li>
+</ul>
+</li>
+<li>使用Relation的第一個定義 :<ul>
+<li>屬性和tuple中的值是有順序的</li>
+<li>更簡單的表示法</li>
+</ul>
+</li>
+<li>tuple中的值與null :<ul>
+<li>tuple中的值都是不可切割的</li>
+<li>Flat Relational Model(扁平關聯式模型) :<br>  不允許使用複合值和多值屬性，即First normal form(第一正規化)</li>
+<li>Multivalued attributes(多值屬性)</li>
+<li>Composite attributes(綜合屬性)</li>
+</ul>
+</li>
+<li>Null的意義 :<ul>
+<li>值未知</li>
+<li>值未被定義</li>
+<li>存在，但無法讀取</li>
+</ul>
+</li>
+<li>Relaiton中的每個tuple都是事實或斷言(Assertion)的特定實例</li>
+<li>將每個tuple中的值解釋為滿足謂詞(Predicate)的值</li>
+<li>Relational Model Constraints(關聯式模型限制) : <ul>
+<li>Implicit Constraints(內顯限制) : <ul>
+<li>資料模型中本來就存在的限制, ex : 不能同時存在兩個值</li>
+</ul>
+</li>
+<li>Explicit Constraints(外顯限制) : <ul>
+<li>直接用模型的架構來表達</li>
+</ul>
+</li>
+<li>Application-based or business rules(基於應用或者是商業上的限制) : <ul>
+<li>不能直接用模型的架構來表達，可透過寫程式</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Domain Constraints(定義域限制) : <ul>
+<li>必須為atomic且必須在定義域<br>  Ex : numeric data types, characters, Boolean, …etc.</li>
+</ul>
+</li>
+<li>Key Constraints(鍵的限制) :<ul>
+<li>tuple是獨一無二的</li>
+<li><strong>SUPERKEY</strong>(超鍵) : t1[SK] ≠ t2[SK] → 唯一性(可判斷為單一筆)</li>
+<li>Key(鍵值) :<ul>
+<li>最小的超鍵 : 無法刪除任何屬性，並且在上述條件保持下仍具有唯一性約束</li>
+<li>在任何關係狀態下，兩個不同值組的鍵（所有）屬性不能具有相同的值</li>
+</ul>
+</li>
+<li><strong>CANDIDATE KEY</strong>(候選鍵) : 由一或多個atrribute組成，每個attribute都是超鍵，符合<strong>唯一性&amp;最小性</strong></li>
+<li><strong>PRIMARY KRY</strong>(主鍵) : 從候選鍵中挑一個，會加上底線，不得為null</li>
+<li>其他候選鍵就是<strong>ALTERNATIVE KEY</strong></li>
+</ul>
+</li>
+<li>Entity integrity constraint (實體完整性限制) : 所有主鍵都不能是null</li>
+<li>Referential integrity constraint(參考完整性限制) :<br>  當一個資料表要參考另一個資料表的時候，被參考的資料表必須有資料可以給參考的資料表參考<ul>
+<li><strong>FOREIGN KEY</strong>(外來鍵) :<ul>
+<li>主鍵與外來鍵擁有一樣的定義域</li>
+<li>以圖表方式顯示參考完整性約束</li>
+<li>應在關係資料庫綱要上指定所有完整性約束</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Semantic integrity constraints(語意完整性限制) : <ul>
+<li>依照需求提出的限制，EX : 找出公司薪水大於4000的員工</li>
+<li>使用觸發器和斷言</li>
+</ul>
+</li>
+<li>Functional dependency constraint(函數依賴限制)</li>
+<li><strong>INSERT</strong> : <ul>
+<li>可能會違反四種限制其中一種，如果違反則拒絕insert</li>
+</ul>
+</li>
+<li><strong>DELETE</strong> :<ul>
+<li>只可能違反參考完整性</li>
+<li>若鍵值有被其它關聯的外來鍵參考到 :<ul>
+<li>Restrict(限制) : 不允許刪除</li>
+<li>Cascade(連帶) : 同時刪除帶有相同參考外來鍵值的記錄</li>
+<li>Nullify(空值化) : 同時將該參考外來鍵值改成null</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>UPDATE</strong> : 類似Delete</li>
+</ul>
+<hr>
+<h3 id="CH4"><a href="#CH4" class="headerlink" title="CH4"></a>CH4</h3><ul>
+<li>SQL : <ul>
+<li>Structured Query Language</li>
+<li>Statement for ++Data Definitions++, ++Queries++, and ++Updates++</li>
+</ul>
+</li>
+<li>SQL Schema : <ul>
+<li>由Schema Name辨別</li>
+<li>元素包含++Table++, ++Constraints(限制)++, ++Views++, ++Domains++, and other constructs</li>
+</ul>
+</li>
+<li>SQL Catalog(資料庫目錄) : SQL環境中的Schema命名集合</li>
+<li>SQL Environment :  在電腦系統中安裝符合SQL的RDBMS(關聯式資料庫管理系統) </li>
+<li>Attribute Data Type : </li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>類型</strong></th>
+<th align="center"><strong>描述</strong></th>
+<th align="center"><strong>存儲</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">smallint</td>
+<td align="center">數字(小)</td>
+<td align="center">2 Bytes</td>
+</tr>
+<tr>
+<td align="center">int</td>
+<td align="center">數字(中)</td>
+<td align="center">4 Bytes</td>
+</tr>
+<tr>
+<td align="center">numeric</td>
+<td align="center">數字(大)</td>
+<td align="center">視精確度而定</td>
+</tr>
+<tr>
+<td align="center">float</td>
+<td align="center">浮點數(小)</td>
+<td align="center">8 Bytes</td>
+</tr>
+<tr>
+<td align="center">Double Precision</td>
+<td align="center">浮點數(小)</td>
+<td align="center">8 Bytes</td>
+</tr>
+<tr>
+<td align="center">real</td>
+<td align="center">浮點數(大)</td>
+<td align="center">4 Bytes</td>
+</tr>
+<tr>
+<td align="center">char(n) / nchar(n)</td>
+<td align="center">固定長度字串 / Unicode資料</td>
+<td align="center">一字元1Bytes / 2Bytes</td>
+</tr>
+<tr>
+<td align="center">varchar(n) / nvarchar(n)</td>
+<td align="center">可變長度字串 / Unicode 數據</td>
+<td align="center">一字元1Bytes / 2Bytes</td>
+</tr>
+<tr>
+<td align="center">bit(n)</td>
+<td align="center">固定長度位元串</td>
+<td align="center">1 Byte</td>
+</tr>
+<tr>
+<td align="center">varbit(n)</td>
+<td align="center">可變長度位元串</td>
+<td align="center">1 Byte</td>
+</tr>
+<tr>
+<td align="center">boolean</td>
+<td align="center">true, false, null</td>
+<td align="center">—</td>
+</tr>
+<tr>
+<td align="center">date</td>
+<td align="center">year, month, day</td>
+<td align="center">3 bytes</td>
+</tr>
+<tr>
+<td align="center">timestamp</td>
+<td align="center">YYYY-MM-DD HH:MM:SS</td>
+<td align="center">4 bytes</td>
+</tr>
+<tr>
+<td align="center">interval</td>
+<td align="center">指定可以用於增加或減少date、time或timestamp的相對值</td>
+<td align="center">16 Bytes</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Attribute Domains : <ul>
+<li>使改變Data type變得容易</li>
+<li>提升Schema可讀性</li>
+</ul>
+</li>
+<li>Constraints(限制) : <ul>
+<li><strong>NOT NULL</strong> : 特定column不允許是NULL</li>
+<li><strong>DEFAULT</strong> Value : DEFAULT <value></li>
+<li><strong>CHECK</strong> clause : 約束column中的可用值</li>
+<li><strong>PRIMARY KEY</strong> clause : 設定組成relation主鍵的一或多個attribute</li>
+<li><strong>UNIQUE</strong> clause : 設定Alternate Keys</li>
+<li><strong>FOREIGN KEY</strong> clause : <ul>
+<li><strong>SET NULL</strong></li>
+<li><strong>SET DEFAULT</strong></li>
+<li><strong>CASCADE</strong>(跟著一樣動作)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>SELECT statement : <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">&lt;</span>attribute list<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">FROM</span> <span class="operator">&lt;</span><span class="keyword">table</span> list<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">WHERE</span> <span class="operator">&lt;</span><span class="keyword">condition</span><span class="operator">&gt;</span>;</span><br></pre></td></tr></table></figure></li>
+<li>Set Operations : <ul>
+<li><strong>UNION</strong> :　聯集</li>
+<li><strong>INTERSECT</strong> : 交集</li>
+<li><strong>EXCEPT</strong> : 差集</li>
+</ul>
+</li>
+<li><strong>LIKE</strong> : <ul>
+<li>% : 代表零個、一個、或數個字母</li>
+<li>_ : 代表剛好一個字母</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="CH5"><a href="#CH5" class="headerlink" title="CH5"></a>CH5</h3><ul>
+<li>NULL : <ul>
+<li>值未知</li>
+<li>值未被定義</li>
+<li>存在，但無法讀取</li>
+</ul>
+</li>
+<li><strong>SOME(ANY)</strong> : 只要有一條資料滿足條件，整個條件成立</li>
+<li><strong>ALL</strong>對所有資料滿足條件，整個條件才會成立</li>
+<li><strong>EXISTS/NOT EXISTS</strong> : 確認子查詢的結果是否為空集合</li>
+<li><strong>NATURAL JOIN</strong></li>
+<li><strong>INNER JOIN</strong></li>
+<li><strong>LEFT JOIN</strong> : 以JOIN前為主</li>
+<li><strong>RIGHT JOIN</strong> : 以JOIN後為主</li>
+<li><strong>FULL OUTER JOIN</strong></li>
+<li><strong>CREATE ASSERTION</strong> :　在CREATE之外的Constraint檢查</li>
+<li><strong>CREATE TRIGGER</strong> :當資料庫被INSERT、DELETE、UPDATE時，會自動做的行為</li>
+<li><strong>WITH CHECK OPTION</strong> : 在建立view置放於程式碼末端，可以check之後update資料</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%AD%86%E8%A8%98/" rel="tag"># 筆記</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/07/15/js/js17/" rel="prev" title="【從零開始學JavaScript】實作練習 - Scroll網頁實作(中)">
+                  <i class="fa fa-chevron-left"></i> 【從零開始學JavaScript】實作練習 - Scroll網頁實作(中)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/08/03/notes/note5/" rel="next" title="【上課筆記】資訊安全導論 - Ch1、Ch2">
+                  【上課筆記】資訊安全導論 - Ch1、Ch2 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">若要轉載文章，麻煩請保留原作者名稱與原始連結。</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

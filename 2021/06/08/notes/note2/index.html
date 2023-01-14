@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"robinlyl2000.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+
+  <meta name="description" content="null">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【上課筆記】電腦網路概論 - Ch2">
+<meta property="og:url" content="http://robinlyl2000.github.io/2021/06/08/notes/note2/index.html">
+<meta property="og:site_name" content="Robin&#39;s 筆記Blog">
+<meta property="og:description" content="null">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-06-08T04:23:48.000Z">
+<meta property="article:modified_time" content="2021-12-04T09:30:42.000Z">
+<meta property="article:author" content="Robin Huang">
+<meta property="article:tag" content="筆記">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://robinlyl2000.github.io/2021/06/08/notes/note2/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>【上課筆記】電腦網路概論 - Ch2 | Robin's 筆記Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Robin's 筆記Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ch2"><span class="nav-number">1.</span> <span class="nav-text">Ch2</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Robin Huang"
+      src="/images/me.jpg">
+  <p class="site-author-name" itemprop="name">Robin Huang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">76</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2021/06/08/notes/note2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/me.jpg">
+      <meta itemprop="name" content="Robin Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Robin's 筆記Blog">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【上課筆記】電腦網路概論 - Ch2
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-06-08 12:23:48" itemprop="dateCreated datePublished" datetime="2021-06-08T12:23:48+08:00">2021-06-08</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-12-04 17:30:42" itemprop="dateModified" datetime="2021-12-04T17:30:42+08:00">2021-12-04</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%8A%E8%AA%B2%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">上課筆記</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+            <div class="post-description"></div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="Ch2"><a href="#Ch2" class="headerlink" title="Ch2"></a>Ch2</h3><ul>
+<li>連線模式 : <ul>
+<li><strong>Client - Server</strong></li>
+<li><strong>Peer - Peer</strong></li>
+</ul>
+</li>
+<li>Process : <ul>
+<li>在Host中運行的程式</li>
+<li>兩Process連絡差異 : <ul>
+<li>在同個Host : 靠<font color="red">Inter-Process Communication</font>(defined by OS)</li>
+<li>在不同Host : 靠<font color="red">交換messages</font></li>
+</ul>
+</li>
+<li>Client-Server : <ol>
+<li><font color="blue">Client Process</font> : 發起溝通的程式</li>
+<li><font color="blue">Server Process</font> : 等待連接的程式</li>
+</ol>
+</li>
+<li>Peer-Peer : 以上兩個Processs都有 </li>
+</ul>
+</li>
+<li>Socket : <ul>
+<li><font color="red">Transport Layer Security (TLS)</font> : <ul>
+<li>提供加密的TCP連接</li>
+<li>實作於應用層</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><strong>HTTP(Hypertext Transfer Protocol)</strong> : <ul>
+<li>Client-Server模型 : <ul>
+<li><font color="blue">Client</font> : 用於請求、接收與顯示Web Objects的瀏覽器</li>
+<li><font color="blue">Server</font> : 發送Web Objects以回應請求</li>
+</ul>
+</li>
+<li>使用<strong>TCP</strong>，<strong>port number = 80</strong></li>
+<li><font color="blue">Stateless</font> : Server不持有過去Client請求過的資訊</li>
+<li>==Non-persistent HTTP== :<ul>
+<li> 每發送一個東西就要開關TCP Connection一次</li>
+<li> <font color="red">RTT</font> :　Packet從Client到Server再返回的時間</li>
+<li>Non-persistent HTTP response time = <font color="blue">2RTT+ 檔案傳輸時間</font><ol>
+<li>one RTT : 啟動TCP Connection</li>
+<li>one RTT : 發送Http Request</li>
+<li>檔案傳輸時間</li>
+</ol>
+</li>
+<li>每次TCP Connection都會花費OS</li>
+</ul>
+</li>
+<li>==Persistent HTTP(HTTP1.1)== : <ul>
+<li>一個TCP Connection可以傳輸多個檔案</li>
+<li>Server開啟後就保持其狀態</li>
+<li>後續傳輸一個檔案只需<font color="blue">花費一個RTT</font></li>
+</ul>
+</li>
+<li><strong>HTTP請求方法</strong> : <ul>
+<li><font color="blue">GET</font> : 請求指定的頁面信息，並返回物件</li>
+<li><font color="blue">HEAD</font> : 類似於get請求，只不過回應訊息中只有Header</li>
+<li><font color="blue">POST</font> : 向指定資源提交數據以進行處理請求（例如提交表單或者上傳文件）</li>
+<li><font color="blue">PUT</font> : 從Client向Server傳送的數據取代指定文檔的內容</li>
+</ul>
+</li>
+<li><strong>HTTP回應狀態碼</strong> : <ul>
+<li>200 : OK</li>
+<li>301 : Moved Permanently</li>
+<li>400 : Bad Request</li>
+<li>404 : Not Found</li>
+<li>505 : HTTP Version Not Supported</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Cookies : <ul>
+<li>使用原因 : HTTP為<font color="blue">Stateless</font></li>
+<li>在第一次傳送Request訊息時，Server會回傳一個獨特的ID(aka Cookie)，並在後端資料庫新增一個實體</li>
+<li>之後Client若有變更資料，只需依照Cookie的ID去資料庫存取資料</li>
+</ul>
+</li>
+<li><strong>Web Cache(網頁快取) / Proxy Server(代理服務器)</strong> : <ul>
+<li>瀏覽器將所有HTTP請求送進Proxy Server，如果物件在Cache中，則將物件返回給Client；不然就向Origin Server請求，將物件傳回給Client</li>
+<li>可同時充當Client與Server</li>
+<li>通常由ISP會安裝</li>
+<li>優點 : <ol>
+<li>減少Client Request的回應時間</li>
+<li>減少Link上的流量</li>
+</ol>
+</li>
+<li>==Condition GET== : <ul>
+<li>當Web Cache再次收到同個Request時，Web Cache會觸發<font color="blue">up-to-date check</font>，向Origin Server發出一筆condition GET夾帶<font color="blue">If-modified-since</font></li>
+<li>若Origin Server判斷無modified的話，則會回傳 304 not modified</li>
+<li>若Origin Server判斷有modified的話，則會回傳200 OK與更新檔</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>HTTP版本 : <ul>
+<li><strong>HTTP 1.1</strong> : <ul>
+<li>一個TCP Connection會出現了<font color="blue">多個pipelined GETs</font></li>
+<li>Server採用FCFS，因此會出現<font color="red">Head-of-line/HOL Blocking (隊頭阻塞)</font>(小物件必須等待大物件)</li>
+<li>Loss Recovery : 重傳遺失的TCP封包 → 使傳輸進度停滯</li>
+</ul>
+</li>
+<li><strong>HTTP/2</strong> : <ul>
+<li><font color="blue">Client可以指定Server處理的優先順序</font></li>
+<li><font color="blue">將物件切成frames</font>，並利用Scheduling frames以減輕HOL Blocking</li>
+</ul>
+</li>
+<li><strong>HTTP/3</strong> : 增加安全性、新增UDP中的錯誤與擁塞控制</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>Email : <ul>
+<li><p>主要組成 : </p>
+<ul>
+<li><strong>User Agent</strong> : <ol>
+<li>撰寫、編輯、閱讀郵件</li>
+<li>儲存在Serevr上的input、output messages</li>
+</ol>
+</li>
+<li><strong>Mail Servers</strong> : 處理Outgoing信件的Queuing</li>
+<li><strong>SMTP protocol</strong> : Email Servers之間發送Emails</li>
+</ul>
+</li>
+<li><p>使用<font color="blue">TCP Connection</font>將Email從Client(Sending Server)傳輸到Receiving Server <font color="blue">(port number = 25)</font></p>
+</li>
+<li><p><strong>HTTP vs SMTP</strong></p>
+<ul>
+<li><p>共同點 : </p>
+<ol>
+<li>都使用<font color="blue">TCP Connection</font></li>
+<li>為<font color="blue">Persistent connections</font>(維持連線暢通)</li>
+</ol>
+</li>
+<li><p>相異點 : </p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">HTTP</th>
+<th align="center">SMTP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Protocol性質</td>
+<td align="center"><font color="red">Pull</font> protocol，因為Sender想要獲取檔案而主動發起</td>
+<td align="center"><font color="red">Push</font> protocol，因為Sender想要發送資訊給Receiver</td>
+</tr>
+<tr>
+<td align="center">訊息封裝差異</td>
+<td align="center">一個Response訊息只能裝<font color="blue">一個物件</font></td>
+<td align="center">一個Response訊息可以裝<font color="blue">多個物件</font></td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+<li><p>IMAP : 提供Server上儲存訊息的檢索、刪除…等功能</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>DNS(Domain Name System) : <ul>
+<li>資料庫為<font color="red">分散式、階層式</font><blockquote>
+<ul>
+<li>不用集中式之原因 : <ol>
+<li>單點故障分險</li>
+<li>流量會爆炸</li>
+<li>距離太遠</li>
+<li>難以維護</li>
+</ol>
+</li>
+</ul>
+</blockquote>
+</li>
+<li>實作於<font color="red">Application Layer</font>，透過Host與Name Server間的溝通以<font color="blue">解析Name與IP Address</font></li>
+<li>分類 : <ul>
+<li><strong>Root Server</strong> : <ul>
+<li>階層的最基層</li>
+<li>非常重要之網路功能</li>
+<li>由ICANN管理</li>
+</ul>
+</li>
+<li><strong>Top-Level Domain (TLD) servers</strong> : <ul>
+<li>com、edu…</li>
+<li>cn、ca、tw…</li>
+</ul>
+</li>
+<li><strong>Authoritative DNS servers</strong> : <ul>
+<li>組織自己的DNS服務器，由組織本身或服務提供商維護</li>
+</ul>
+</li>
+<li><strong>Local DNS servers</strong> : <ul>
+<li>每個ISP都有一個</li>
+<li> 具有最近 Name-to-Address Translation Pairs的本地緩存（但可能已過期）</li>
+<li> 類似Proxy Server，將查詢轉發到以上層次結構中</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Query分類 : <ul>
+<li><font color="blue">Iterated query（交談式）</font> : 我不知道這個名字，但是問這個服務器</li>
+<li><font color="blue">Recursive query（遞迴式）</font> : 要查詢的封包送出去問，就等待正確名稱的正確回應</li>
+</ul>
+</li>
+<li><strong>Resource Records(RR)</strong> :<ul>
+<li>格式 : <font color="blue">(name, value, type, ttl)</font></li>
+<li>Type A : (Hostname, IP Address , …, …)</li>
+<li>Type NS : 哪個伺服器包含實際DNS記錄</li>
+<li>Type CNAME : (別名, 真名, …)</li>
+<li>Type MX : 處理發往Receiver網域名的Email Server</li>
+</ul>
+</li>
+<li>DNS Query和Reply訊息，都是相同的格式</li>
+<li>DDoS攻擊 : <ul>
+<li>攻擊Root Server<ul>
+<li>迄今未成功</li>
+<li>利用流量過濾 : 由於Local DNS Server會緩存TLD Server的IP，進而讓其攻擊繞過Root Server</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>Peer-to-peer (P2P) : <ul>
+<li>Server無保持在線</li>
+<li>任意End Systems可以直接溝通</li>
+<li><font color="red">Self Scalability(自我可擴展性)</font> : 新的Peer帶來新的服務能力與新的服務需求</li>
+<li>管理相當複雜</li>
+<li>EX：文件共享(BitTorrent)、串流(KanKan)、VoIP(Skype)</li>
+<li><font color="blue">Torrent</font> : 交換一個文件所有Chunks的Peer Group</li>
+<li><font color="blue">Tracker</font> : 追蹤參加Torrent的Peers</li>
+<li>Requesting chunks:<ul>
+<li>會定期向每個Peer詢問他們擁有的Chunks列表</li>
+<li><strong>Rarest First</strong> : 根據每個Chunk在網路中的普遍度，<font color="blue">優先選擇下載網路中最稀少的片段</font>，藉此來減低發生斷頭問題的機率</li>
+</ul>
+</li>
+<li>Sending chunks <font color="red">(tit-for-tat)</font> : <ul>
+<li>自己將Chunks發送給<font color="blue">當前以最高速率發送Chunks給自己的前四Peers</font><ul>
+<li>其他Peers就被choked(不會從自己這收到Chunks)</li>
+<li><font color="blue">每10秒重新評估前4名</font></li>
+</ul>
+</li>
+<li><font color="blue">每30秒將隨機選擇另一個Peer</font>，並開始發送Chunks : <ul>
+<li>為主動unchoke此Peer</li>
+<li>此Peer可能會進入前4名</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>Streaming : <ul>
+<li>CBR(Constant Bit Rate) : 為一致性的壓縮位元率，省效能、速度快</li>
+<li>VBR(Variable Bit Rate) : 照當前影格去分析可能投入多少資源來壓縮較恰當，以最終不超過指定容量限制為主</li>
+<li><font color="blue">Streaming</font> : Client播放影片的前半部，而Server仍在傳輸影片的後半部</li>
+<li>連續播放限制 : 網絡延遲是可變的，因此需要Client Buffer來滿足播出要求</li>
+<li>==DASH (Dynamic Adaptive Streaming over HTTP)== : <ul>
+<li>Server : <ul>
+<li>將影片文件分成多個Chunks</li>
+<li>儲存的每個Chunk以不同的速率編碼</li>
+<li>提供不同Chunks的URL</li>
+</ul>
+</li>
+<li>Client : <ul>
+<li>定期測量Client至Server的頻寬</li>
+<li>由Client決定 : <ol>
+<li><font color="blue">何時</font>請求Chunks : 以免發生Buffer Starvation或Overflow</li>
+<li>請求<font color="blue">哪種</font>編碼率 : 頻寬越大，品質越好</li>
+<li>在<font color="blue">何處</font>請求塊 : 可以向較靠近Client或具有較大可用頻寬的URL Server請求</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>==CDNs(Content Distribution Networks)== : <ul>
+<li>在各地儲存/提供多個影片副本</li>
+<li>若使用者發出請求 : <ul>
+<li>定向到附近的副本，並回送其內容</li>
+<li>如果網路路徑擁塞，則可以選擇其他副本</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>Socket Programming : <ul>
+<li>Socket定義 : 應用程式與Transport Protocol之間的門</li>
+<li>==UDP== : <ul>
+<li>Client與Server之間無連接 : <ul>
+<li>傳送Data前無Handshaking</li>
+<li>每個Packet都附上IP目標Address與Port Number</li>
+</ul>
+</li>
+<li>傳輸的Data可能會丟失或不照順序獲得</li>
+<li>提供<font color="blue">Unreliable Transfer</font><blockquote>
+<p>雙方在獲得對方資料時，需使用<font color="red">recvfrom()</font>，進而獲知是誰送資料過來</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>==TCP== : <ul>
+<li>提供<font color="blue">Reliable、有序Byte流Transfer</font></li>
+<li>Client必須連接Server</li>
+<li>順序 : <ol>
+<li><font color="blue">Server必須先建立好TCP Welcoming Socket</font></li>
+<li>Server建立<code>connectionSocket</code>；Client建立<code>clientSocket</code>，完成TCP connection setup</li>
+<li>Client傳輸請求，Server回應請求，Client收到資料</li>
+<li>雙方close<blockquote>
+<ol>
+<li><code>serverSocket</code>為保持server開啟用</li>
+<li><code>connectionSocket</code>為每新增一條連線時會被創建，該連線結束後會被close掉</li>
+<li>雙方在獲得對方資料時，需使用<font color="red">recv()</font>，因為先前已經知道對方是誰了</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%AD%86%E8%A8%98/" rel="tag"># 筆記</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/06/03/notes/note1/" rel="prev" title="【上課筆記】電腦網路概論 - Ch1">
+                  <i class="fa fa-chevron-left"></i> 【上課筆記】電腦網路概論 - Ch1
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/06/17/notes/note3/" rel="next" title="【上課筆記】電腦網路概論 - Ch3">
+                  【上課筆記】電腦網路概論 - Ch3 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">若要轉載文章，麻煩請保留原作者名稱與原始連結。</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
