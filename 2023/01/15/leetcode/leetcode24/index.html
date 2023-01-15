@@ -23,14 +23,18 @@
     var CONFIG = {"hostname":"robinlyl2000.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
-  <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode24.md">
+  <meta name="description" content="null">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Leetcode解題】2535. Difference Between Element Sum and Digit Sum of an Array">
 <meta property="og:url" content="http://robinlyl2000.github.io/2023/01/15/leetcode/leetcode24/index.html">
 <meta property="og:site_name" content="Robin&#39;s 筆記Blog">
+<meta property="og:description" content="null">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-01-14T17:55:21.000Z">
-<meta property="article:modified_time" content="2023-01-14T17:55:21.915Z">
+<meta property="article:published_time" content="2023-01-15T05:55:21.000Z">
+<meta property="article:modified_time" content="2023-01-15T16:47:33.229Z">
 <meta property="article:author" content="Robin Huang">
+<meta property="article:tag" content="實作練習">
+<meta property="article:tag" content="Leetcode">
 <meta name="twitter:card" content="summary">
 
 
@@ -47,7 +51,7 @@
   };
 </script>
 
-  <title>leetcode24.md | Robin's 筆記Blog</title>
+  <title>【Leetcode解題】2535. Difference Between Element Sum and Digit Sum of an Array | Robin's 筆記Blog</title>
   
 
 
@@ -164,7 +168,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -176,6 +180,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A1%8C%E7%9B%AE"><span class="nav-number">1.</span> <span class="nav-text">題目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E9%A1%8C%E6%A6%82%E5%BF%B5"><span class="nav-number">2.</span> <span class="nav-text">解題概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E5%AF%AB%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">我的寫法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E7%AD%94-or-%E5%85%B6%E4%BB%96%E5%84%AA%E7%A7%80%E5%AF%AB%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">解答 or 其他優秀寫法</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -197,7 +202,7 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -255,7 +260,7 @@
     
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          leetcode24.md
+          【Leetcode解題】2535. Difference Between Element Sum and Digit Sum of an Array
         </h1>
 
         <div class="post-meta-container">
@@ -266,7 +271,31 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2023-01-15 01:55:21" itemprop="dateCreated datePublished" datetime="2023-01-15T01:55:21+08:00">2023-01-15</time>
+      <time title="Created: 2023-01-15 13:55:21" itemprop="dateCreated datePublished" datetime="2023-01-15T13:55:21+08:00">2023-01-15</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2023-01-16 00:47:33" itemprop="dateModified" datetime="2023-01-16T00:47:33+08:00">2023-01-16</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/" itemprop="url" rel="index"><span itemprop="name">Leetcode解題</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/" itemprop="url" rel="index"><span itemprop="name">Easy</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/Weekly-Contest/" itemprop="url" rel="index"><span itemprop="name">Weekly Contest</span></a>
+        </span>
     </span>
 
   
@@ -279,6 +308,7 @@
     </span>
 </div>
 
+            <div class="post-description"></div>
         </div>
       </header>
 
@@ -286,7 +316,44 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        
+        <h1 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/contest/weekly-contest-328/problems/difference-between-element-sum-and-digit-sum-of-an-array/"><font color="005CAF">題目連結</font></a></li>
+<li>目標函式 : <code>differenceOfSum(nums)</code><ul>
+<li>Input : <code>nums: List[int]</code></li>
+<li>Output : <code>int</code></li>
+</ul>
+</li>
+</ul>
+<h1 id="解題概念"><a href="#解題概念" class="headerlink" title="解題概念"></a>解題概念</h1><ul>
+<li>題意 : 給予一陣列 <code>nums</code>，計算出其 <font color="51A8DD">Element sum</font> 與 <font color="51A8DD">Digit sum</font>，並回傳兩者的絕對差<ul>
+<li><font color="51A8DD">Element sum</font> : <code>nums</code> 中所有元素的總和</li>
+<li><font color="51A8DD">Digit sum</font> :  出現在 <code>nums</code> 之所有 digits 的總和</li>
+</ul>
+</li>
+</ul>
+<h1 id="我的寫法"><a href="#我的寫法" class="headerlink" title="我的寫法"></a>我的寫法</h1><ul>
+<li>想法 : <ul>
+<li>針對 <code>nums</code> 的每筆數字，計算每個數字取其 Digit sum 的絕對差值，最後加總起來即為解答</li>
+</ul>
+</li>
+<li>程式碼 :   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">check</span>(<span class="params">self, n</span>):</span> <span class="comment"># 計算數字 n 的 Digit sum</span></span><br><span class="line">    res = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> n != <span class="number">0</span>:</span><br><span class="line">        res += (n % <span class="number">10</span>)</span><br><span class="line">        n = n // <span class="number">10</span></span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">differenceOfSum</span>(<span class="params">self, nums</span>):</span></span><br><span class="line">    final = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 針對 nums 的每筆數字</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums)):</span><br><span class="line">        t1 = nums[i] <span class="comment"># t1 為數字本身</span></span><br><span class="line">        t2 = self.check(nums[i]) <span class="comment"># t2 為該數字的 Digit sum</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 計算該數字的絕對差值</span></span><br><span class="line">        res = t1 - t2</span><br><span class="line">        <span class="keyword">if</span> res &lt; <span class="number">0</span>:</span><br><span class="line">            res *= (-<span class="number">1</span>)</span><br><span class="line">        </span><br><span class="line">        final += res</span><br><span class="line">    <span class="keyword">return</span> final</span><br></pre></td></tr></table></figure></li>
+<li>成效 : <ul>
+<li>Time Complexity : $\color{DB4D6D}{O(n)}$</li>
+</ul>
+</li>
+</ul>
+<h1 id="解答-or-其他優秀寫法"><a href="#解答-or-其他優秀寫法" class="headerlink" title="解答 or 其他優秀寫法"></a>解答 or 其他優秀寫法</h1><ul>
+<li>想法 : <ul>
+<li>與我的算法類似，但主要差在它事先計算出整體的 Element sum 與 Digit sum ，最後再回傳兩者的絕對差值</li>
+</ul>
+</li>
+<li>程式碼 :   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">differenceOfSum</span>(<span class="params">self, nums</span>):</span></span><br><span class="line">    dsum = <span class="number">0</span> <span class="comment"># 整體的 Digit sum</span></span><br><span class="line">    esum = <span class="number">0</span> <span class="comment"># 整體的 Element sum</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 針對 nums 的每筆數字</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums)):</span><br><span class="line">        <span class="comment"># 處理 Element sum</span></span><br><span class="line">        esum += n</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 處理 Digit sum</span></span><br><span class="line">        <span class="keyword">while</span> n &gt; <span class="number">0</span>:</span><br><span class="line">            dsum += n % <span class="number">10</span></span><br><span class="line">            n = n // <span class="number">10</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">abs</span>(esum - dsum)</span><br></pre></td></tr></table></figure></li>
+<li>成效 : <ul>
+<li>Time Complexity : $\color{DB4D6D}{O(n)}$</li>
+</ul>
+</li>
+</ul>
+
     </div>
 
     
@@ -294,6 +361,10 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%AF%A6%E4%BD%9C%E7%B7%B4%E7%BF%92/" rel="tag"># 實作練習</a>
+              <a href="/tags/Leetcode/" rel="tag"># Leetcode</a>
+          </div>
 
         
 
