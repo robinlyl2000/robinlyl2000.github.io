@@ -23,22 +23,22 @@
     var CONFIG = {"hostname":"robinlyl2000.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
-  <meta name="description" content="【Grind 125】 Week 1-2">
+  <meta name="description" content="【Grind 125】 Week 1-7">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【Leetcode解題】20. Valid Parentheses">
-<meta property="og:url" content="http://robinlyl2000.github.io/2023/06/29/leetcode/leetcode27/index.html">
+<meta property="og:title" content="【Leetcode解題】242. Valid Anagram">
+<meta property="og:url" content="http://robinlyl2000.github.io/2023/07/02/leetcode/leetcode32/index.html">
 <meta property="og:site_name" content="Robin&#39;s 筆記Blog">
-<meta property="og:description" content="【Grind 125】 Week 1-2">
+<meta property="og:description" content="【Grind 125】 Week 1-7">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-06-29T12:41:52.000Z">
-<meta property="article:modified_time" content="2023-06-30T14:37:22.972Z">
+<meta property="article:published_time" content="2023-07-02T14:36:57.000Z">
+<meta property="article:modified_time" content="2023-07-02T15:10:46.216Z">
 <meta property="article:author" content="Robin Huang">
 <meta property="article:tag" content="實作練習">
 <meta property="article:tag" content="Leetcode">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://robinlyl2000.github.io/2023/06/29/leetcode/leetcode27/">
+<link rel="canonical" href="http://robinlyl2000.github.io/2023/07/02/leetcode/leetcode32/">
 
 
 <script class="page-configurations">
@@ -51,7 +51,7 @@
   };
 </script>
 
-  <title>【Leetcode解題】20. Valid Parentheses | Robin's 筆記Blog</title>
+  <title>【Leetcode解題】242. Valid Anagram | Robin's 筆記Blog</title>
   
 
 
@@ -244,7 +244,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2023/06/29/leetcode/leetcode27/">
+    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2023/07/02/leetcode/leetcode32/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/me.jpg">
@@ -260,7 +260,7 @@
     
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          【Leetcode解題】20. Valid Parentheses
+          【Leetcode解題】242. Valid Anagram
         </h1>
 
         <div class="post-meta-container">
@@ -270,16 +270,10 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2023-06-29 20:41:52" itemprop="dateCreated datePublished" datetime="2023-06-29T20:41:52+08:00">2023-06-29</time>
+      <time title="Created: 2023-07-02 22:36:57 / Modified: 23:10:46" itemprop="dateCreated datePublished" datetime="2023-07-02T22:36:57+08:00">2023-07-02</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2023-06-30 22:37:22" itemprop="dateModified" datetime="2023-06-30T22:37:22+08:00">2023-06-30</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -308,7 +302,7 @@
     </span>
 </div>
 
-            <div class="post-description">【Grind 125】 Week 1-2</div>
+            <div class="post-description">【Grind 125】 Week 1-7</div>
         </div>
       </header>
 
@@ -317,73 +311,48 @@
     
     <div class="post-body" itemprop="articleBody">
         <h1 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h1><ul>
-<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/valid-parentheses/"><font color="005CAF">題目連結</font></a></li>
-<li>目標函式 : <code>isValid(s)</code><ul>
-<li>Input : <code>s: str</code></li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/valid-anagram/description/"><font color="005CAF">題目連結</font></a></li>
+<li>目標函式 : <code>isAnagram(s, t)</code><ul>
+<li>Input : <code>s: str</code>、<code>t: str</code></li>
 <li>Output : <code>bool</code></li>
 </ul>
 </li>
 </ul>
 <h1 id="解題概念"><a href="#解題概念" class="headerlink" title="解題概念"></a>解題概念</h1><ul>
-<li>題意 : 給予一字串 <code>s</code> (僅會包含 : <code>(</code>、<code>)</code>、<code>&#123;</code>、<code>&#125;</code>、<code>[</code> 與 <code>]</code>)，要辨別 <code>s</code> 是否為 Vaild<ul>
-<li>判斷一字串是否為 Valid 的條件 : <ol>
-<li>左括號必須由相同類型的括號關閉</li>
-<li>左括號必須依照正確的順序關閉</li>
-<li>每個右括號都有一個相對應相同類型的左括號</li>
-</ol>
-</li>
-</ul>
-</li>
-<li>此題就是<font color="51A8DD">在 Stack 應用中相當經典的一道練習題</font></li>
+<li>題意 : 給予兩個字串 <code>s</code>、<code>t</code>，判斷 <code>s</code> 是否為 <code>t</code> 的 Anagram</li>
+<li><font color="51A8DD">Anagram (同字母異序字)</font> : <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Anagram">https://en.wikipedia.org/wiki/Anagram</a></li>
 </ul>
 <h1 id="我的寫法"><a href="#我的寫法" class="headerlink" title="我的寫法"></a>我的寫法</h1><ul>
-<li>想法 : <ol>
-<li>如果 <code>s</code> 長度不是偶數，則直接回傳 <code>False</code> (因為 Vaild Parentheses 長度必為偶數)</li>
-<li>使用字典 <code>tmap</code> 去判斷左括號對應之右括號</li>
-<li>使用 for 迴圈依序分析各個元素 <code>item</code> : <ul>
-<li>若 <code>item</code> 為左括號 : 則直接 Push 進 Stack 中</li>
-<li>若 <code>item</code> 為右括號 :<ul>
-<li>若 Stack 為空 : 則回傳 False</li>
-<li>若 <code>Stack.pop()</code> 與 <code>item</code> 彼此不為對應括號 : 則回傳 False</li>
-<li>若以上皆非 : 則執行 <code>Stack.pop()</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>若迴圈跑完後，Stack仍為非空，則直接回傳 False；若為空，則會傳 True </li>
+<li>想法 : 使用 <font color="51A8DD">Hashmap</font> 去處理<ol>
+<li>將 <code>s</code> 與 <code>t</code> 分別轉換為 <code>&#123;字元 : 字元個數&#125;</code> 的 Hashmap</li>
+<li>比較兩個 Hashmap 是否相等</li>
 </ol>
 </li>
-<li>程式碼 :   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">isValid</span>(<span class="params">self, s</span>):</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(s) % <span class="number">2</span> != <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    stack = <span class="built_in">list</span>()</span><br><span class="line">    left = [<span class="string">&quot;(&quot;</span>, <span class="string">&quot;[&quot;</span>, <span class="string">&quot;&#123;&quot;</span>]</span><br><span class="line">    tmap = &#123;<span class="string">&quot;(&quot;</span>: <span class="string">&quot;)&quot;</span>, <span class="string">&quot;[&quot;</span>: <span class="string">&quot;]&quot;</span>, <span class="string">&quot;&#123;&quot;</span>: <span class="string">&quot;&#125;&quot;</span>&#125;</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> s:</span><br><span class="line">        <span class="keyword">if</span> item <span class="keyword">in</span> left: <span class="comment"># ( [ &#123;</span></span><br><span class="line">            stack.append(item)</span><br><span class="line">        <span class="keyword">else</span>: <span class="comment"># ) ] &#125;</span></span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(stack) == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">            <span class="keyword">if</span> tmap[stack[-<span class="number">1</span>]] != item:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                stack.pop(-<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(stack) != <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure></li>
+<li>程式碼 :   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">string2Hashmap</span>(<span class="params">self, s</span>):</span> <span class="comment"># 將字串轉為 Hashmap</span></span><br><span class="line">    res = <span class="built_in">dict</span>()</span><br><span class="line">    <span class="keyword">for</span> c <span class="keyword">in</span> s:</span><br><span class="line">        <span class="keyword">if</span> c <span class="keyword">in</span> res:</span><br><span class="line">            res[c] += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>: <span class="comment"># not c in s</span></span><br><span class="line">            res[c] = <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">isAnagram</span>(<span class="params">self, s, t</span>):</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> self.string2Hashmap(s) == self.string2Hashmap(t):</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure></li>
 <li>成效 : <ul>
 <li>Time Complexity : $\color{DB4D6D}{O(n)}$</li>
-<li>Runtime: 11 ms (faster than <font color="51A8DD">86.73%</font>)</li>
-<li>Memory Usage: 13.5 MB (more than <font color="51A8DD">62.62%</font>)</li>
+<li>Runtime: 33 ms (faster than <font color="51A8DD">86.67%</font>)</li>
+<li>Memory Usage: 13.6 MB (more than <font color="51A8DD">99.63%</font>)</li>
 </ul>
 </li>
 </ul>
 <h1 id="解答-or-其他優秀寫法-Part1"><a href="#解答-or-其他優秀寫法-Part1" class="headerlink" title="解答 or 其他優秀寫法 - Part1"></a>解答 or 其他優秀寫法 - Part1</h1><ul>
-<li>想法 : <ul>
-<li>基本上與我的想法相同，但主要差在它的程式碼更為乾淨，也省去一些不必要的變數宣與判斷條件</li>
-</ul>
-</li>
-<li>程式碼 :   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">isValid</span>(<span class="params">self, s</span>):</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(s) % <span class="number">2</span>: <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    </span><br><span class="line">    stack = <span class="built_in">list</span>()</span><br><span class="line">    tmap = &#123;<span class="string">&quot;(&quot;</span>: <span class="string">&quot;)&quot;</span>, <span class="string">&quot;[&quot;</span>: <span class="string">&quot;]&quot;</span>, <span class="string">&quot;&#123;&quot;</span>: <span class="string">&quot;&#125;&quot;</span>&#125;</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> s:</span><br><span class="line">        <span class="keyword">if</span> item <span class="keyword">in</span> tmap:</span><br><span class="line">            stack.append(item)</span><br><span class="line">        <span class="keyword">elif</span> <span class="built_in">len</span>(stack) == <span class="number">0</span> <span class="keyword">or</span> tmap[stack.pop()] != item:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">len</span>(stack) == <span class="number">0</span></span><br></pre></td></tr></table></figure></li>
+<li>想法 : 基本上與我的想法相同，但只使用一個字典</li>
+<li>程式碼 :   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">isAnagram</span>(<span class="params">self, s, t</span>):</span></span><br><span class="line">    dic1, dic2 = &#123;&#125;, &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> s:</span><br><span class="line">        dic1[item] = dic1.get(item, <span class="number">0</span>) + <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> t:</span><br><span class="line">        dic2[item] = dic2.get(item, <span class="number">0</span>) + <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> dic1 == dic2</span><br></pre></td></tr></table></figure></li>
 <li>成效 : <ul>
 <li>Time Complexity : $\color{DB4D6D}{O(n)}$</li>
-<li>Runtime: 26 ms (faster than <font color="51A8DD">12.87%</font>)</li>
-<li>Memory Usage: 13.4 MB (more than <font color="51A8DD">92.13%</font>)</li>
+<li>Runtime: 32 ms (faster than <font color="51A8DD">88.1%</font>)</li>
+<li>Memory Usage: 13.7 MB (more than <font color="51A8DD">94.86%</font>)</li>
 </ul>
 </li>
 </ul>
 <h1 id="解答-or-其他優秀寫法-Part2"><a href="#解答-or-其他優秀寫法-Part2" class="headerlink" title="解答 or 其他優秀寫法 - Part2"></a>解答 or 其他優秀寫法 - Part2</h1><ul>
-<li>想法 : <ul>
-<li>更為乾淨的寫法，將 <code>tmap</code> 的部分捨棄以減少 Memory Usage</li>
-</ul>
-</li>
-<li>程式碼 :   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">isValid</span>(<span class="params">self, s</span>):</span></span><br><span class="line"></span><br><span class="line">    stack = <span class="built_in">list</span>()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> s:</span><br><span class="line">        <span class="keyword">if</span> item == <span class="string">&#x27;(&#x27;</span>:</span><br><span class="line">            stack.append(<span class="string">&#x27;)&#x27;</span>)</span><br><span class="line">        <span class="keyword">elif</span>  item == <span class="string">&#x27;[&#x27;</span>:</span><br><span class="line">            stack.append(<span class="string">&#x27;]&#x27;</span>)</span><br><span class="line">        <span class="keyword">elif</span>  item == <span class="string">&#x27;&#123;&#x27;</span>:</span><br><span class="line">            stack.append(<span class="string">&#x27;&#125;&#x27;</span>)</span><br><span class="line">        <span class="keyword">elif</span> <span class="built_in">len</span>(stack) == <span class="number">0</span> <span class="keyword">or</span> stack.pop() != item:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">len</span>(stack) == <span class="number">0</span></span><br></pre></td></tr></table></figure></li>
+<li>想法 : 直接對兩串進行排序後再比較</li>
+<li>程式碼 :   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">isAnagram</span>(<span class="params">self, s, t</span>):</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sorted</span>(s) == <span class="built_in">sorted</span>(t)</span><br></pre></td></tr></table></figure></li>
 <li>成效 : <ul>
 <li>Time Complexity : $\color{DB4D6D}{O(n)}$</li>
-<li>Runtime: 26 ms (faster than <font color="51A8DD">96.34%</font>)</li>
-<li>Memory Usage: 13.4 MB (more than <font color="51A8DD">92.13%</font>)</li>
+<li>Runtime: 54 ms (faster than <font color="51A8DD">28.8%</font>)</li>
+<li>Memory Usage: 14.4 MB (more than <font color="51A8DD">59.22%</font>)</li>
 </ul>
 </li>
 </ul>
@@ -404,14 +373,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2023/06/28/leetcode/leetcode26/" rel="prev" title="【Leetcode解題】1. Two Sum">
-                  <i class="fa fa-chevron-left"></i> 【Leetcode解題】1. Two Sum
+                <a href="/2023/07/02/leetcode/leetcode31/" rel="prev" title="【Leetcode解題】226. Invert Binary Tree">
+                  <i class="fa fa-chevron-left"></i> 【Leetcode解題】226. Invert Binary Tree
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/06/30/leetcode/leetcode28/" rel="next" title="【Leetcode解題】21. Merge Two Sorted Lists">
-                  【Leetcode解題】21. Merge Two Sorted Lists <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
