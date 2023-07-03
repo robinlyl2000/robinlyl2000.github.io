@@ -23,22 +23,22 @@
     var CONFIG = {"hostname":"robinlyl2000.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
-  <meta name="description" content="null">
+  <meta name="description" content="【Grind 125】 Week 1-8">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【Leetcode解題】38. Count and Say">
-<meta property="og:url" content="http://robinlyl2000.github.io/2022/10/18/leetcode/leetcode21/index.html">
+<meta property="og:title" content="【Leetcode解題】704. Binary Search">
+<meta property="og:url" content="http://robinlyl2000.github.io/2023/07/03/leetcode/leetcode33/index.html">
 <meta property="og:site_name" content="Robin&#39;s 筆記Blog">
-<meta property="og:description" content="null">
+<meta property="og:description" content="【Grind 125】 Week 1-8">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-10-18T02:51:02.000Z">
-<meta property="article:modified_time" content="2022-10-18T09:01:58.000Z">
+<meta property="article:published_time" content="2023-07-03T14:08:38.000Z">
+<meta property="article:modified_time" content="2023-07-03T15:02:49.798Z">
 <meta property="article:author" content="Robin Huang">
 <meta property="article:tag" content="Leetcode">
 <meta property="article:tag" content="實作練習">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://robinlyl2000.github.io/2022/10/18/leetcode/leetcode21/">
+<link rel="canonical" href="http://robinlyl2000.github.io/2023/07/03/leetcode/leetcode33/">
 
 
 <script class="page-configurations">
@@ -51,7 +51,7 @@
   };
 </script>
 
-  <title>【Leetcode解題】38. Count and Say | Robin's 筆記Blog</title>
+  <title>【Leetcode解題】704. Binary Search | Robin's 筆記Blog</title>
   
 
 
@@ -180,7 +180,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A1%8C%E7%9B%AE"><span class="nav-number">1.</span> <span class="nav-text">題目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E9%A1%8C%E6%A6%82%E5%BF%B5"><span class="nav-number">2.</span> <span class="nav-text">解題概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E5%AF%AB%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">我的寫法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E7%AD%94-or-%E5%85%B6%E4%BB%96%E5%84%AA%E7%A7%80%E5%AF%AB%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">解答 or 其他優秀寫法</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A1%8C%E7%9B%AE"><span class="nav-number">1.</span> <span class="nav-text">題目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E9%A1%8C%E6%A6%82%E5%BF%B5"><span class="nav-number">2.</span> <span class="nav-text">解題概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E5%AF%AB%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">我的寫法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E7%AD%94-or-%E5%85%B6%E4%BB%96%E5%84%AA%E7%A7%80%E5%AF%AB%E6%B3%95-Recursion-%E7%89%88%E6%9C%AC"><span class="nav-number">4.</span> <span class="nav-text">解答 or 其他優秀寫法 - Recursion 版本</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -244,7 +244,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2022/10/18/leetcode/leetcode21/">
+    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2023/07/03/leetcode/leetcode33/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/me.jpg">
@@ -260,7 +260,7 @@
     
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          【Leetcode解題】38. Count and Say
+          【Leetcode解題】704. Binary Search
         </h1>
 
         <div class="post-meta-container">
@@ -272,7 +272,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2022-10-18 10:51:02 / Modified: 17:01:58" itemprop="dateCreated datePublished" datetime="2022-10-18T10:51:02+08:00">2022-10-18</time>
+      <time title="Created: 2023-07-03 22:08:38 / Modified: 23:02:49" itemprop="dateCreated datePublished" datetime="2023-07-03T22:08:38+08:00">2023-07-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -284,7 +284,11 @@
         </span>
           , 
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Medium/" itemprop="url" rel="index"><span itemprop="name">Medium</span></a>
+          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/" itemprop="url" rel="index"><span itemprop="name">Easy</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/Grind-125/" itemprop="url" rel="index"><span itemprop="name">Grind 125</span></a>
         </span>
     </span>
 
@@ -298,7 +302,7 @@
     </span>
 </div>
 
-            <div class="post-description"></div>
+            <div class="post-description">【Grind 125】 Week 1-8</div>
         </div>
       </header>
 
@@ -307,54 +311,37 @@
     
     <div class="post-body" itemprop="articleBody">
         <h1 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h1><ul>
-<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/count-and-say/"><font color="005CAF">題目連結</font></a></li>
-<li>目標函式 : <code>countAndSay(n)</code><ul>
-<li>Input : <code>n: int</code></li>
-<li>Output : <code>str</code></li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/binary-search/description/"><font color="005CAF">題目連結</font></a></li>
+<li>目標函式 : <code>search(nums, target)</code><ul>
+<li>Input : <code>nums: List[int]</code>、<code>target: int</code></li>
+<li>Output : <code>int</code></li>
 </ul>
 </li>
 </ul>
 <h1 id="解題概念"><a href="#解題概念" class="headerlink" title="解題概念"></a>解題概念</h1><ul>
-<li>題意 : <ul>
-<li><code>countAndSay(1)</code> = 1</li>
-<li><code>countAndSay(n)</code> = 計算 <code>countAndSay(n-1)</code>，並將其<font color="51A8DD">「說」出來</font></li>
-</ul>
-</li>
-<li>如何「說」出一字串之舉例 : <ol>
-<li>假設 a = 3322251</li>
-<li>而須把 a 視為由「<font color="51A8DD">2個3, 3個2, 1個5, 1個1</font>」組成</li>
-<li>接著將這些元素合併成 23321511，即為「說」出 a 之結果</li>
-</ol>
-</li>
+<li>題意 : 給予按升序排序的整數陣列 <code>nums</code> 和一整數 <code>target</code></li>
+<li>如果<code>target</code>存在 <code>nums</code> 中，則返回其 index value，不然回傳 <code>-1</code></li>
+<li>時間複雜度要求 : $\color{DB4D6D}{O(\log(n))}$</li>
 </ul>
 <h1 id="我的寫法"><a href="#我的寫法" class="headerlink" title="我的寫法"></a>我的寫法</h1><ul>
-<li>想法 : 使用遞迴 + for 迴圈<ol>
-<li><code>last</code> : 上個讀取的字元、<code>times</code> : <code>last</code> 字元重複的次數</li>
-<li>計算 <code>countAndSay(n-1)</code>，並將其切割成字元陣列 <code>str_list</code></li>
-<li>依序讀取 <code>str_list</code>中的元素，並有以下兩種狀況 : <ol>
-<li>若 當前讀取的字元 == <code>last</code> : <ul>
-<li>則 <code>times</code> + 1</li>
-</ul>
-</li>
-<li>若 當前讀取的字元 != <code>last</code> :   <ul>
-<li><code>times</code> + 1 後，將該字元之結果與次數加到 <code>res</code> 中</li>
-<li>reset 參數 : <code>last</code> 與 <code>times</code></li>
-</ul>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>程式碼 :   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;1&quot;</span></span><br><span class="line">    </span><br><span class="line">str_list = <span class="built_in">list</span>(self.countAndSay(n-<span class="number">1</span>))</span><br><span class="line">last = <span class="string">&quot;&quot;</span></span><br><span class="line">res = <span class="string">&quot;&quot;</span></span><br><span class="line">times = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> s <span class="keyword">in</span> str_list:</span><br><span class="line">    <span class="comment"># 狀況 1</span></span><br><span class="line">    <span class="keyword">if</span> s == last:</span><br><span class="line">        times += <span class="number">1</span></span><br><span class="line">    <span class="comment"># 狀況 2</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">if</span> times != <span class="number">0</span>:</span><br><span class="line">            res += (<span class="built_in">str</span>(times) + last)</span><br><span class="line">        <span class="comment"># Reset 參數</span></span><br><span class="line">        times = <span class="number">1</span></span><br><span class="line">        last = s</span><br><span class="line">res += (<span class="built_in">str</span>(times) + last)</span><br><span class="line"><span class="keyword">return</span> res</span><br></pre></td></tr></table></figure></li>
+<li>想法 : 這題就是標準的 <font color="51A8DD">Binary Search</font> 題型，我這裡使用了 Iteration 的寫法         </li>
+<li>程式碼 :   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">search</span>(<span class="params">self, nums, target</span>):</span></span><br><span class="line">    </span><br><span class="line">    left = <span class="number">0</span></span><br><span class="line">    right = <span class="built_in">len</span>(nums) - <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> left &lt;= right:</span><br><span class="line">        mid = (left + right) // <span class="number">2</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> nums[mid] == target:</span><br><span class="line">            <span class="keyword">return</span> mid</span><br><span class="line">        <span class="keyword">elif</span> nums[mid] &gt; target: <span class="comment"># target 位於 nums[left] 與 nums[mid] 之間</span></span><br><span class="line">            right = mid - <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>: <span class="comment"># target 位於 nums[mid] 與 nums[right] 之間</span></span><br><span class="line">            left = mid + <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span></span><br></pre></td></tr></table></figure></li>
 <li>成效 : <ul>
-<li>Time Complexity: <font color="51A8DD">$O(n)$</font></li>
-<li>Runtime: 30 ms (faster than <font color="51A8DD">95.78%</font>)</li>
-<li>Memory Usage: 13.5 M (less than <font color="51A8DD">68.72%</font>)</li>
+<li>Time Complexity : $\color{DB4D6D}{O(\log(n))}$</li>
+<li>Runtime: 205 ms (faster than <font color="51A8DD">64.40%</font>)</li>
+<li>Memory Usage: 14.4 MB (more than <font color="51A8DD">90.68%</font>)</li>
 </ul>
 </li>
 </ul>
-<h1 id="解答-or-其他優秀寫法"><a href="#解答-or-其他優秀寫法" class="headerlink" title="解答 or 其他優秀寫法"></a>解答 or 其他優秀寫法</h1><ul>
-<li>其他優秀寫法都用遞迴 + 雙重迴圈，時間與空間複雜度也沒有比較佳</li>
+<h1 id="解答-or-其他優秀寫法-Recursion-版本"><a href="#解答-or-其他優秀寫法-Recursion-版本" class="headerlink" title="解答 or 其他優秀寫法 - Recursion 版本"></a>解答 or 其他優秀寫法 - Recursion 版本</h1><ul>
+<li>想法 : 此為 Binary Search 的另一種寫法</li>
+<li>程式碼 :   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">search</span>(<span class="params">self, nums, target</span>):</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">binarySearch</span>(<span class="params">left, right</span>):</span></span><br><span class="line">        <span class="keyword">if</span> left &lt;= right : </span><br><span class="line">            mid = (left + right) // <span class="number">2</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> nums[mid] == target:</span><br><span class="line">                <span class="keyword">return</span> mid</span><br><span class="line">            <span class="keyword">elif</span> nums[mid] &gt; target:</span><br><span class="line">                <span class="keyword">return</span> binarySearch(left, mid - <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> binarySearch(mid + <span class="number">1</span>, right)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">        </span><br><span class="line">    l = <span class="number">0</span></span><br><span class="line">    r = <span class="built_in">len</span>(nums) - <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> binarySearch(l, r)</span><br></pre></td></tr></table></figure></li>
+<li>成效 : <ul>
+<li>Time Complexity : $\color{DB4D6D}{O(\log(n))}$</li>
+<li>Runtime: 219 ms (faster than <font color="51A8DD">7.83%</font>)</li>
+<li>Memory Usage: 20.6 MB (more than <font color="51A8DD">7.34%</font>)</li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -373,14 +360,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/10/16/leetcode/leetcode23/" rel="prev" title="【Leetcode解題】2444. Count Subarrays With Fixed Bounds">
-                  <i class="fa fa-chevron-left"></i> 【Leetcode解題】2444. Count Subarrays With Fixed Bounds
+                <a href="/2023/07/02/leetcode/leetcode32/" rel="prev" title="【Leetcode解題】242. Valid Anagram">
+                  <i class="fa fa-chevron-left"></i> 【Leetcode解題】242. Valid Anagram
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/01/15/leetcode/leetcode24/" rel="next" title="【Leetcode解題】2535. Difference Between Element Sum and Digit Sum of an Array">
-                  【Leetcode解題】2535. Difference Between Element Sum and Digit Sum of an Array <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
