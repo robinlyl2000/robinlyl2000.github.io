@@ -23,22 +23,22 @@
     var CONFIG = {"hostname":"robinlyl2000.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
-  <meta name="description" content="【Grind 125】 Week 1-5">
+  <meta name="description" content="【Grind 125】 Week 1-10">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【Leetcode解題】125. Valid Palindrome">
-<meta property="og:url" content="http://robinlyl2000.github.io/2023/07/02/leetcode/leetcode30/index.html">
+<meta property="og:title" content="【Leetcode解題】141. Linked List Cycle">
+<meta property="og:url" content="http://robinlyl2000.github.io/2023/07/05/leetcode/leetcode35/index.html">
 <meta property="og:site_name" content="Robin&#39;s 筆記Blog">
-<meta property="og:description" content="【Grind 125】 Week 1-5">
+<meta property="og:description" content="【Grind 125】 Week 1-10">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-07-02T07:07:37.000Z">
-<meta property="article:modified_time" content="2023-07-02T13:40:28.889Z">
+<meta property="article:published_time" content="2023-07-05T15:00:09.000Z">
+<meta property="article:modified_time" content="2023-07-05T15:26:15.586Z">
 <meta property="article:author" content="Robin Huang">
 <meta property="article:tag" content="實作練習">
 <meta property="article:tag" content="Leetcode">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://robinlyl2000.github.io/2023/07/02/leetcode/leetcode30/">
+<link rel="canonical" href="http://robinlyl2000.github.io/2023/07/05/leetcode/leetcode35/">
 
 
 <script class="page-configurations">
@@ -51,7 +51,7 @@
   };
 </script>
 
-  <title>【Leetcode解題】125. Valid Palindrome | Robin's 筆記Blog</title>
+  <title>【Leetcode解題】141. Linked List Cycle | Robin's 筆記Blog</title>
   
 
 
@@ -244,7 +244,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2023/07/02/leetcode/leetcode30/">
+    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2023/07/05/leetcode/leetcode35/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/me.jpg">
@@ -260,7 +260,7 @@
     
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          【Leetcode解題】125. Valid Palindrome
+          【Leetcode解題】141. Linked List Cycle
         </h1>
 
         <div class="post-meta-container">
@@ -272,7 +272,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2023-07-02 15:07:37 / Modified: 21:40:28" itemprop="dateCreated datePublished" datetime="2023-07-02T15:07:37+08:00">2023-07-02</time>
+      <time title="Created: 2023-07-05 23:00:09 / Modified: 23:26:15" itemprop="dateCreated datePublished" datetime="2023-07-05T23:00:09+08:00">2023-07-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -302,7 +302,7 @@
     </span>
 </div>
 
-            <div class="post-description">【Grind 125】 Week 1-5</div>
+            <div class="post-description">【Grind 125】 Week 1-10</div>
         </div>
       </header>
 
@@ -311,55 +311,34 @@
     
     <div class="post-body" itemprop="articleBody">
         <h1 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h1><ul>
-<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/valid-palindrome/"><font color="005CAF">題目連結</font></a></li>
-<li>目標函式 : <code>isPalindrome(s)</code><ul>
-<li>Input : <code>s: str</code></li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/linked-list-cycle/"><font color="005CAF">題目連結</font></a></li>
+<li>目標函式 : <code>hasCycle(head)</code><ul>
+<li>Input : <code>head: ListNode</code></li>
 <li>Output : <code>bool</code></li>
 </ul>
 </li>
 </ul>
 <h1 id="解題概念"><a href="#解題概念" class="headerlink" title="解題概念"></a>解題概念</h1><ul>
-<li>題意 : 給予一字串 <code>s</code>，若 <code>s</code> 為 <font color="51A8DD">Palindrome(迴文)</font> 回傳 <code>true</code>，否則回傳 <code>false</code></li>
-<li>Palindrome(迴文) 的定義 : <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Palindrome">https://en.wikipedia.org/wiki/Palindrome</a></li>
+<li>題意 : 給予一 Linked List <code>head</code>，判斷其中是否有 Cycle</li>
+<li>這題也是在 Linked List 應用方面很常見的一題，相關題型可以參考 <a target="_blank" rel="noopener" href="https://medium.com/%E5%81%8F%E5%81%8F%E7%9A%84%E6%BC%94%E7%AE%97%E6%B3%95%E7%AD%86%E8%A8%98/%E5%88%B7%E9%A1%8C%E7%AD%86%E8%A8%98-leetcode-linked-list-cycle-%E9%A1%8C%E7%B5%84-c844f8a07c82"><font color="005CAF">刷題筆記｜Leetcode — Linked List Cycle 題組</font></a></li>
 </ul>
 <h1 id="我的寫法"><a href="#我的寫法" class="headerlink" title="我的寫法"></a>我的寫法</h1><ul>
-<li>想法 : 此題為 Stack 的經典應用題<ol>
-<li>將 <code>s</code> 前半部分依序 Push 進 <code>stack</code> 中</li>
-<li>依序瀏覽 <code>s</code> 後半部分的字元，若該字元與 <code>stack.pop()</code> 不同，則直接回傳 <code>false</code></li>
-<li>若第二步都瀏覽完，且 <code>stack</code> 為空，則回傳 <code>true</code></li>
-</ol>
+<li>想法 : 利用雙重指標 <code>oneStep</code> 與 <code>twoStep</code><ul>
+<li> <code>oneStep</code> : 一次往前一個節點</li>
+<li> <code>twoStep</code> : 一次往前兩個節點</li>
+<li> 如果在 <code>oneStep</code> 與 <code>twoStep</code> 都可以前進的狀況下，<code>oneStep</code> 與 <code>twoStep</code> 各自前進後發現皆指向同一節點，則代表 Linked List 中有 Cycle</li>
+</ul>
 </li>
-<li>程式碼 :   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">isPalindrome</span>(<span class="params">self, s</span>):</span></span><br><span class="line">    <span class="comment"># 將非數字與非字母的字元移除，同時執行 lower()</span></span><br><span class="line">    s_new = <span class="string">&quot;&quot;</span>.join(i <span class="keyword">for</span> i <span class="keyword">in</span> s.lower() <span class="keyword">if</span> i.isalpha() <span class="keyword">or</span> i.isdigit())</span><br><span class="line">    <span class="built_in">print</span>(s_new)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(s_new) &lt;= <span class="number">1</span> : <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 前半部分依序 Push 進 stack 中</span></span><br><span class="line">    stack = <span class="built_in">list</span>(s_new[<span class="number">0</span>:<span class="built_in">len</span>(s_new) // <span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 找後半部的起始點</span></span><br><span class="line">    start = <span class="built_in">len</span>(s_new) // <span class="number">2</span> + <span class="number">1</span> <span class="keyword">if</span> (<span class="built_in">len</span>(s_new) % <span class="number">2</span>) <span class="keyword">else</span> (<span class="built_in">len</span>(s_new) // <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 依序瀏覽 s 後半部分的字元</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(start, <span class="built_in">len</span>(s_new)):  </span><br><span class="line">        <span class="keyword">if</span> stack.pop() != s_new[i]:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure></li>
+<li>程式碼 :   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hasCycle</span>(<span class="params">self, head</span>):</span></span><br><span class="line">    </span><br><span class="line">    oneStep = head</span><br><span class="line">    twoStep = head</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> oneStep != <span class="literal">None</span> <span class="keyword">and</span> twoStep != <span class="literal">None</span> <span class="keyword">and</span> twoStep.<span class="built_in">next</span> != <span class="literal">None</span>:</span><br><span class="line">        oneStep = oneStep.<span class="built_in">next</span></span><br><span class="line">        twoStep = twoStep.<span class="built_in">next</span>.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> oneStep == twoStep:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure></li>
 <li>成效 : <ul>
 <li>Time Complexity : $\color{DB4D6D}{O(n)}$</li>
-<li>Runtime: 29 ms (faster than <font color="51A8DD">87.59%</font>)</li>
-<li>Memory Usage: 15.6 MB (more than <font color="51A8DD">82.76%</font>)</li>
+<li>Runtime: 36 ms (faster than <font color="51A8DD">91.12%</font>)</li>
+<li>Memory Usage: 20.3 MB (more than <font color="51A8DD">65.18%</font>)</li>
 </ul>
 </li>
 </ul>
 <h1 id="解答-or-其他優秀寫法"><a href="#解答-or-其他優秀寫法" class="headerlink" title="解答 or 其他優秀寫法"></a>解答 or 其他優秀寫法</h1><ul>
-<li>想法 : 使用雙重指標去做 searching<ul>
-<li>設定指標 <code>left = 0</code> (陣列前端)</li>
-<li>設定指標 <code>right = len(s) - 1</code> (陣列後端) </li>
-<li>使用 while 迴圈，執行 <code>left</code> 往後、<code>right</code> 往前搜尋 :  <ul>
-<li>若 <code>s[left]</code> 不為字母或數字 : 跳過該字元 (<code>left += 1</code>)</li>
-<li>若 <code>s[right]</code> 不為字母或數字 : 跳過該字元 (<code>right -= 1</code>)</li>
-<li>否則 : <ul>
-<li>若 <code>s[left]</code> 與 <code>s[right]</code> 不同，則直接回傳 <code>False</code></li>
-<li>不然就 <code>left += 1</code> 並 <code>right -= 1</code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>程式碼 :   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">isPalindrome</span>(<span class="params">self, s</span>):</span></span><br><span class="line">    </span><br><span class="line">    left = <span class="number">0</span></span><br><span class="line">    right = <span class="built_in">len</span>(s) - <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> left &lt; right:</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> s[left].isalnum():</span><br><span class="line">            left += <span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> <span class="keyword">not</span> s[right].isalnum():</span><br><span class="line">            right -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span> s[left].lower() != s[right].lower():</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                left += <span class="number">1</span></span><br><span class="line">                right -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure></li>
-<li>成效 : <ul>
-<li>Time Complexity : $\color{DB4D6D}{O(n)}$</li>
-<li>Runtime: 48 ms (faster than <font color="51A8DD">43.17%</font>)</li>
-<li>Memory Usage: 13.9 MB (more than <font color="51A8DD">99.38%</font>)</li>
-</ul>
-</li>
+<li>概念上都與我相同</li>
 </ul>
 
     </div>
@@ -378,14 +357,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2023/07/01/leetcode/leetcode29/" rel="prev" title="【Leetcode解題】121. Best Time to Buy and Sell Stock">
-                  <i class="fa fa-chevron-left"></i> 【Leetcode解題】121. Best Time to Buy and Sell Stock
+                <a href="/2023/07/04/leetcode/leetcode34/" rel="prev" title="【Leetcode解題】110. Balanced Binary Tree">
+                  <i class="fa fa-chevron-left"></i> 【Leetcode解題】110. Balanced Binary Tree
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/07/02/leetcode/leetcode31/" rel="next" title="【Leetcode解題】226. Invert Binary Tree">
-                  【Leetcode解題】226. Invert Binary Tree <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
