@@ -23,15 +23,15 @@
     var CONFIG = {"hostname":"robinlyl2000.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
-  <meta name="description" content="【Grind 125】 Week 1-11">
+  <meta name="description" content="【Grind 125】 Week 1-12">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【Leetcode解題】733. Flood Fill">
 <meta property="og:url" content="http://robinlyl2000.github.io/2023/07/07/leetcode/leetcode37/index.html">
 <meta property="og:site_name" content="Robin&#39;s 筆記Blog">
-<meta property="og:description" content="【Grind 125】 Week 1-11">
+<meta property="og:description" content="【Grind 125】 Week 1-12">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-07-07T13:41:16.000Z">
-<meta property="article:modified_time" content="2023-07-10T14:32:07.179Z">
+<meta property="article:modified_time" content="2023-07-10T14:41:29.300Z">
 <meta property="article:author" content="Robin Huang">
 <meta property="article:tag" content="實作練習">
 <meta property="article:tag" content="Leetcode">
@@ -195,7 +195,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">90</span>
+          <span class="site-state-item-count">91</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -278,7 +278,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2023-07-10 22:32:07" itemprop="dateModified" datetime="2023-07-10T22:32:07+08:00">2023-07-10</time>
+        <time title="Modified: 2023-07-10 22:41:29" itemprop="dateModified" datetime="2023-07-10T22:41:29+08:00">2023-07-10</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -308,7 +308,7 @@
     </span>
 </div>
 
-            <div class="post-description">【Grind 125】 Week 1-11</div>
+            <div class="post-description">【Grind 125】 Week 1-12</div>
         </div>
       </header>
 
@@ -347,15 +347,13 @@
 </li>
 </ul>
 <h1 id="解答-or-其他優秀寫法"><a href="#解答-or-其他優秀寫法" class="headerlink" title="解答 or 其他優秀寫法"></a>解答 or 其他優秀寫法</h1><ul>
-<li>想法 : 把我的寫法修得更加乾淨<ul>
-<li><code>push(x)</code> : 將元素 Push 到 Stack <code>s</code> 中即可</li>
-<li><code>pop()</code> : 先執行 <code>peek()</code>，確認 Queue 有元素，同時把所有元素都移到 Stack <code>t</code> 中，再取出 <code>s</code> 的第一個元素</li>
-<li><code>peek()</code> : 確認 Stack <code>t</code> 是否為空 : <ul>
-<li>若 <code>t</code> 為空，則對 <code>t</code> 一一執行 <code>pop()</code>，並依序 Push 到 <code>t</code> 中</li>
-<li>再回傳 <code>t</code> 尾端的元素 </li>
+<li>想法 : 與我的想法類似<ul>
+<li>把我的寫法修得更加乾淨</li>
+<li>把 <code>check</code> 陣列移除</li>
+<li>在阻斷遞迴的地方新增 <code>image[i][j] == color</code> 與 <code>image[i][j] != target</code> 兩個條件<ul>
+<li>後續就不須再去比較</li>
 </ul>
 </li>
-<li><code>empty()</code> : 若 <code>t</code> 為空且 <code>s</code> 也為空，代表 Queue 為空</li>
 </ul>
 </li>
 <li>程式碼 :   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">floodFill</span>(<span class="params">self, image, sr, sc, color</span>):</span></span><br><span class="line">    </span><br><span class="line">    target = image[sr][sc]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">find</span>(<span class="params">i, j</span>):</span></span><br><span class="line">        <span class="keyword">if</span> j &lt; <span class="number">0</span> <span class="keyword">or</span> j &gt;= <span class="built_in">len</span>(image[<span class="number">0</span>]) <span class="keyword">or</span> i &lt; <span class="number">0</span> <span class="keyword">or</span> i &gt;= <span class="built_in">len</span>(image) <span class="keyword">or</span> image[i][j] == color <span class="keyword">or</span> image[i][j] != target:</span><br><span class="line">            <span class="keyword">return</span> </span><br><span class="line"></span><br><span class="line">        image[i][j] = color</span><br><span class="line">        find(i - <span class="number">1</span>, j)</span><br><span class="line">        find(i + <span class="number">1</span>, j)</span><br><span class="line">        find(i, j - <span class="number">1</span>)</span><br><span class="line">        find(i, j + <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    find(sr, sc)</span><br><span class="line">    <span class="keyword">return</span> image</span><br></pre></td></tr></table></figure></li>
@@ -387,6 +385,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2023/07/08/leetcode/leetcode38/" rel="next" title="【Leetcode解題】278. First Bad Version">
+                  【Leetcode解題】278. First Bad Version <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
