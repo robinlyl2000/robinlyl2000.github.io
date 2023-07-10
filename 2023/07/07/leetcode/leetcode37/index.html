@@ -23,25 +23,22 @@
     var CONFIG = {"hostname":"robinlyl2000.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
-  <meta name="description" content="null">
+  <meta name="description" content="【Grind 125】 Week 1-11">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【Leetcode解題】2444. Count Subarrays With Fixed Bounds">
-<meta property="og:url" content="http://robinlyl2000.github.io/2022/10/16/leetcode/leetcode23/index.html">
+<meta property="og:title" content="【Leetcode解題】733. Flood Fill">
+<meta property="og:url" content="http://robinlyl2000.github.io/2023/07/07/leetcode/leetcode37/index.html">
 <meta property="og:site_name" content="Robin&#39;s 筆記Blog">
-<meta property="og:description" content="null">
+<meta property="og:description" content="【Grind 125】 Week 1-11">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://i.imgur.com/YSuOCJo.png">
-<meta property="og:image" content="https://i.imgur.com/O8nYP4C.png">
-<meta property="article:published_time" content="2022-10-16T08:01:02.000Z">
-<meta property="article:modified_time" content="2022-10-18T15:12:10.000Z">
+<meta property="article:published_time" content="2023-07-07T13:41:16.000Z">
+<meta property="article:modified_time" content="2023-07-10T14:32:07.179Z">
 <meta property="article:author" content="Robin Huang">
 <meta property="article:tag" content="實作練習">
 <meta property="article:tag" content="Leetcode">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.imgur.com/YSuOCJo.png">
 
 
-<link rel="canonical" href="http://robinlyl2000.github.io/2022/10/16/leetcode/leetcode23/">
+<link rel="canonical" href="http://robinlyl2000.github.io/2023/07/07/leetcode/leetcode37/">
 
 
 <script class="page-configurations">
@@ -54,7 +51,7 @@
   };
 </script>
 
-  <title>【Leetcode解題】2444. Count Subarrays With Fixed Bounds | Robin's 筆記Blog</title>
+  <title>【Leetcode解題】733. Flood Fill | Robin's 筆記Blog</title>
   
 
 
@@ -247,7 +244,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2022/10/16/leetcode/leetcode23/">
+    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2023/07/07/leetcode/leetcode37/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/me.jpg">
@@ -263,7 +260,7 @@
     
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          【Leetcode解題】2444. Count Subarrays With Fixed Bounds
+          【Leetcode解題】733. Flood Fill
         </h1>
 
         <div class="post-meta-container">
@@ -274,14 +271,14 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2022-10-16 16:01:02" itemprop="dateCreated datePublished" datetime="2022-10-16T16:01:02+08:00">2022-10-16</time>
+      <time title="Created: 2023-07-07 21:41:16" itemprop="dateCreated datePublished" datetime="2023-07-07T21:41:16+08:00">2023-07-07</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-10-18 23:12:10" itemprop="dateModified" datetime="2022-10-18T23:12:10+08:00">2022-10-18</time>
+        <time title="Modified: 2023-07-10 22:32:07" itemprop="dateModified" datetime="2023-07-10T22:32:07+08:00">2023-07-10</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -293,11 +290,11 @@
         </span>
           , 
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Hard/" itemprop="url" rel="index"><span itemprop="name">Hard</span></a>
+          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/" itemprop="url" rel="index"><span itemprop="name">Easy</span></a>
         </span>
           , 
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Hard/Weekly-Contest/" itemprop="url" rel="index"><span itemprop="name">Weekly Contest</span></a>
+          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/Grind-125/" itemprop="url" rel="index"><span itemprop="name">Grind 125</span></a>
         </span>
     </span>
 
@@ -311,7 +308,7 @@
     </span>
 </div>
 
-            <div class="post-description"></div>
+            <div class="post-description">【Grind 125】 Week 1-11</div>
         </div>
       </header>
 
@@ -320,77 +317,51 @@
     
     <div class="post-body" itemprop="articleBody">
         <h1 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h1><ul>
-<li><a target="_blank" rel="noopener" href="https://leetcode.com/contest/weekly-contest-315/problems/count-subarrays-with-fixed-bounds/"><font color="005CAF">題目連結</font></a></li>
-<li>目標函式 : <code>countSubarrays(nums, minK, maxK)</code><ul>
-<li>Input : <code>nums: List[int]</code>、<code>minK: int</code>、<code>maxK: int</code></li>
-<li>Output : <code>int</code></li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/flood-fill/"><font color="005CAF">題目連結</font></a></li>
+<li>目標函式 : <code>floodFill(image, sr, sc, color)</code><ul>
+<li>Input : <code>image: List[List[int]]</code>、<code>sr: int</code>、<code>sc: int</code>、<code>color: int</code></li>
+<li>Output : <code>List[List[int]]</code></li>
 </ul>
 </li>
 </ul>
 <h1 id="解題概念"><a href="#解題概念" class="headerlink" title="解題概念"></a>解題概念</h1><ul>
-<li>題意 : 給予一陣列 <code>nums</code>，找出其 Subarray 的數量，且那些 Subarray 須滿足 : <ul>
-<li>Subarray 中的最小值 = <code>minK</code></li>
-<li>Subarray 中的最大值 = <code>maxK</code></li>
+<li>題意 : <ul>
+<li> <code>image</code> 由 <code>m x n</code> 整數陣列表示，其中 <code>image[i][j]</code> 表示 image 的 pixel value</li>
+<li> 須從 <code>image[sr][sc]</code> 開始對 image 進行 Flood Fill</li>
+<li> Flood Fill 的作法 : 考慮起始點，加上與四個方向與該點顏色相同的的點，再加上與四個方向與那些點顏色相同的的點，依此類推</li>
+<li> 結果 : 將上述所有像素的顏色替換為 <code>color</code></li>
 </ul>
 </li>
 </ul>
 <h1 id="我的寫法"><a href="#我的寫法" class="headerlink" title="我的寫法"></a>我的寫法</h1><ul>
-<li>想法 : <ul>
-<li>利用雙重 for 迴圈之 <code>i</code> 與 <code>j</code>，去判斷 <code>nums[i] ~ nums[j]</code> 是否為滿足條件的 Subarray</li>
-</ul>
+<li>想法 : 採用遞迴的方式<ol>
+<li>新增一個 <code>check</code> 的 <code>m x n</code> 布林陣列 : 預設為 <code>false</code>，若遞迴可以搜尋過則設為 <code>true</code></li>
+<li>使用 <code>find(i, j)</code> 去遞迴找出該格是否要換顏色 :<br> * </li>
+</ol>
 </li>
-<li>程式碼 :   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">satisfy</span>(<span class="params">arr</span>):</span> <span class="comment"># 判斷是否滿足條件</span></span><br><span class="line">    <span class="keyword">if</span> arr == []:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">max</span>(arr) == maxK <span class="keyword">and</span> <span class="built_in">min</span>(arr) == minK:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">cnt = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(nums)):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(nums)):</span><br><span class="line">        <span class="keyword">if</span> satisfy(nums[i:j+<span class="number">1</span>]):</span><br><span class="line">            cnt += <span class="number">1</span></span><br><span class="line"><span class="keyword">return</span> cnt</span><br></pre></td></tr></table></figure></li>
-<li>成效 : <font color="51A8DD">Runtime Error</font><ul>
-<li>Time Complexity : $\color{DB4D6D}{O(n^2)}$</li>
+<li>程式碼 :   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">floodFill</span>(<span class="params">self, image, sr, sc, color</span>):</span></span><br><span class="line">    </span><br><span class="line">    x = <span class="built_in">len</span>(image)</span><br><span class="line">    y = <span class="built_in">len</span>(image[<span class="number">0</span>])</span><br><span class="line">    target = image[sr][sc]</span><br><span class="line">    check = [[<span class="literal">False</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(y)] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(x)]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">find</span>(<span class="params">i, j</span>):</span></span><br><span class="line">        <span class="comment"># 若 i 或 j 超出陣列範圍，則直接回傳 false</span></span><br><span class="line">        <span class="keyword">if</span> j &lt; <span class="number">0</span> <span class="keyword">or</span> j &gt;= y <span class="keyword">or</span> i &lt; <span class="number">0</span> <span class="keyword">or</span> i &gt;= x:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 若該格尚未瀏覽過，且同時該格的值為 target，則回傳 true</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> check[i][j] <span class="keyword">and</span> image[i][j] == target :</span><br><span class="line">            check[i][j] = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 往左搜尋</span></span><br><span class="line">        <span class="keyword">if</span> find(i - <span class="number">1</span>, j) : </span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;from (&#123;&#125;,&#123;&#125;) tp (&#123;&#125;,&#123;&#125;)&quot;</span>.<span class="built_in">format</span>(i,j,i-<span class="number">1</span>,j))</span><br><span class="line">            image[i - <span class="number">1</span>][j] = color</span><br><span class="line">        <span class="comment"># 往右搜尋</span></span><br><span class="line">        <span class="keyword">if</span> find(i + <span class="number">1</span>, j) : </span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;from (&#123;&#125;,&#123;&#125;) tp (&#123;&#125;,&#123;&#125;)&quot;</span>.<span class="built_in">format</span>(i,j,i + <span class="number">1</span>, j))</span><br><span class="line">            image[i + <span class="number">1</span>][j] = color</span><br><span class="line">        <span class="comment"># 往上搜尋</span></span><br><span class="line">        <span class="keyword">if</span> find(i, j - <span class="number">1</span>) : </span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;from (&#123;&#125;,&#123;&#125;) tp (&#123;&#125;,&#123;&#125;)&quot;</span>.<span class="built_in">format</span>(i,j,i, j - <span class="number">1</span>))</span><br><span class="line">            image[i][j - <span class="number">1</span>] = color</span><br><span class="line">        <span class="comment"># 往下搜尋</span></span><br><span class="line">        <span class="keyword">if</span> find(i, j + <span class="number">1</span>) : </span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;from (&#123;&#125;,&#123;&#125;) tp (&#123;&#125;,&#123;&#125;)&quot;</span>.<span class="built_in">format</span>(i,j,i, j + <span class="number">1</span>))</span><br><span class="line">            image[i][j + <span class="number">1</span>] = color</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    find(sr, sc) <span class="comment"># 從起始點開始</span></span><br><span class="line">    image[sr][sc] = color</span><br><span class="line">    <span class="keyword">return</span> image</span><br></pre></td></tr></table></figure></li>
+<li>成效 : <ul>
+<li>Runtime: 69 ms (faster than <font color="51A8DD">7.46%</font>)</li>
+<li>Memory Usage: 13.7 MB (more than <font color="51A8DD">15.50%</font>)</li>
 </ul>
 </li>
 </ul>
 <h1 id="解答-or-其他優秀寫法"><a href="#解答-or-其他優秀寫法" class="headerlink" title="解答 or 其他優秀寫法"></a>解答 or 其他優秀寫法</h1><ul>
-<li>想法 : <ol>
-<li>變數設定 : <ul>
-<li><code>lastseenmax</code> : 之前看到在 <code>nums</code> 中出現 <code>maxK</code> 的 index</li>
-<li><code>lastseenmin</code> : 之前看到在 <code>nums</code> 中出現 <code>minK</code> 的 index</li>
-<li><code>subArrayStartIndex</code> : 當前 Subarray 開始的 Index</li>
+<li>想法 : 把我的寫法修得更加乾淨<ul>
+<li><code>push(x)</code> : 將元素 Push 到 Stack <code>s</code> 中即可</li>
+<li><code>pop()</code> : 先執行 <code>peek()</code>，確認 Queue 有元素，同時把所有元素都移到 Stack <code>t</code> 中，再取出 <code>s</code> 的第一個元素</li>
+<li><code>peek()</code> : 確認 Stack <code>t</code> 是否為空 : <ul>
+<li>若 <code>t</code> 為空，則對 <code>t</code> 一一執行 <code>pop()</code>，並依序 Push 到 <code>t</code> 中</li>
+<li>再回傳 <code>t</code> 尾端的元素 </li>
 </ul>
 </li>
-<li>利用 for 迴圈去抓 <code>num</code>，並有三種狀況需要處理 : <ol>
-<li>當 <code>num &lt; minK or num &gt; maxK</code> : <ul>
-<li>代表當前的 <code>num</code> 不會形成任何 Subarray (因為題目要求之 Subarray 需要是  contiguous)</li>
-<li>因此，要將 <code>lastseenmax</code> 與 <code>lastseenmin</code> 從新計算(即設為初始值 = <code>-1</code>)</li>
-<li>另外也要將 <code>subArrayStartIndex</code> 設為 <code>i + 1</code>，下一回合從新開始計算 Subarray</li>
+<li><code>empty()</code> : 若 <code>t</code> 為空且 <code>s</code> 也為空，代表 Queue 為空</li>
 </ul>
 </li>
-<li>當 <code>num == minK</code> : <ul>
-<li>需將 <code>minK</code> 修正成 <code>i</code></li>
-</ul>
-</li>
-<li>當 <code>num = maxK</code> : <ul>
-<li>需將 <code>maxK</code> 修正成 <code>i</code></li>
-</ul>
-</li>
-<li>三種狀況處理完後，計算出當前 Subarray 包含所有可能滿足條件之狀況數量<ul>
-<li>EX : 當前狀況如下圖  <img src="https://i.imgur.com/YSuOCJo.png" style="display:block;margin:auto;" width="60%" height="60%"/></li>
-<li>下圖滿足條件的 Subarray有 : <code>[2, 4, 1, 3, 5]</code>、<code>[4, 1, 3, 5]</code>、<code>[1, 3, 5]</code>，共 3 種</li>
-<li>而扣除掉黃色的部分，其他兩個數字會影響到數量的計算<blockquote>
-<ul>
-<li>其他狀況 : 若黃色後面還有其他數字 (即 <code>i</code> 不是指在 Boundary 上)，那些數字並不會影響到本回合之計算，因為「若扣除那些數字之 Subarray」的狀況早已在 <code>i</code> 指在 Boundary時已計算進去，因此這裡無須重複計算</li>
-</ul>
-</blockquote>
-</li>
-<li>也就是「整個 Subarray 的長度 - 兩個 Bound 圍起來的範圍長度 = 多出來的數量」，再加上兩個 Bound 圍起來的部分本身，所以共有 (<font color="DB4D6D">整個 Subarray 的長度 - 兩個 Bound 圍起來的範圍長度 + 1</font>) 個可能性</li>
-<li>總結來看，可推得以下公式 :   <img src="https://i.imgur.com/O8nYP4C.png" style="display:block;margin:auto;" width="90%" height="90%"/>
-  > 若該值 < 0 ，則讓其 = 0</li>
-</ul>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>程式碼 :   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">res = <span class="number">0</span></span><br><span class="line">subArrayStartIndex = <span class="number">0</span></span><br><span class="line">lastseenmin = -<span class="number">1</span></span><br><span class="line">lastseenmax = -<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(nums)):</span><br><span class="line">    num = nums[i]</span><br><span class="line">    <span class="keyword">if</span> num &lt; minK <span class="keyword">or</span> num &gt; maxK:</span><br><span class="line">        lastseenmin = -<span class="number">1</span></span><br><span class="line">        lastseenmax = -<span class="number">1</span></span><br><span class="line">        subArrayStartIndex = i + <span class="number">1</span></span><br><span class="line">            </span><br><span class="line">    <span class="keyword">if</span> num == minK:</span><br><span class="line">        lastseenmin = i</span><br><span class="line">    <span class="keyword">if</span> num == maxK:</span><br><span class="line">        lastseenmax = i</span><br><span class="line">    </span><br><span class="line">    res += <span class="built_in">max</span>(<span class="built_in">min</span>(lastseenmin, lastseenmax) - subArrayStartIndex + <span class="number">1</span>, <span class="number">0</span>)</span><br><span class="line">            </span><br><span class="line"><span class="keyword">return</span> res</span><br></pre></td></tr></table></figure></li>
+<li>程式碼 :   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">floodFill</span>(<span class="params">self, image, sr, sc, color</span>):</span></span><br><span class="line">    </span><br><span class="line">    target = image[sr][sc]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">find</span>(<span class="params">i, j</span>):</span></span><br><span class="line">        <span class="keyword">if</span> j &lt; <span class="number">0</span> <span class="keyword">or</span> j &gt;= <span class="built_in">len</span>(image[<span class="number">0</span>]) <span class="keyword">or</span> i &lt; <span class="number">0</span> <span class="keyword">or</span> i &gt;= <span class="built_in">len</span>(image) <span class="keyword">or</span> image[i][j] == color <span class="keyword">or</span> image[i][j] != target:</span><br><span class="line">            <span class="keyword">return</span> </span><br><span class="line"></span><br><span class="line">        image[i][j] = color</span><br><span class="line">        find(i - <span class="number">1</span>, j)</span><br><span class="line">        find(i + <span class="number">1</span>, j)</span><br><span class="line">        find(i, j - <span class="number">1</span>)</span><br><span class="line">        find(i, j + <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    find(sr, sc)</span><br><span class="line">    <span class="keyword">return</span> image</span><br></pre></td></tr></table></figure></li>
 <li>成效 : <ul>
-<li>Time Complexity : $\color{DB4D6D}{O(n)}$</li>
-<li>Runtime: Unknown (Don’t have enough accepted submissions)</li>
-<li>Memory Usage: Unknown (Don’t have enough accepted submissions)</li>
+<li>Runtime: 56 ms (faster than <font color="51A8DD">75.81%</font>)</li>
+<li>Memory Usage: 13.5 MB (more than <font color="51A8DD">56.70%</font>)</li>
 </ul>
 </li>
 </ul>
@@ -411,14 +382,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/10/14/leetcode/leetcode22/" rel="prev" title="【Leetcode解題】237. Delete Node in a Linked List">
-                  <i class="fa fa-chevron-left"></i> 【Leetcode解題】237. Delete Node in a Linked List
+                <a href="/2023/07/06/leetcode/leetcode36/" rel="prev" title="【Leetcode解題】232. Implement Queue using Stacks">
+                  <i class="fa fa-chevron-left"></i> 【Leetcode解題】232. Implement Queue using Stacks
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/10/18/leetcode/leetcode21/" rel="next" title="【Leetcode解題】38. Count and Say">
-                  【Leetcode解題】38. Count and Say <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
