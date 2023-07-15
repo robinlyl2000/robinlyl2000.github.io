@@ -1,1302 +1,397 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
-
-<script class="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"robinlyl2000.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
-  </script>
-
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Robin&#39;s 筆記Blog">
+<!DOCTYPE html><html lang="zh-TW" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Robin's Tech Blog</title><meta name="author" content="Robin Huang"><meta name="copyright" content="Robin Huang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="Robin&#39;s Tech Blog">
 <meta property="og:url" content="http://robinlyl2000.github.io/page/2/index.html">
-<meta property="og:site_name" content="Robin&#39;s 筆記Blog">
-<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Robin&#39;s Tech Blog">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="http://robinlyl2000.github.io/img/me.jpg">
 <meta property="article:author" content="Robin Huang">
 <meta name="twitter:card" content="summary">
-
-
-<link rel="canonical" href="http://robinlyl2000.github.io/page/2/">
-
-
-<script class="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'en'
-  };
-</script>
-
-  <title>Robin's 筆記Blog</title>
-  
-
-
-
-
-
-
-  <noscript>
-  <style>
-  body { margin-top: 2rem; }
-
-  .use-motion .menu-item,
-  .use-motion .sidebar,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header {
-    visibility: visible;
-  }
-
-  .use-motion .header,
-  .use-motion .site-brand-container .toggle,
-  .use-motion .footer { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle,
-  .use-motion .custom-logo-image {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line {
-    transform: scaleX(1);
-  }
-
-  .search-pop-overlay, .sidebar-nav { display: none; }
-  .sidebar-panel { display: block; }
-  </style>
-</noscript>
-
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-<!-- hexo injector head_end end --></head>
-
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
-
-  <main class="main">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <h1 class="site-title">Robin's 筆記Blog</h1>
-      <i class="logo-line"></i>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-    </div>
-  </div>
-</div>
-
-
-
-<nav class="site-nav">
-  <ul class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
-
-  </li>
-  </ul>
-</nav>
-
-
-
-
-</div>
-        
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-
-  <aside class="sidebar">
-
-    <div class="sidebar-inner sidebar-overview-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <section class="post-toc-wrap sidebar-panel">
-      </section>
-      <!--/noindex-->
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Robin Huang"
-      src="/images/me.jpg">
-  <p class="site-author-name" itemprop="name">Robin Huang</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives">
-          <span class="site-state-item-count">95</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">15</span>
-        <span class="site-state-item-name">categories</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">9</span>
-        <span class="site-state-item-name">tags</span></a>
-      </div>
-  </nav>
-</div>
-
-
-
-      </section>
-    </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
-
-
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
-
-    <div class="main-inner index posts-expand">
-      
-
-      
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2023/07/02/leetcode/leetcode32/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/me.jpg">
-      <meta itemprop="name" content="Robin Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Robin's 筆記Blog">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/07/02/leetcode/leetcode32/" class="post-title-link" itemprop="url">【Leetcode解題】242. Valid Anagram</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2023-07-02 22:36:57 / Modified: 23:10:46" itemprop="dateCreated datePublished" datetime="2023-07-02T22:36:57+08:00">2023-07-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/" itemprop="url" rel="index"><span itemprop="name">Leetcode解題</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/" itemprop="url" rel="index"><span itemprop="name">Easy</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/Grind-125/" itemprop="url" rel="index"><span itemprop="name">Grind 125</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>【Grind 125】 Week 1-7</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/07/02/leetcode/leetcode32/">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2023/07/02/leetcode/leetcode31/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/me.jpg">
-      <meta itemprop="name" content="Robin Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Robin's 筆記Blog">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/07/02/leetcode/leetcode31/" class="post-title-link" itemprop="url">【Leetcode解題】226. Invert Binary Tree</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2023-07-02 21:39:50 / Modified: 22:38:23" itemprop="dateCreated datePublished" datetime="2023-07-02T21:39:50+08:00">2023-07-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/" itemprop="url" rel="index"><span itemprop="name">Leetcode解題</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/" itemprop="url" rel="index"><span itemprop="name">Easy</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/Grind-125/" itemprop="url" rel="index"><span itemprop="name">Grind 125</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>【Grind 125】 Week 1-6</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/07/02/leetcode/leetcode31/">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2023/07/02/leetcode/leetcode30/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/me.jpg">
-      <meta itemprop="name" content="Robin Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Robin's 筆記Blog">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/07/02/leetcode/leetcode30/" class="post-title-link" itemprop="url">【Leetcode解題】125. Valid Palindrome</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2023-07-02 15:07:37 / Modified: 21:40:28" itemprop="dateCreated datePublished" datetime="2023-07-02T15:07:37+08:00">2023-07-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/" itemprop="url" rel="index"><span itemprop="name">Leetcode解題</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/" itemprop="url" rel="index"><span itemprop="name">Easy</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/Grind-125/" itemprop="url" rel="index"><span itemprop="name">Grind 125</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>【Grind 125】 Week 1-5</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/07/02/leetcode/leetcode30/">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2023/07/01/leetcode/leetcode29/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/me.jpg">
-      <meta itemprop="name" content="Robin Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Robin's 筆記Blog">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/07/01/leetcode/leetcode29/" class="post-title-link" itemprop="url">【Leetcode解題】121. Best Time to Buy and Sell Stock</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-07-01 19:47:44" itemprop="dateCreated datePublished" datetime="2023-07-01T19:47:44+08:00">2023-07-01</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2023-07-02 14:54:41" itemprop="dateModified" datetime="2023-07-02T14:54:41+08:00">2023-07-02</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/" itemprop="url" rel="index"><span itemprop="name">Leetcode解題</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/" itemprop="url" rel="index"><span itemprop="name">Easy</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/Grind-125/" itemprop="url" rel="index"><span itemprop="name">Grind 125</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>【Grind 125】 Week 1-4</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/07/01/leetcode/leetcode29/">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2023/06/30/leetcode/leetcode28/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/me.jpg">
-      <meta itemprop="name" content="Robin Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Robin's 筆記Blog">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/06/30/leetcode/leetcode28/" class="post-title-link" itemprop="url">【Leetcode解題】21. Merge Two Sorted Lists</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-06-30 22:33:17" itemprop="dateCreated datePublished" datetime="2023-06-30T22:33:17+08:00">2023-06-30</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2023-07-01 20:22:33" itemprop="dateModified" datetime="2023-07-01T20:22:33+08:00">2023-07-01</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/" itemprop="url" rel="index"><span itemprop="name">Leetcode解題</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/" itemprop="url" rel="index"><span itemprop="name">Easy</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/Grind-125/" itemprop="url" rel="index"><span itemprop="name">Grind 125</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>【Grind 125】 Week 1-3</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/06/30/leetcode/leetcode28/">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2023/06/29/leetcode/leetcode27/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/me.jpg">
-      <meta itemprop="name" content="Robin Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Robin's 筆記Blog">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/06/29/leetcode/leetcode27/" class="post-title-link" itemprop="url">【Leetcode解題】20. Valid Parentheses</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-06-29 20:41:52" itemprop="dateCreated datePublished" datetime="2023-06-29T20:41:52+08:00">2023-06-29</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2023-06-30 22:37:22" itemprop="dateModified" datetime="2023-06-30T22:37:22+08:00">2023-06-30</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/" itemprop="url" rel="index"><span itemprop="name">Leetcode解題</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/" itemprop="url" rel="index"><span itemprop="name">Easy</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/Grind-125/" itemprop="url" rel="index"><span itemprop="name">Grind 125</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>【Grind 125】 Week 1-2</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/06/29/leetcode/leetcode27/">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2023/06/28/leetcode/leetcode26/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/me.jpg">
-      <meta itemprop="name" content="Robin Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Robin's 筆記Blog">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/06/28/leetcode/leetcode26/" class="post-title-link" itemprop="url">【Leetcode解題】1. Two Sum</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-06-28 21:05:41" itemprop="dateCreated datePublished" datetime="2023-06-28T21:05:41+08:00">2023-06-28</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2023-06-29 23:00:57" itemprop="dateModified" datetime="2023-06-29T23:00:57+08:00">2023-06-29</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/" itemprop="url" rel="index"><span itemprop="name">Leetcode解題</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/" itemprop="url" rel="index"><span itemprop="name">Easy</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/Grind-125/" itemprop="url" rel="index"><span itemprop="name">Grind 125</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>【Grind 125】 Week 1-1</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/06/28/leetcode/leetcode26/">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2023/06/25/leetcode/leetcode25/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/me.jpg">
-      <meta itemprop="name" content="Robin Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Robin's 筆記Blog">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/06/25/leetcode/leetcode25/" class="post-title-link" itemprop="url">【Leetcode解題】2748. Number of Beautiful Pairs</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-06-25 21:25:06" itemprop="dateCreated datePublished" datetime="2023-06-25T21:25:06+08:00">2023-06-25</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2023-06-26 02:32:37" itemprop="dateModified" datetime="2023-06-26T02:32:37+08:00">2023-06-26</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/" itemprop="url" rel="index"><span itemprop="name">Leetcode解題</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/" itemprop="url" rel="index"><span itemprop="name">Easy</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/Weekly-Contest/" itemprop="url" rel="index"><span itemprop="name">Weekly Contest</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/06/25/leetcode/leetcode25/">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2023/01/15/leetcode/leetcode24/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/me.jpg">
-      <meta itemprop="name" content="Robin Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Robin's 筆記Blog">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/01/15/leetcode/leetcode24/" class="post-title-link" itemprop="url">【Leetcode解題】2535. Difference Between Element Sum and Digit Sum of an Array</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-01-15 13:55:21" itemprop="dateCreated datePublished" datetime="2023-01-15T13:55:21+08:00">2023-01-15</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2023-06-26 02:32:50" itemprop="dateModified" datetime="2023-06-26T02:32:50+08:00">2023-06-26</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/" itemprop="url" rel="index"><span itemprop="name">Leetcode解題</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/" itemprop="url" rel="index"><span itemprop="name">Easy</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/Weekly-Contest/" itemprop="url" rel="index"><span itemprop="name">Weekly Contest</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/01/15/leetcode/leetcode24/">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://robinlyl2000.github.io/2022/10/18/leetcode/leetcode21/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/me.jpg">
-      <meta itemprop="name" content="Robin Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Robin's 筆記Blog">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/10/18/leetcode/leetcode21/" class="post-title-link" itemprop="url">【Leetcode解題】38. Count and Say</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-10-18 10:51:02 / Modified: 17:01:58" itemprop="dateCreated datePublished" datetime="2022-10-18T10:51:02+08:00">2022-10-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/" itemprop="url" rel="index"><span itemprop="name">Leetcode解題</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Medium/" itemprop="url" rel="index"><span itemprop="name">Medium</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/10/18/leetcode/leetcode21/">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
-  </nav>
-
-
-
-      
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
+<meta name="twitter:image" content="http://robinlyl2000.github.io/img/me.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://robinlyl2000.github.io/page/2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '複製成功',
+    error: '複製錯誤',
+    noSupport: '瀏覽器不支援'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '剛剛',
+    min: '分鐘前',
+    hour: '小時前',
+    day: '天前',
+    month: '個月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
     }
-    if (activeClass) {
-      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Robin\'s Tech Blog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-07-15 23:40:22'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
       }
     }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      const commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-    </div>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-      
-
-      
-
-<div class="copyright">
   
-  &copy; 
-  <span itemprop="copyrightYear">2023</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">若要轉載文章，麻煩請保留原作者名稱與原始連結。</span>
-</div>
-<div class="busuanzi-count">
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="Total Visitors">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="Total Views">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
-
-    </div>
-  </footer>
-
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
   
-  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
-
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
-
-
-
-
-  
-
-  
-      <script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              const target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
         }
       }
-    };
-    const script = document.createElement('script');
-    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
-    script.defer = true;
-    document.head.appendChild(script);
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.typesetClear();
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/me.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">95</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">15</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 歸檔</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Robin's Tech Blog"><span class="site-name">Robin's Tech Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 歸檔</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Robin's Tech Blog</h1><div id="site_social_icons"><a class="social-icon" href="https://github.com/robinlyl2000" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:robinlyl2000@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://www.linkedin.com/in/ruei-bin-huang" target="_blank" title="Linkedin"><i class="fa-brands fa-linkedin"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/07/02/leetcode/leetcode32/" title="【Leetcode解題】242. Valid Anagram">【Leetcode解題】242. Valid Anagram</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2023-07-02T14:36:57.000Z" title="發表於 2023-07-02 22:36:57">2023-07-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/">Leetcode解題</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/">Easy</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/Grind-125/">Grind 125</a></span></div><div class="content">題目
+題目連結
+目標函式 : isAnagram(s, t)
+Input : s: str、t: str
+Output : bool
 
-  
 
-</body>
-</html>
+
+解題概念
+題意 : 給予兩個字串 s、t，判斷 s 是否為 t 的 Anagram
+Anagram (同字母異序字) : https://en.wikipedia.org/wiki/Anagram
+
+我的寫法
+想法 : 使用 Hashmap 去處理
+將 s 與 t 分別轉換為 &#123;字元 : 字元個數&#125; 的 Hashmap
+比較兩個 Hashmap 是否相等
+
+
+程式碼 :   123456789101112131415def string2Hashmap(self, s): # 將字串轉為 Hashmap    res = dict()    for c in s:        if c in res:            res[c] += 1        else: # not c in s            res[c] = 1    return resdef isAnagram(self, s, t):     ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/07/02/leetcode/leetcode31/" title="【Leetcode解題】226. Invert Binary Tree">【Leetcode解題】226. Invert Binary Tree</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2023-07-02T13:39:50.000Z" title="發表於 2023-07-02 21:39:50">2023-07-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/">Leetcode解題</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/">Easy</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/Grind-125/">Grind 125</a></span></div><div class="content">題目
+題目連結
+目標函式 : invertTree(root)
+Input : root: TreeNode
+Output : TreeNode
+
+
+
+解題概念
+題意 : 給予一 Binary Tree 的 root，對其進行反轉並回傳 root
+此題是在操作 Binary Tree範疇中很經典的一題
+
+我的寫法
+想法 : 使用遞迴的方式
+若 root 為空，則直接回傳 root
+否則交換 root.left 與 root.right
+最後再回傳 root
+
+
+程式碼 :   12345678910def invertTree(self, root):    if root == None: return root    leftTree = self.invertTree(root.right)    rightTree = self.invertTree(root.left)    root.left = leftTree    root.right = rightTree    return root
+成效 : 
+Time Complexity : $\color{DB4D6D} ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/07/02/leetcode/leetcode30/" title="【Leetcode解題】125. Valid Palindrome">【Leetcode解題】125. Valid Palindrome</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2023-07-02T07:07:37.000Z" title="發表於 2023-07-02 15:07:37">2023-07-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/">Leetcode解題</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/">Easy</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/Grind-125/">Grind 125</a></span></div><div class="content">題目
+題目連結
+目標函式 : isPalindrome(s)
+Input : s: str
+Output : bool
+
+
+
+解題概念
+題意 : 給予一字串 s，若 s 為 Palindrome(迴文) 回傳 true，否則回傳 false
+Palindrome(迴文) 的定義 : https://en.wikipedia.org/wiki/Palindrome
+
+我的寫法
+想法 : 此題為 Stack 的經典應用題
+將 s 前半部分依序 Push 進 stack 中
+依序瀏覽 s 後半部分的字元，若該字元與 stack.pop() 不同，則直接回傳 false
+若第二步都瀏覽完，且 stack 為空，則回傳 true
+
+
+程式碼 :   123456789101112131415161718def isPalindrome(self, s):    # 將非數字與非字母的字元移除，同時執行 lower()    s_new = &quot;&quot;.join(i for i in s.lower() if i.isalpha() or i.isdigit())    print( ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/07/01/leetcode/leetcode29/" title="【Leetcode解題】121. Best Time to Buy and Sell Stock">【Leetcode解題】121. Best Time to Buy and Sell Stock</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2023-07-01T11:47:44.000Z" title="發表於 2023-07-01 19:47:44">2023-07-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/">Leetcode解題</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/">Easy</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/Grind-125/">Grind 125</a></span></div><div class="content">題目
+題目連結
+目標函式 : maxProfit(prices)
+Input : prices: List[int]
+Output : int
+
+
+
+解題概念
+題意 : 給予一陣列 prices，其中 prices[i] 代表股票第 i 天的價格
+需要選其中一天來買進，另外一天來賣出，題目結果為本次交易的最大利潤
+
+我的寫法
+想法 : 使用 for 迴圈去瀏覽每個元素
+如果要找出最大利潤值，首先要找出 prices 的最小值作為買進點
+如果發現 price[i] - buy &gt; max_profit，則將該值設為 max_profit
+
+
+程式碼 :   123456789101112def maxProfit(self, prices):    buy = prices[0]    max_profit = 0    for price in prices:        if price &lt; buy:            buy = price                if price - buy &gt; max_profit:            max_ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/06/30/leetcode/leetcode28/" title="【Leetcode解題】21. Merge Two Sorted Lists">【Leetcode解題】21. Merge Two Sorted Lists</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2023-06-30T14:33:17.000Z" title="發表於 2023-06-30 22:33:17">2023-06-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/">Leetcode解題</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/">Easy</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/Grind-125/">Grind 125</a></span></div><div class="content">題目
+題目連結
+目標函式 : mergeTwoLists(list1, list2)
+Input : list1: Optional[ListNode]、list2: Optional[ListNode]
+Output : Optional[ListNode]
+
+
+
+解題概念
+題意 : 給予兩個 sorted Link List 1 : list1 與 Link List 2 : list2，需要對兩者進行 merge 成一 sorted Link List
+此題即是在 Merge Sort 中 Merge two runs into one run 的過程
+
+我的寫法
+想法 : 
+res 當作是結果Link List 的開頭處，t 當作是結果Link List 的結尾處
+用 while 迴圈依序判斷 list1 與 list2 所指向的元素，直到 list1 == None 與 list2 == None
+每一回合需要判斷 : 
+若 list1 == None : 把 list2 剩餘的元素加到 t
+若 list2 == None : 把 list1 剩餘的元素加到 t
+若 list ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/06/29/leetcode/leetcode27/" title="【Leetcode解題】20. Valid Parentheses">【Leetcode解題】20. Valid Parentheses</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2023-06-29T12:41:52.000Z" title="發表於 2023-06-29 20:41:52">2023-06-29</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/">Leetcode解題</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/">Easy</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/Grind-125/">Grind 125</a></span></div><div class="content">題目
+題目連結
+目標函式 : isValid(s)
+Input : s: str
+Output : bool
+
+
+
+解題概念
+題意 : 給予一字串 s (僅會包含 : (、)、&#123;、&#125;、[ 與 ])，要辨別 s 是否為 Vaild
+判斷一字串是否為 Valid 的條件 : 
+左括號必須由相同類型的括號關閉
+左括號必須依照正確的順序關閉
+每個右括號都有一個相對應相同類型的左括號
+
+
+
+
+此題就是在 Stack 應用中相當經典的一道練習題
+
+我的寫法
+想法 : 
+如果 s 長度不是偶數，則直接回傳 False (因為 Vaild Parentheses 長度必為偶數)
+使用字典 tmap 去判斷左括號對應之右括號
+使用 for 迴圈依序分析各個元素 item : 
+若 item 為左括號 : 則直接 Push 進 Stack 中
+若 item 為右括號 :
+若 Stack 為空 : 則回傳 False
+若 Stack.pop() 與 item 彼此不為對應括號 : 則回傳 False
+若以上皆非 : 則執行 Stack.pop()
+
+
+
+
+若迴圈跑完後，Stack仍為非空 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/06/28/leetcode/leetcode26/" title="【Leetcode解題】1. Two Sum">【Leetcode解題】1. Two Sum</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2023-06-28T13:05:41.000Z" title="發表於 2023-06-28 21:05:41">2023-06-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/">Leetcode解題</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/">Easy</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/Grind-125/">Grind 125</a></span></div><div class="content">題目
+題目連結
+目標函式 : twoSum(nums, target)
+Input : nums: List[int]、target: int
+Output : List[int]
+
+
+
+解題概念
+題意 : 給予一充滿各種不同數字的陣列 nums 與一數 target，需找出 nums 中兩個數字 nums[i] 與 nums[j]，兩者相加起來需等於 target，最後回傳 index list:  [i, j]。
+nums 裡無重複之數字
+要回傳之 index list 中的元素順序可為任意順序
+
+我的寫法
+想法 : 
+使用Hashmap tmap 去儲存閱覽過的元素
+儲存格式 : Key: 元素、Value: index(&#123;nums[i] : i&#125;)
+
+
+使用 for 迴圈去閱覽 nums
+若 target - nums[i] 已儲存在 tmap 中 : 則回傳兩個元素的index
+若否 : 則將 &#123;nums[i] : i&#125; 加入 tmap 中
+
+
+
+
+程式碼 :   123456789def twoSum(self, nums, targ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/06/25/leetcode/leetcode25/" title="【Leetcode解題】2748. Number of Beautiful Pairs">【Leetcode解題】2748. Number of Beautiful Pairs</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2023-06-25T13:25:06.000Z" title="發表於 2023-06-25 21:25:06">2023-06-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/">Leetcode解題</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/">Easy</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/Weekly-Contest/">Weekly Contest</a></span></div><div class="content">題目
+題目連結
+目標函式 : countBeautifulPairs(nums)
+Input : nums: List[int]
+Output : int
+
+
+
+解題概念
+題意 : 給予一 0-indexed 陣列 nums，若存在 a pair of indices i, j (0 &lt;= i &lt; j &lt; nums.length)，其中 nums[i] 的 first digit 與 nums[j] 的 last digit 互質，則稱 i, j 為 Beautiful pairs。
+題目希望找出 nums 中 Beautiful pairs 的總數
+
+我的寫法
+想法 : 
+使用雙層 for 迴圈去閱覽所有的 pairs of i, j
+找出 nums[i] 的 first digit 與 nums[j] 的 last digit
+寫一個 gcd() function 去判斷兩個數字是否互質
+
+
+程式碼 :   12345678910111213141516171819202122232425262728293031def gcd(self, a, b):    if ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/01/15/leetcode/leetcode24/" title="【Leetcode解題】2535. Difference Between Element Sum and Digit Sum of an Array">【Leetcode解題】2535. Difference Between Element Sum and Digit Sum of an Array</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2023-01-15T05:55:21.000Z" title="發表於 2023-01-15 13:55:21">2023-01-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/">Leetcode解題</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/">Easy</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/Weekly-Contest/">Weekly Contest</a></span></div><div class="content">題目
+題目連結
+目標函式 : differenceOfSum(nums)
+Input : nums: List[int]
+Output : int
+
+
+
+解題概念
+題意 : 給予一陣列 nums，計算出其 Element sum 與 Digit sum，並回傳兩者的絕對差
+Element sum : nums 中所有元素的總和
+Digit sum :  出現在 nums 之所有 digits 的總和
+
+
+
+我的寫法
+想法 : 
+針對 nums 的每筆數字，計算每個數字取其 Digit sum 的絕對差值，最後加總起來即為解答
+
+
+程式碼 :   12345678910111213141516171819202122def check(self, n): # 計算數字 n 的 Digit sum    res = 0    while n != 0:        res += (n % 10)        n = n // 10    return resdef differenceOfSum(self, nums):    final = 0    # 針對 nums 的每筆數字  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/10/18/leetcode/leetcode21/" title="【Leetcode解題】38. Count and Say">【Leetcode解題】38. Count and Say</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2022-10-18T02:51:02.000Z" title="發表於 2022-10-18 10:51:02">2022-10-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/">Leetcode解題</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Medium/">Medium</a></span></div><div class="content">題目
+題目連結
+目標函式 : countAndSay(n)
+Input : n: int
+Output : str
+
+
+
+解題概念
+題意 : 
+countAndSay(1) &#x3D; 1
+countAndSay(n) &#x3D; 計算 countAndSay(n-1)，並將其「說」出來
+
+
+如何「說」出一字串之舉例 : 
+假設 a &#x3D; 3322251
+而須把 a 視為由「2個3, 3個2, 1個5, 1個1」組成
+接著將這些元素合併成 23321511，即為「說」出 a 之結果
+
+
+
+我的寫法
+想法 : 使用遞迴 + for 迴圈
+last : 上個讀取的字元、times : last 字元重複的次數
+計算 countAndSay(n-1)，並將其切割成字元陣列 str_list
+依序讀取 str_list中的元素，並有以下兩種狀況 : 
+若 當前讀取的字元 &#x3D;&#x3D; last : 
+則 times + 1
+
+
+若 當前讀取的字元 !&#x3D; last :   
+times + 1 後，將該字元之結果與次數加到 res 中
+reset 參數 : la ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/#content-inner">10</a><a class="extend next" rel="next" href="/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/me.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Robin Huang</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">95</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">15</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/robinlyl2000" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:robinlyl2000@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://www.linkedin.com/in/ruei-bin-huang" target="_blank" title="Linkedin"><i class="fa-brands fa-linkedin"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/12/leetcode/leetcode42/" title="【Leetcode解題】409. Longest Palindrome">【Leetcode解題】409. Longest Palindrome</a><time datetime="2023-07-12T12:21:26.000Z" title="發表於 2023-07-12 20:21:26">2023-07-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/11/leetcode/leetcode41/" title="【Leetcode解題】70. Climbing Stairs">【Leetcode解題】70. Climbing Stairs</a><time datetime="2023-07-11T14:53:26.000Z" title="發表於 2023-07-11 22:53:26">2023-07-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/10/leetcode/leetcode40/" title="【Leetcode解題】383. Ransom Note">【Leetcode解題】383. Ransom Note</a><time datetime="2023-07-10T13:41:29.000Z" title="發表於 2023-07-10 21:41:29">2023-07-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/09/leetcode/leetcode39/" title="【Leetcode解題】235. Lowest Common Ancestor of a Binary Search Tree">【Leetcode解題】235. Lowest Common Ancestor of a Binary Search Tree</a><time datetime="2023-07-09T13:16:59.000Z" title="發表於 2023-07-09 21:16:59">2023-07-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/08/leetcode/leetcode38/" title="【Leetcode解題】278. First Bad Version">【Leetcode解題】278. First Bad Version</a><time datetime="2023-07-08T14:41:43.000Z" title="發表於 2023-07-08 22:41:43">2023-07-08</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分類</span>
+            <a class="card-more-btn" href="/categories/" title="檢視更多">
+    <i class="fas fa-angle-right"></i></a>
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Flutter-Firebase/"><span class="card-category-list-name">Flutter & Firebase</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Flutter%E7%96%91%E5%95%8F%E8%A8%BA%E7%99%82%E5%AE%A4/"><span class="card-category-list-name">Flutter疑問診療室</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/"><span class="card-category-list-name">Leetcode解題</span><span class="card-category-list-count">42</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/"><span class="card-category-list-name">Easy</span><span class="card-category-list-count">21</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/Grind-125/"><span class="card-category-list-name">Grind 125</span><span class="card-category-list-count">16</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Easy/Weekly-Contest/"><span class="card-category-list-name">Weekly Contest</span><span class="card-category-list-count">2</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Hard/"><span class="card-category-list-name">Hard</span><span class="card-category-list-count">2</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Hard/Weekly-Contest/"><span class="card-category-list-name">Weekly Contest</span><span class="card-category-list-count">1</span></a></li></ul></li></ul></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>標籤</span></div><div class="card-tag-cloud"><a href="/tags/Leetcode/" style="font-size: 1.43em; color: #99a6b9">Leetcode</a> <a href="/tags/Firebase/" style="font-size: 1.23em; color: #999ea6">Firebase</a> <a href="/tags/%E5%AF%A6%E4%BD%9C%E7%B7%B4%E7%BF%92/" style="font-size: 1.5em; color: #99a9bf">實作練習</a> <a href="/tags/JavaScript/" style="font-size: 1.37em; color: #99a4b2">JavaScript</a> <a href="/tags/%E7%AD%86%E8%A8%98/" style="font-size: 1.3em; color: #99a1ac">筆記</a> <a href="/tags/%E8%AE%8A%E6%95%B8/" style="font-size: 1.1em; color: #999">變數</a> <a href="/tags/React/" style="font-size: 1.17em; color: #999c9f">React</a> <a href="/tags/Flutter/" style="font-size: 1.23em; color: #999ea6">Flutter</a> <a href="/tags/Cloud-Firestore/" style="font-size: 1.17em; color: #999c9f">Cloud Firestore</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>歸檔</span><a class="card-more-btn" href="/archives/" title="檢視更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">七月 2023</span><span class="card-archive-list-count">14</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">六月 2023</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">一月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/10/"><span class="card-archive-list-date">十月 2022</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/08/"><span class="card-archive-list-date">八月 2022</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/07/"><span class="card-archive-list-date">七月 2022</span><span class="card-archive-list-count">16</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/03/"><span class="card-archive-list-date">三月 2022</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/02/"><span class="card-archive-list-date">二月 2022</span><span class="card-archive-list-count">4</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>網站資訊</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章數目 :</div><div class="item-count">95</div></div><div class="webinfo-item"><div class="item-name">本站訪客數 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站總訪問量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最後更新時間 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-07-15T15:40:22.624Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Robin Huang</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主題 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="淺色和深色模式轉換"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到頂部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
