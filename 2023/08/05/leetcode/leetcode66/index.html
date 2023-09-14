@@ -1,0 +1,269 @@
+<!DOCTYPE html><html lang="zh-TW" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>【Leetcode解題】994. Rotting Oranges | Robin's Tech Blog</title><meta name="author" content="Robin Huang"><meta name="copyright" content="Robin Huang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="【Grind 125】Week 4-8">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Leetcode解題】994. Rotting Oranges">
+<meta property="og:url" content="http://robinlyl2000.github.io/2023/08/05/leetcode/leetcode66/index.html">
+<meta property="og:site_name" content="Robin&#39;s Tech Blog">
+<meta property="og:description" content="【Grind 125】Week 4-8">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="http://robinlyl2000.github.io/img/grind_cover.jpg">
+<meta property="article:published_time" content="2023-08-05T15:10:31.000Z">
+<meta property="article:modified_time" content="2023-09-14T17:50:20.537Z">
+<meta property="article:author" content="Robin Huang">
+<meta property="article:tag" content="實作練習">
+<meta property="article:tag" content="Leetcode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://robinlyl2000.github.io/img/grind_cover.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://robinlyl2000.github.io/2023/08/05/leetcode/leetcode66/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '複製成功',
+    error: '複製錯誤',
+    noSupport: '瀏覽器不支援'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '剛剛',
+    min: '分鐘前',
+    hour: '小時前',
+    day: '天前',
+    month: '個月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Robin Huang","link":"連結: ","source":"來源: Robin's Tech Blog","info":"著作權歸作者所有。商業轉載請聯絡作者獲得授權，非商業轉載請註明出處。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '【Leetcode解題】994. Rotting Oranges',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-15 01:50:20'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">載入中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/me.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">119</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">18</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 歸檔</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/grind_cover.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Robin's Tech Blog"><span class="site-name">Robin's Tech Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 歸檔</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">【Leetcode解題】994. Rotting Oranges</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">發表於</span><time class="post-meta-date-created" datetime="2023-08-05T15:10:31.000Z" title="發表於 2023-08-05 23:10:31">2023-08-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新於</span><time class="post-meta-date-updated" datetime="2023-09-14T17:50:20.537Z" title="更新於 2023-09-15 01:50:20">2023-09-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/">Leetcode解題</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Grind-125/">Grind 125</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Leetcode%E8%A7%A3%E9%A1%8C/Grind-125/Medium/">Medium</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="【Leetcode解題】994. Rotting Oranges"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">閱讀量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/rotting-oranges/"><font color="005CAF">題目連結</font></a></li>
+<li>目標函式 : <code>orangesRotting(grid)</code><ul>
+<li>Input : <code>grid: List[List[int]]</code></li>
+<li>Output : <code>int</code></li>
+</ul>
+</li>
+</ul>
+<h1 id="解題概念"><a href="#解題概念" class="headerlink" title="解題概念"></a>解題概念</h1><ul>
+<li>題意 : 給定一 <code>m x n</code> 的二維陣列 <code>grid</code>，其中每一格會出現三種數值之一：<ul>
+<li><code>0</code> : 代表空格</li>
+<li><code>1</code> : 代表新鮮橘子</li>
+<li><code>2</code> : 代表腐敗橘子</li>
+</ul>
+</li>
+<li>而每過一分鐘，與腐敗橘子於四個方向相鄰之新鮮橘子會腐爛</li>
+<li>需要回傳必須經過的最小分鐘數，直到 <code>grid</code> 中沒有新鮮橘子。如果不可能，則回傳 <code>-1</code></li>
+</ul>
+<h1 id="我的寫法"><a href="#我的寫法" class="headerlink" title="我的寫法"></a>我的寫法</h1><ul>
+<li>想法 : 此題是經典的 <font color="005CAF">Flood Fill Algorithm</font> 的題目，而此題我使用 <font color="005CAF">BFS</font></li>
+<li>程式碼 :   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">orangesRotting</span>(<span class="params">self, grid</span>):</span><br><span class="line">    </span><br><span class="line">    cnt = <span class="number">0</span></span><br><span class="line">    n = <span class="built_in">len</span>(grid[<span class="number">0</span>])</span><br><span class="line">    m = <span class="built_in">len</span>(grid)</span><br><span class="line">    queue = []</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 找出 grid[i][j] = 2 的地方</span></span><br><span class="line">    temp = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> xrange(m):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> xrange(n):</span><br><span class="line">            <span class="keyword">if</span> grid[i][j] == <span class="number">2</span>:</span><br><span class="line">                grid[i][j] = <span class="number">1</span></span><br><span class="line">                temp.append([i, j])</span><br><span class="line"></span><br><span class="line">    DIR = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, -<span class="number">1</span>, <span class="number">0</span>]</span><br><span class="line">    queue.append(temp)</span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">len</span>(queue) != <span class="number">0</span>:</span><br><span class="line">        nodes = queue.pop(<span class="number">0</span>)</span><br><span class="line">        temp = []</span><br><span class="line">        <span class="keyword">while</span> <span class="built_in">len</span>(nodes) != <span class="number">0</span>:</span><br><span class="line">            node = nodes.pop(<span class="number">0</span>)</span><br><span class="line">            i, j = node[<span class="number">0</span>], node[<span class="number">1</span>]</span><br><span class="line">            <span class="keyword">if</span> i &lt; <span class="number">0</span> <span class="keyword">or</span> i &gt;= m <span class="keyword">or</span> j &lt; <span class="number">0</span> <span class="keyword">or</span> j &gt;= n <span class="keyword">or</span> grid[i][j] != <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            grid[i][j] = <span class="number">2</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span> k <span class="keyword">in</span> xrange(<span class="number">4</span>):</span><br><span class="line">                temp.append([i + DIR[k], j + DIR[k + <span class="number">1</span>]])</span><br><span class="line">        <span class="keyword">if</span> temp != [] :</span><br><span class="line">            queue.append(temp) </span><br><span class="line">            cnt += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> xrange(m):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> xrange(n):</span><br><span class="line">            <span class="keyword">if</span> grid[i][j] == <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> cnt - <span class="number">1</span></span><br></pre></td></tr></table></figure></li>
+<li>成效 : <ul>
+<li>Time Complexity : <font color="DB4D6D">Wrong Answer</font></li>
+<li>遇到之困難 : 上述程式碼無法處理以下狀況<ol>
+<li><font color="51A8DD">當 <code>grid</code> 中只有 <code>0</code></font></li>
+<li><font color="51A8DD">當 <code>grid</code> 中只有 <code>1</code></font></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="解答-or-其他優秀寫法"><a href="#解答-or-其他優秀寫法" class="headerlink" title="解答 or 其他優秀寫法"></a>解答 or 其他優秀寫法</h1><ul>
+<li>想法 : <ol>
+<li>使用了 <code>fresh_cnt</code> 去紀錄新鮮橘子數量，這樣就不用特別去處理特殊案例</li>
+<li>每次對 Queue 做 pop 時，改使用 for loop，這樣可以限制該次迴圈的次數，就不用像我一樣用多層 list 去處理</li>
+</ol>
+</li>
+<li>程式碼 :   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">orangesRotting</span>(<span class="params">self, grid</span>):</span><br><span class="line">    </span><br><span class="line">    fresh_cnt = <span class="number">0</span> <span class="comment"># 紀錄新鮮橘子之數量</span></span><br><span class="line">    minutes_passed = <span class="number">0</span> <span class="comment"># 紀錄已度過之分鐘數</span></span><br><span class="line">    n = <span class="built_in">len</span>(grid[<span class="number">0</span>])</span><br><span class="line">    m = <span class="built_in">len</span>(grid)</span><br><span class="line">    queue = []</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> xrange(m):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> xrange(n):</span><br><span class="line">            <span class="keyword">if</span> grid[i][j] == <span class="number">2</span>: <span class="comment"># 若找到 grid[i][j] = 2</span></span><br><span class="line">                queue.append([i, j]) <span class="comment"># 則將該點加到 Queue 中</span></span><br><span class="line">            <span class="keyword">elif</span> grid[i][j] == <span class="number">1</span>: <span class="comment"># 若找到 grid[i][j] = 1</span></span><br><span class="line">                fresh_cnt += <span class="number">1</span> <span class="comment"># 紀錄比數 + 1 </span></span><br><span class="line"></span><br><span class="line">    DIR = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, -<span class="number">1</span>, <span class="number">0</span>]</span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">len</span>(queue) != <span class="number">0</span>  <span class="keyword">and</span> fresh_cnt &gt; <span class="number">0</span>:</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 分鐘數 + 1</span></span><br><span class="line">        minutes_passed += <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 取出當前 Queue 中所有的元素</span></span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(queue)):</span><br><span class="line">            node = queue.pop(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 往四個方向查看</span></span><br><span class="line">            <span class="keyword">for</span> k <span class="keyword">in</span> xrange(<span class="number">4</span>):</span><br><span class="line">                i = node[<span class="number">0</span>] + DIR[k]</span><br><span class="line">                j = node[<span class="number">1</span>] + DIR[k + <span class="number">1</span>]</span><br><span class="line">            </span><br><span class="line">                <span class="keyword">if</span> i &lt; <span class="number">0</span> <span class="keyword">or</span> i &gt;= m <span class="keyword">or</span> j &lt; <span class="number">0</span> <span class="keyword">or</span> j &gt;= n:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> grid[i][j] != <span class="number">1</span>:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">                <span class="comment"># 若發現 grid[i][j] == 1</span></span><br><span class="line">                fresh_cnt -= <span class="number">1</span> <span class="comment"># 新鮮橘子數 -1</span></span><br><span class="line">                grid[i][j] = <span class="number">2</span> <span class="comment"># 更改該格數值</span></span><br><span class="line"></span><br><span class="line">                queue.append([i, j]) <span class="comment"># 加入下一回合之 Queue 中</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> minutes_passed <span class="keyword">if</span> fresh_cnt == <span class="number">0</span> <span class="keyword">else</span> -<span class="number">1</span> <span class="comment"># 若 fresh_cnt為零，代表全部皆腐爛</span></span><br></pre></td></tr></table></figure></li>
+<li>成效 : <ul>
+<li>Time Complexity : <font color="DB4D6D">$O(n)$</font></li>
+<li>Runtime: 29 ms (faster than <font color="51A8DD">73.48%</font>)</li>
+<li>Memory Usage: 13.32 MB (more than <font color="51A8DD">29.84%</font>)</li>
+</ul>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://robinlyl2000.github.io">Robin Huang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章連結: </span><span class="post-copyright-info"><a href="http://robinlyl2000.github.io/2023/08/05/leetcode/leetcode66/">http://robinlyl2000.github.io/2023/08/05/leetcode/leetcode66/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版權聲明: </span><span class="post-copyright-info">本部落格所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 許可協議。轉載請註明來自 <a href="http://robinlyl2000.github.io" target="_blank">Robin's Tech Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AF%A6%E4%BD%9C%E7%B7%B4%E7%BF%92/">實作練習</a><a class="post-meta__tags" href="/tags/Leetcode/">Leetcode</a></div><div class="post_share"><div class="social-share" data-image="/img/grind_cover.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/08/04/leetcode/leetcode65/" title="【Leetcode解題】200. Number of Islands"><img class="cover" src="/img/grind_cover.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">【Leetcode解題】200. Number of Islands</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相關推薦</span></div><div class="relatedPosts-list"><div><a href="/2022/07/12/leetcode/leetcode01/" title="【Leetcode解題】473. Matchsticks to Square"><img class="cover" src="/img/daily_cover.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-12</div><div class="title">【Leetcode解題】473. Matchsticks to Square</div></div></a></div><div><a href="/2022/07/13/leetcode/leetcode02/" title="【Leetcode解題】102. Binary Tree Level Order Traversal"><img class="cover" src="/img/daily_cover.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-13</div><div class="title">【Leetcode解題】102. Binary Tree Level Order Traversal</div></div></a></div><div><a href="/2022/07/14/leetcode/leetcode03/" title="【Leetcode解題】105. Construct Binary Tree from Preorder and Inorder Traversal"><img class="cover" src="/img/daily_cover.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-14</div><div class="title">【Leetcode解題】105. Construct Binary Tree from Preorder and Inorder Traversal</div></div></a></div><div><a href="/2022/07/15/leetcode/leetcode04/" title="【Leetcode解題】695. Max Area of Island"><img class="cover" src="/img/daily_cover.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-15</div><div class="title">【Leetcode解題】695. Max Area of Island</div></div></a></div><div><a href="/2022/07/18/leetcode/leetcode05/" title="【Leetcode解題】629. K Inverse Pairs Array"><img class="cover" src="/img/daily_cover.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-18</div><div class="title">【Leetcode解題】629. K Inverse Pairs Array</div></div></a></div><div><a href="/2022/07/19/leetcode/leetcode06/" title="【Leetcode解題】118. Pascal&#39;s Triangle"><img class="cover" src="/img/daily_cover.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-19</div><div class="title">【Leetcode解題】118. Pascal&#39;s Triangle</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/me.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Robin Huang</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">119</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">18</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/robinlyl2000" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:robinlyl2000@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://www.linkedin.com/in/ruei-bin-huang" target="_blank" title="Linkedin"><i class="fa-brands fa-linkedin"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目錄</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A1%8C%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">題目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E9%A1%8C%E6%A6%82%E5%BF%B5"><span class="toc-number">2.</span> <span class="toc-text">解題概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%88%91%E7%9A%84%E5%AF%AB%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">我的寫法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E7%AD%94-or-%E5%85%B6%E4%BB%96%E5%84%AA%E7%A7%80%E5%AF%AB%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">解答 or 其他優秀寫法</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/08/05/leetcode/leetcode66/" title="【Leetcode解題】994. Rotting Oranges"><img src="/img/grind_cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【Leetcode解題】994. Rotting Oranges"/></a><div class="content"><a class="title" href="/2023/08/05/leetcode/leetcode66/" title="【Leetcode解題】994. Rotting Oranges">【Leetcode解題】994. Rotting Oranges</a><time datetime="2023-08-05T15:10:31.000Z" title="發表於 2023-08-05 23:10:31">2023-08-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/08/04/leetcode/leetcode65/" title="【Leetcode解題】200. Number of Islands"><img src="/img/grind_cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【Leetcode解題】200. Number of Islands"/></a><div class="content"><a class="title" href="/2023/08/04/leetcode/leetcode65/" title="【Leetcode解題】200. Number of Islands">【Leetcode解題】200. Number of Islands</a><time datetime="2023-08-04T13:52:55.000Z" title="發表於 2023-08-04 21:52:55">2023-08-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/08/03/leetcode/leetcode64/" title="【Leetcode解題】98. Validate Binary Search Tree"><img src="/img/grind_cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【Leetcode解題】98. Validate Binary Search Tree"/></a><div class="content"><a class="title" href="/2023/08/03/leetcode/leetcode64/" title="【Leetcode解題】98. Validate Binary Search Tree">【Leetcode解題】98. Validate Binary Search Tree</a><time datetime="2023-08-03T13:21:39.000Z" title="發表於 2023-08-03 21:21:39">2023-08-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/08/02/leetcode/leetcode63/" title="【Leetcode解題】155. Min Stack"><img src="/img/grind_cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【Leetcode解題】155. Min Stack"/></a><div class="content"><a class="title" href="/2023/08/02/leetcode/leetcode63/" title="【Leetcode解題】155. Min Stack">【Leetcode解題】155. Min Stack</a><time datetime="2023-08-02T14:17:58.000Z" title="發表於 2023-08-02 22:17:58">2023-08-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/08/01/leetcode/leetcode62/" title="【Leetcode解題】238. Product of Array Except Self"><img src="/img/grind_cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【Leetcode解題】238. Product of Array Except Self"/></a><div class="content"><a class="title" href="/2023/08/01/leetcode/leetcode62/" title="【Leetcode解題】238. Product of Array Except Self">【Leetcode解題】238. Product of Array Except Self</a><time datetime="2023-08-01T13:56:15.000Z" title="發表於 2023-08-01 21:56:15">2023-08-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2023 By Robin Huang</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主題 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi! Welcome to my blog :D</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="閱讀模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="淺色和深色模式轉換"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目錄"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到頂部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
